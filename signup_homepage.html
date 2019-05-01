@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<!--Sign up button only works once-->
+<button onclick="myFunction();this.onclick=null;">Sign Up</button><br>
+<script>
+//if user clicks on sign up button, volunteer and social worker buttons appear
+function myFunction(){
+    let btn_vol = document.createElement("BUTTON");
+    document.body.appendChild(btn_vol);
+    btn_vol.innerHTML = "Volunteer";
+    btn_vol.addEventListener("click", html);
+
+    let btn_soc = document.createElement("BUTTON");
+    document.body.appendChild(btn_soc);
+    btn_soc.innerHTML = "Social Worker";
+    btn_soc.addEventListener("click", html);
+}
+//clicking on volunteer or social worker button redirects to criteria html page
+function html(){
+    window.location.href = 'signup_criteria.html';
+}
+</script>
+</body>
+</html>
