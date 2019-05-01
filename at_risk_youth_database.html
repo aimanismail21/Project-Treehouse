@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homeless youth</title>
+    <style>
+        #homeless_list{
+            float: left;
+            padding: 20px;
+        }
+        .person_picture{
+            float: left;
+            clear: left;
+            padding: 5px;
+        }
+        #search_criteria{
+            float: left;
+            padding:20px;
+        }
+        #search_menu{
+            position: absolute;
+            left: 10%;
+            border: 2px solid black;
+        }
+        .volunteer_info{
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav-bar">
+            <div>About</div>
+            <div>Donate</div>
+            <div>Profile</div>
+            <div>FAQ</div>
+        </div>
+    </div>
+
+    <div id="search_menu">
+        <div id="search_criteria">
+            <b>search criteria</b>
+            <div>age</div><br>
+            <div>option</div><br>
+            <div>option</div><br>
+            <div>option</div><br>
+        </div>
+
+        <div id="homeless_list">
+            <b>Volunteers List</b>
+
+            <div class="at_risk_youth">
+                <img class="person_picture" src="images/person.jpg" width="100" alt="picture of house">
+                <div class="volunteer_info">
+                    name= random name<br>
+                    age = 23<br>
+                    info = stuff<br>
+                    moreinfo = morestuff<br>
+                    <button class="contact_social_worker">contact social worker</button>
+                </div>
+            </div>
+            <br>
+
+            <div class="at_risk_youth">
+                <img class="person_picture" src="images/person.jpg" width="100" alt="picture of house">
+
+                <div class="volunteer_info">
+                    name= another person<br>
+                    age = 32<br>
+                    info = stuff<br>
+                    moreinfo = morestuff<br>
+                    <button class="contact_social_worker">contact social worker</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="go_back">
+            <button>go back to menu</button>
+        </div>
+    </div>
+</body>
+</html>
