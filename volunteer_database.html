@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Volunteers</title>
+
+    <style>
+        #volunteers_list{
+            float: left;
+            padding: 20px;
+        }
+        .house_picture{
+            float: left;
+            clear: left;
+            padding: 5px;
+        }
+        #search_criteria{
+            float: left;
+            padding:20px;
+        }
+        #search_menu{
+            position: absolute;
+            left: 10%;
+            border: 2px solid black;
+        }
+        .volunteer_info{
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav-bar">
+            <div>About</div>
+            <div>Donate</div>
+            <div>Profile</div>
+            <div>FAQ</div>
+        </div>
+    </div>
+
+    <div id="search_menu">
+        <div id="search_criteria">
+            <b>search criteria</b>
+            <div>location</div><br>
+            <div>has pets</div><br>
+            <div>age</div><br>
+            <div>family members</div><br>
+        </div>
+
+        <div id="volunteers_list">
+            <b>Volunteers List</b>
+            <div class="volunteer">
+                <img class="house_picture" src="images/house.jpg" width="100" alt="picture of house">
+                <div class="volunteer_info">
+                    name= random name<br>
+                    age = 23<br>
+                    address = 1234 west 92 street<br>
+                    pets = none<br>
+                    <button class="contact">myemail@email.com</button>
+                </div>
+            </div>
+            <br>
+
+            <div class="volunteer">
+                <img class="house_picture" src="images/house.jpg" width="100" alt="picture of house">
+
+                <div class="volunteer_info">
+                    name= another person<br>
+                    age = 32<br>
+                    address = 6556 random street<br>
+                    pets = dog<br>
+                    <button class="contact">anotheremail@email.com</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="go_back">
+            <button>go back to menu</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
