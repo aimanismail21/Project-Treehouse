@@ -6,142 +6,91 @@
     <title>Volunteers</title>
 
     <style>
-        #volunteers_list{
-            float: left;
-            padding: 20px;
-        }
-        .house_picture{
-            float: left;
-            clear: left;
-            padding: 5px;
-        }
-        #search_criteria{
-            float: left;
-            padding:20px;
-        }
-        #search_menu{
-            position: absolute;
-            left: 10%;
-            border: 2px solid black;
-        }
-        .volunteer_info{
-            float: left;
-            clear: left;
-            width: 100%;
-        }
-
-        .dropbtn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 8px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .dropbtn:hover, .dropbtn:focus {
-            background-color: #3e8e41;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            padding:10px;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown a:hover {background-color: #ddd;}
 
         .show {
             display: block;
         }
 
     </style>
+    
+    <!--bootstrap scripts-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <!--initialize firebase-->
     <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
     <script src="js/firebase_setup.js"></script>
+
+    <!--volunteer database script-->
     <script src="js/volunteer_database.js"></script>
 
 </head>
 <body onload="displayVolunteers()">
 
     <!--Menu to list volunteers and search the volunteer list by criteria or address-->
-    <div id="search_menu">
-        <div id="search_criteria">
-            <!--Search by criteria form-->
-            <b>Search by criteria</b>
+    <div class="container">
+        <!--row with search form and volunteer list-->
+        <div class="row">
+            <!--column with search criteria-->
+            <div class="col-sm-6">
+                <!--Search by criteria form-->
+                <b>Search by criteria</b> <br>
+
                 <!--city dropdown selection-->
-                <div onclick="dropdown('city')" class="dropbtn">City</div>
-                <div id='city' class="dropdown-content">
-                    <input type="radio" name="city" value="Burnaby">Burnaby
-                    <br>
-                    <input type="radio" name="city" value="Surrey">Surrey
-                    <br>
-                    <input type="radio" name="city" value="Vancouver">Vancouver
-                    <br>
-                    <input type="radio" name="city" value="Richmond">Richmond
-                    <br>
-                </div>
+                <label for="city">City: </label>
+                <select class="form-control" id="city">
+                    <option></option>
+                    <option>Vancouver</option>
+                    <option>Burnaby</option>
+                    <option>Surrey</option>
+                    <option>Richmond</option>
+                </select>
 
                 <!--pets dropdown selection-->
-                <div onclick="dropdown('pets')" class="dropbtn">Pets</div>
-                <div id='pets' class="dropdown-content">
-                    <input type="radio" name="pets" value="yes">Yes
-                    <br>
-                    <input type="radio" name="pets" value="no">No
-                     <br>
-                </div>
+                <label for="pets">Pets: </label>
+                <select class="form-control" id="pets">
+                    <option></option>
+                    <option>yes</option>
+                    <option>No</option>
+                </select>
 
-                <!--family dropdown selection-->
-                <div onclick="dropdown('family')" class="dropbtn">Family</div>
-                <div id='family' class="dropdown-content">
-                    <input type="radio" name="family" value="1">1
-                    <br>
-                    <input type="radio" name="family" value="2">2
-                    <br>
-                    <input type="radio" name="family" value="3">3
-                    <br>
-                    <input type="radio" name="family" value="4">4
-                    <br>
-                    <input type="radio" name="family" value="5+">5+
-                    <br>
-                </div>
-                <br>
-                <button value="submit" onclick="update_by_criteria()">Search</button>
+                <!--city dropdown selection-->
+                <label for="family">Family: </label>
+                <select class="form-control" id="family">
+                    <option></option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4+</option>
+                </select>
+
+                <button value="submit" onclick="update_by_criteria()">Search</button><br>
+
             <br>
 
             <!--Search by address form-->
             <b>Or search by address</b>
-                Address:<br>
-                <input type="text" name="address" value=""><br>
                 <br>
+                <input type="text" id="address" value=""><br>
                 <button value="submit" onclick="update_by_address()">Search</button>
-        </div>
-
-        <div id="volunteers_list">
-            <div>
-                <b>Volunteers List</b>
+                <br>
+                <button value="submit" onclick ="displayVolunteers()">Reset</button>
+                <div id="go_back">
+                    <button>go back to menu</button>
+                </div>
             </div>
-            <div id="volunteers">
 
+            <!--Volunteers list column-->
+            <div class="col-sm-6">
+                <div>
+                    <b>Volunteers List</b>
+                </div>
+                <div id="volunteers">
+
+                </div>
             </div>
         </div>
-
-        <div id="go_back">
-            <button>go back to menu</button>
-        </div>
-
     </div>
 
 </body>
