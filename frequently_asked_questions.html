@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Icons used on web page (Hamburger Menu) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!--CDNs for Jquery, and bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- Gives the page its title -->
     <title>Frequently Asked Questions</title>
 
-    <style>
+</head>
+
+
+
+<style>
     .question {
         background-color: powderblue;
     }
@@ -12,55 +27,148 @@
         border-color: powderblue;
         border-width: 1px;
         border-style: solid;
+        max-width: 900px;
     }
     .answer{
         display: none;
         border-color: powderblue;
         background-color: lightcyan;
     }
-    </style>
+    #q_a{
+        padding: 20px;
+    }
+    #qa_main{
+        position: relative;
+        left: 200px;
+    }
 
-    <!--The heading-->
-    <h1>
-        Frequently Asked Questions
-    </h1>
+    .sidenav {
+        height: 100%;
+        width: 160px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+</style>
 
-    <body>
+<!--Header Nav Top Right-->
+<header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="signup_homepage.html">Sign-Up</a>
+        <a href="#">Login</a>
+        <a href="frequently_asked_questions.html">FAQ</a>
+        <a href="donation.html">Donations</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!--The menu button that opens the nav bar-->
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+    </div>
+</header>
+
+<body>
+
+
+    <!-- the left nav bar -->
+    <div class="sidenav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+
+
+    <div id="qa_main">
+    <section id="q_a">
+
+        <!--The heading-->
+        <h1>
+            Frequently Asked Questions
+        </h1>
 
         <!-- Each div of class group is a question and answer pair
         Onlick makes each group clickable to make the answer appear or disappear-->
 
-        <div class = "group" onclick = "make_visible('a1')">
-            <div class="question" id="q1">Question 1</div>
-            <div class="answer" id="a1">Answer 1</div>
-        </div> <br>
+        <div>
 
-        <div class = "group" onclick = "make_visible('a2')">
-            <div class="question" id="q2">Question 2</div>
-            <div class="answer" id="a2">Answer 2</div>
-        </div> <br>
+            <h5> Overview </h5>
 
-        <div class = "group" onclick = "make_visible('a3')">
-            <div class="question" id="q3">Question 3</div>
-            <div class="answer" id="a3">Answer 3</div>
-        </div> <br>
+            <div class = "group" onclick = "make_visible('a1')">
+                <div class="question" id="q1">Question 1</div>
+                <div class="answer" id="a1">Answer 1</div>
+            </div> <br>
 
-        <div class = "group" onclick = "make_visible('a4')">
-            <div class="question" id="q4">Question 4</div>
-            <div class="answer" id="a4">Answer 4</div>
-        </div> <br>
+            <div class = "group" onclick = "make_visible('a2')">
+                <div class="question" id="q2">Question 2</div>
+                <div class="answer" id="a2">Answer 2<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+            </div> <br>
 
-        <div class = "group" onclick = "make_visible('a5')">
-            <div class="question" id="q5">Question 5</div>
-            <div class="answer" id="a5">Answer 5</div>
-        </div> <br>
+        </div>
 
-        <div class = "group" onclick = "make_visible('a6')">
-            <div class="question" id="q6">Question 6</div>
-            <div class="answer" id="a6">Answer 6</div>
-        </div> <br>
 
-    </body>
+        <div>
+
+            <h5> Hosting </h5>
+
+            <div class = "group" onclick = "make_visible('a3')">
+                <div class="question" id="q3">Question 3</div>
+                <div class="answer" id="a3">Answer 3</div>
+            </div> <br>
+
+            <div class = "group" onclick = "make_visible('a4')">
+                <div class="question" id="q4">Question 4</div>
+                <div class="answer" id="a4">Answer 4</div>
+            </div> <br>
+        </div>
+
+
+        <div>
+
+            <h5> Donating </h5>
+
+            <div class = "group" onclick = "make_visible('a5')">
+                <div class="question" id="q5">Question 5</div>
+                <div class="answer" id="a5">Answer 5</div>
+            </div> <br>
+
+            <div class = "group" onclick = "make_visible('a6')">
+                <div class="question" id="q6">Question 6</div>
+                <div class="answer" id="a6">Answer 6</div>
+            </div> <br>
+
+        </div>
+
+
+        <div>
+
+            <h5> Other ways to help </h5>
+
+            <div class = "group" onclick = "make_visible('a7')">
+                <div class="question" id="q7">Question 5</div>
+                <div class="answer" id="a7">Answer 5</div>
+            </div> <br>
+
+            <div class = "group" onclick = "make_visible('a8')">
+                <div class="question" id="q8">Question 6</div>
+                <div class="answer" id="a8">Answer 6</div>
+            </div> <br>
+
+        </div>
+
+    </section>
+    </div>
+
+</body>
+
 
     <script>
 
@@ -77,4 +185,9 @@
 
     </script>
 
+    <footer>
+        <div class="col-sm-12" style="background-color: mediumspringgreen"></div>
+    </footer>
+
+    <script src="js/index.js"></script>
 </html>

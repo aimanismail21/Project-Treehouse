@@ -1,58 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
+
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>User Profile - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="css/profile_page.css" rel="stylesheet">
+
 </head>
-<body>
 
-    <!--  Header and Nav Bar at the top  -->
-    <div class="header">
-        <div class="logo">
-            <img>
+<body id="page-top">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="profile.html"></a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" href="#" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+</nav>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">
+                <i class="fas fa-user-circle fa-fw"></i>
+                <span>Profile</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Tools</span>
+            </a>
+            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
+                <h6 class="dropdown-header">Options:</h6>
+                <a class="dropdown-item active" href="querymenu.html">Search & Query Menu</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Account Options</span>
+            </a>
+            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
+
+                <h6 class="dropdown-header">Login Screens:</h6>
+                <a class="dropdown-item" href="login.html">Login</a>
+                <a class="dropdown-item" href="register.html">Register</a>
+                <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+            </div>
+        </li>
+
+    </ul>
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Account</a>
+                </li>
+                <li class="breadcrumb-item active">Profile</li>
+            </ol>
+
+            <!-- Page Content -->
+            <h1>Profile Page</h1>
+            <hr>
+            <p>Put in releveant profile information</p>
+
         </div>
-        <div class="nav-bar">
-            <div>About</div>
-            <div>Donate</div>
-            <div>Login</div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © Project Treehouse 2019</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="logoutModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
         </div>
     </div>
+</div>
 
-    <!--  Content Div here where page content goes  -->
-    <div class="content">
+<!-- Bootstrap core JavaScript-->
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Profile pic and name  -->
-        <div class="profile">
-            <img id="profile-pic" alt="Profile Picture">
-            <h2 id="name">[name]</h2>
-        </div>
+<!-- Core plugin JavaScript-->
+<script src="js/jquery-easing/jquery.easing.js"></script>
 
-        <!--  Personal info includes contact, etc  -->
-        <div class="personal-info">
-            <p id="blurb">Some short info about user.</p>
-            <p id="email">[email]</p>
-            <p id="phone">[phone#]</p>
-            <p id="status">[marital status]</p>
-            <p id="gender">[gender]</p>
-            <p>etc...</p>
-        </div>
+<!-- Custom scripts for all pages-->
+<script src="js/profile_page.min.js"></script>
 
-        <!--  Guest Criteria Info selected by user displayed here  -->
-        <div class="guest-criteria">
-            <p>Guest Criteria:</p>
-            <p id="age-range">[age range]</p>
-            <p id="gender">[gender]</p>
-            <p>etc...</p>
-        </div>
-
-        <!--  Housing info provided by user displayed here  -->
-        <div class="housing-info">
-            <p>Housing Info:</p>
-            <p id="location">[location]</p>
-            <p id="rooms">[number of rooms]</p>
-            <p id="room-size">[room size]</p>
-            <p>etc...</p>
-        </div>
-    </div>
 </body>
+
 </html>

@@ -1,38 +1,71 @@
-<!DOCTYPEhtml>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"content="width=device-width,initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible"content="ie=edge">
-    <title>SignUp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Icons used on web page (Hamburger Menu) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!--CDNs for Jquery, and bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+<!--Header Nav Top Right-->
+<header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="signup_homepage.html">Sign-Up</a>
+        <a href="#">Login</a>
+        <a href="frequently_asked_questions.html">FAQ</a>
+        <a href="donation.html">Donations</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!--The menu button that opens the nav bar-->
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+    </div>
+</header>
 <body>
-<div class="create">Create a New Account</div>
-<div class="formbox"> <!--Form box for new users to enter sign up info-->
-    <div>
-        <input type="text"placeholder="First name">
-        <input type="text"placeholder="Last name">
-    </div>
-    <div>
-        <input type="text"placeholder="Email Address">
-        <input type="text"placeholder="Re-enter email">
-    </div>
-    <div>
-        <input type="text" placeholder="Phone Number">
-        <input type="text"placeholder="New Password">
-    </div>
-    <div>
-        <form method="post" enctype="multipart/form-data">
-            Upload one piece of identification<br>
-            <input type="file" name="files[]" multiple /><br>
-            <input type="submit" value="Upload File" name="submit"/>
-        </form>
-    </div>
-    <div>
-        <button type="submit">Cancel</button>
-        <button type="submit">Create</button>
-    </div>
+<div class="signup-form">
+    <form action="/examples/actions/confirmation.php" method="post">
+        <div class="form-header">
+            <h2>Create a New Account</h2>
+        </div>
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" class="form-control" name="email" required="required">
+        </div>
+        <div class="form-group">
+            <label>Confirm Email</label>
+            <input type="email" class="form-control" name="confirm_email" required="required">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" required="required">
+        </div>
+        <div class="form-group">
+            <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the<a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+        </div>
+    </form>
+    <div class="text-center small">Already have an account? <a href="#">Login here</a></div>
 </div>
+
+
+
+<footer>
+    <div class="col-sm-12" style="background-color: mediumspringgreen"></div>
+</footer>
+
+<script src="js/index.js"></script>
+
+
 </body>
 </html>
 
