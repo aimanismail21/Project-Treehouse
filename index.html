@@ -1,27 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Icons used on web page (Hamburger Menu) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
-
-
 <body>
-<div id="nav_bar">
-        <a href="#index">Home</a>
-        <a href="#About Us">About Us</a>
-        <a href="#Donations">Donations</a>
-        <a href="#Sign_Up">Account Creation</a>
-        <a href="#Login"></a>
+
+<script src="js/index.js"></script>
+<!-- Top Navigation Menu -->
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Sign-Up</a>
+    <a href="#">Login</a>
+    <a href="#">FAQ</a>
+    <a href="#">Donations</a>
+    <a href="#">Contact</a>
 </div>
-<div id="description">Brief description of website here</div>
-<div id="Login">Login Box Here</div>
 
-
-
+<!--The menu button that opens the nav bar-->
+<div id="main">
+    <button class="openbtn" onclick="openNav()">&#9776;</button>
+</div>
+<section class="top-section">
+    Top section of page
+</section>
+<section class="middle-section">
+    Middle section of page
+</section>
+<section class="bottom-section">
+    Bottom section of page
+</section>
 
 </body>
-
-
-
 </html>
+
