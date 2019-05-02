@@ -30,32 +30,33 @@
     </div>
 </header>
 <body>
-<div class="create">Create a New Account</div>
-<div class="formbox"> <!--Form box for new users to enter sign up info-->
-    <div>
-        <input type="text"placeholder="First name">
-        <input type="text"placeholder="Last name">
-    </div>
-    <div>
-        <input type="text"placeholder="Email Address">
-        <input type="text"placeholder="Re-enter email">
-    </div>
-    <div>
-        <input type="text" placeholder="Phone Number">
-        <input type="text"placeholder="New Password">
-    </div>
-    <div>
-        <form method="post" enctype="multipart/form-data">
-            Upload one piece of identification<br>
-            <input type="file" name="files[]" multiple /><br>
-            <input type="submit" value="Upload File" name="submit"/>
-        </form>
-    </div>
-    <div>
-        <button type="submit">Cancel</button>
-        <button type="submit">Create</button>
-    </div>
+<div class="signup-form">
+    <form action="/examples/actions/confirmation.php" method="post">
+        <div class="form-header">
+            <h2>Create a New Account</h2>
+        </div>
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" class="form-control" name="email" required="required">
+        </div>
+        <div class="form-group">
+            <label>Confirm Email</label>
+            <input type="email" class="form-control" name="confirm_email" required="required">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" required="required">
+        </div>
+        <div class="form-group">
+            <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the<a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+        </div>
+    </form>
+    <div class="text-center small">Already have an account? <a href="#">Login here</a></div>
 </div>
+
 
 
 <footer>
