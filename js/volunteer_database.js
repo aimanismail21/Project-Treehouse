@@ -34,5 +34,11 @@ function displayVolunteers(){
 
         });
 }
+// function to save search form criteria
+function saveform() {
+    let city = document.getElementById("search_by_criteria_form").elements[0].value;
+    let pets = document.getElementById("search_by_criteria_form").elements[1].value;
+    let family = document.getElementById("search_by_criteria_form").elements[2].value;
+}
 
 displayVolunteers();
