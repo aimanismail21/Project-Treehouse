@@ -1,0 +1,38 @@
+<!DOCTYPEhtml>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"content="ie=edge">
+    <title>SignUp</title>
+</head>
+<body>
+<div class="create">Create a New Account</div>
+<div class="formbox"> <!--Form box for new users to enter sign up info-->
+    <div>
+        <input type="text"placeholder="First name">
+        <input type="text"placeholder="Last name">
+    </div>
+    <div>
+        <input type="text"placeholder="Email Address">
+        <input type="text"placeholder="Re-enter email">
+    </div>
+    <div>
+        <input type="text" placeholder="Phone Number">
+        <input type="text"placeholder="New Password">
+    </div>
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            Upload one piece of identification<br>
+            <input type="file" name="files[]" multiple /><br>
+            <input type="submit" value="Upload File" name="submit"/>
+        </form>
+    </div>
+    <div>
+        <button type="submit">Cancel</button>
+        <button type="submit">Create</button>
+    </div>
+</div>
+</body>
+</html>
+
