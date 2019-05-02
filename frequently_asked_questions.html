@@ -13,25 +13,65 @@
         border-width: 1px;
         border-style: solid;
     }
+    .answer{
+        display: none;
+    }
     </style>
 
+    <!--The heading-->
     <h1>
         Frequently Asked Questions
     </h1>
 
     <body>
 
-        <div class = "group">
-            <div class="question">Question 1</div>
-            <div class="answer">Answer 1</div>
+        <!-- Each div of class group is a question and answer pair-->
+
+        <div class = "group" onclick = "make_visible('a1')">
+            <div class="question" id="q1">Question 1</div>
+            <div class="answer" id="a1">Answer 1</div>
         </div> <br>
 
+        <div class = "group" onclick = "make_visible('a2')">
+            <div class="question" id="q2">Question 2</div>
+            <div class="answer" id="a2">Answer 2</div>
+        </div> <br>
 
-        <div class = "group">
-                <div class="question">Question 2</div>
-                <div class="answer">Answer 2</div>
-        </div>
+        <div class = "group" onclick = "make_visible('a3')">
+            <div class="question" id="q3">Question 3</div>
+            <div class="answer" id="a3">Answer 3</div>
+        </div> <br>
+
+        <div class = "group" onclick = "make_visible('a4')">
+            <div class="question" id="q4">Question 4</div>
+            <div class="answer" id="a4">Answer 4</div>
+        </div> <br>
+
+        <div class = "group" onclick = "make_visible('a5')">
+            <div class="question" id="q5">Question 5</div>
+            <div class="answer" id="a5">Answer 5</div>
+        </div> <br>
+
+        <div class = "group" onclick = "make_visible('a6')">
+            <div class="question" id="q6">Question 6</div>
+            <div class="answer" id="a6">Answer 6</div>
+        </div> <br>
 
     </body>
+
+    <script>
+
+    /*  a function that changes to display to none if it is currently block, and to block if it is currently none */
+    var make_visible = function make_visible(answer_id){
+        let can_see = document.getElementById(answer_id);
+        if (can_see.style.display == "block"){
+            can_see.style.display = "none"; 
+        } else {
+            can_see.style.display = "block";
+        }
+
+    }
+
+    </script>
 
 </html>
