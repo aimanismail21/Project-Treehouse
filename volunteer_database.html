@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Volunteers</title>
 
     <style>
@@ -25,6 +26,44 @@
         }
         .volunteer_info{
             float: left;
+            clear: left;
+            width: 100%;
+        }
+
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #3e8e41;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            padding:10px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {background-color: #ddd;}
+
+        .show {
+            display: block;
         }
 
     </style>
@@ -35,83 +74,67 @@
     <script src="js/volunteer_database.js"></script>
 
 </head>
-<body>
-    <div class="header">
-        <div class="nav-bar">
-            <div>About</div>
-            <div>Donate</div>
-            <div>Profile</div>
-            <div>FAQ</div>
-        </div>
-    </div>
+<body onload="displayVolunteers()">
+
     <!--Menu to list volunteers and search the volunteer list by criteria or address-->
     <div id="search_menu">
         <div id="search_criteria">
-
             <!--Search by criteria form-->
             <b>Search by criteria</b>
-            <form id="search_by_criteria_form">
+                <!--city dropdown selection-->
+                <div onclick="dropdown('city')" class="dropbtn">City</div>
+                <div id='city' class="dropdown-content">
+                    <input type="radio" name="city" value="Burnaby">Burnaby
+                    <br>
+                    <input type="radio" name="city" value="Surrey">Surrey
+                    <br>
+                    <input type="radio" name="city" value="Vancouver">Vancouver
+                    <br>
+                    <input type="radio" name="city" value="Richmond">Richmond
+                    <br>
+                </div>
 
-                City:<br>
-                <input type="radio" name="city" value="Burnaby">Burnaby
+                <!--pets dropdown selection-->
+                <div onclick="dropdown('pets')" class="dropbtn">Pets</div>
+                <div id='pets' class="dropdown-content">
+                    <input type="radio" name="pets" value="yes">Yes
+                    <br>
+                    <input type="radio" name="pets" value="no">No
+                     <br>
+                </div>
+
+                <!--family dropdown selection-->
+                <div onclick="dropdown('family')" class="dropbtn">Family</div>
+                <div id='family' class="dropdown-content">
+                    <input type="radio" name="family" value="1">1
+                    <br>
+                    <input type="radio" name="family" value="2">2
+                    <br>
+                    <input type="radio" name="family" value="3">3
+                    <br>
+                    <input type="radio" name="family" value="4">4
+                    <br>
+                    <input type="radio" name="family" value="5+">5+
+                    <br>
+                </div>
                 <br>
-                <input type="radio" name="city" value="Surrey">Surrey
-                <br>
-                <input type="radio" name="city" value="Vancouver">Vancouver
-                <br>
-                <input type="radio" name="city" value="Richmond">Richmond
-                <br>
-                Pets:<br>
-                <input type="radio" name="pets" value="yes">Yes
-                <br>
-                <input type="radio" name="pets" value="no">No
-                <br>
-                Family Members:<br>
-                <input type="radio" name="family" value="1">1
-                <br>
-                <input type="radio" name="family" value="2">2
-                <br>
-                <input type="radio" name="family" value="3">3
-                <br>
-                <input type="radio" name="family" value="4">4
-                <br>
-                <input type="radio" name="family" value="5+">5+
-                <br>
-            </form>
+                <button value="submit" onclick="update_by_criteria()">Search</button>
+            <br>
 
             <!--Search by address form-->
             <b>Or search by address</b>
-            <form id="search_by_address_form">
                 Address:<br>
-                <input type="text" name="address" value="">
+                <input type="text" name="address" value=""><br>
                 <br>
-            </form>
+                <button value="submit" onclick="update_by_address()">Search</button>
         </div>
 
         <div id="volunteers_list">
-            <b>Volunteers List</b>
-            <div class="volunteer">
-                <img class="house_picture" src="images/house.jpg" width="100" alt="picture of house">
-                <div class="volunteer_info">
-                    name= random name<br>
-                    age = 23<br>
-                    address = 1234 west 92 street<br>
-                    pets = none<br>
-                    <button class="contact">myemail@email.com</button>
-                </div>
+            <div>
+                <b>Volunteers List</b>
             </div>
-            <br>
+            <div id="volunteers">
 
-            <div class="volunteer">
-                <img class="house_picture" src="images/house.jpg" width="100" alt="picture of house">
-
-                <div class="volunteer_info">
-                    name= another person<br>
-                    age = 32<br>
-                    address = 6556 random street<br>
-                    pets = dog<br>
-                    <button class="contact">anotheremail@email.com</button>
-                </div>
             </div>
         </div>
 
