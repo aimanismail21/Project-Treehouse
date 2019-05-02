@@ -55,6 +55,10 @@ function update_by_criteria() {
         function(snap){
 
             snap.forEach(function(snap){
+                // initialize selections to value in database
+                let city_selection = snap.child("City").val();
+                let pets_selection = snap.child("Pets").val();
+                let family_selection = snap.child("HouseHoldMembers").val()
 
                 //takes input that was entered into criteria form
                 let radios = document.getElementsByName('city');
@@ -62,7 +66,7 @@ function update_by_criteria() {
                 {
                     if (radios[i].checked)
                     {
-                        var city_selection = radios[i].value;
+                        city_selection = radios[i].value;
                         break;
                     }
                 }
@@ -72,7 +76,7 @@ function update_by_criteria() {
                 {
                     if (radios[i].checked)
                     {
-                        var pets_selection = radios[i].value;
+                        pets_selection = radios[i].value;
                         break;
                     }
                 }
@@ -82,7 +86,7 @@ function update_by_criteria() {
                 {
                     if (radios[i].checked)
                     {
-                        var family_selection = radios[i].value;
+                        family_selection = radios[i].value;
                         break;
                     }
                 }
