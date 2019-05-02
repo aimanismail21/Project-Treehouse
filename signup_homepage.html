@@ -11,7 +11,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <style>
+        #form {
+            padding: 13%;
+        }
+        .btn-primary {
+            color: black !important;
+            border: 2px solid black !important;
+            background-color: mediumspringgreen!important;
+        }
+        #btns{
+            padding: 2%;
+        }
+
+    </style>
 </head>
+
 <body>
 <header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
 
@@ -24,7 +39,6 @@
         <a href="donation.html">Donations</a>
         <a href="#">Contact</a>
     </div>
-
     <!--The menu button that opens the nav bar-->
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776;</button>
@@ -32,25 +46,27 @@
 </header>
 
 <!--Sign up button only works once-->
-
-<button type="button" class="btn btn-primary btn-lg mx-auto d-block btn-group-toggle col-sm-2" onclick="myFunction();
+<div id="form" class="col text-center">
+    <button id="sign" type="button" class="btn btn-primary btn-lg col-sm-2" onclick="myFunction();
         this.onclick=null;">Sign Up</button><br>
-<div id="btn" style="display:none">
-    <a href="#" class="btn btn-primary btn-lg active col-sm-2" role="button" aria-pressed="true" id="vol"></a>
-    <a href="#" class="btn btn-primary btn-lg active col-sm-2" role="button" aria-pressed="true" id="soc"></a>
+    <div id="btns" style="display:none;">
+        <a href="#" class="btn btn-primary btn-lg active col-sm-2" role="button" aria-pressed="true" id="vol"></a>
+        <h5>or</h5>
+        <a href="#" class="btn btn-primary btn-lg active col-sm-2" role="button" aria-pressed="true" id="soc"></a>
+    </div>
 </div>
 <script>
 //if user clicks on sign up button, volunteer and social worker buttons appear
 function myFunction(){
-    document.getElementById("btn").style.display = "block";
+    document.getElementById("btns").style.display = "block";
     document.getElementById("vol").innerHTML = "Volunteer";
     document.getElementById("vol").addEventListener("click", html_vol);
 
-    document.getElementById("btn").style.display = "block";
+    document.getElementById("btns").style.display = "block";
     document.getElementById("soc").innerHTML = "Social Worker";
     document.getElementById("soc").addEventListener("click", html_social);
 
-    document.getElementById("btn").style.textAlign = "center";
+    document.getElementById("btns").style.textAlign = "center";
 }
 //clicking on volunteer or social worker button redirects to criteria html page
 function html_vol() {
