@@ -1,24 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Icons used on web page (Hamburger Menu) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!--CDNs for Jquery, and bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
+<header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="signup_homepage.html">Sign-Up</a>
+        <a href="#">Login</a>
+        <a href="frequently_asked_questions.html">FAQ</a>
+        <a href="donation.html">Donations</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!--The menu button that opens the nav bar-->
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+    </div>
+</header>
+
 <!--Sign up button only works once-->
-<button onclick="myFunction();this.onclick=null;">Sign Up</button><br>
+
+<button type="button" class="btn btn-primary btn-lg mx-auto d-block btn-group-toggle col-sm-2" onclick="myFunction();
+        this.onclick=null;">Sign Up</button><br>
+<div id="btn" style="display:none">
+    <a href="#" class="btn btn-primary btn-lg active col-sm-2" role="button" aria-pressed="true" id="vol"></a>
+    <a href="#" class="btn btn-primary btn-lg active col-sm-2" role="button" aria-pressed="true" id="soc"></a>
+</div>
 <script>
 //if user clicks on sign up button, volunteer and social worker buttons appear
 function myFunction(){
-    let btn_vol = document.createElement("BUTTON");
-    document.body.appendChild(btn_vol);
-    btn_vol.innerHTML = "Volunteer";
-    btn_vol.addEventListener("click", html_vol);
+    document.getElementById("btn").style.display = "block";
+    document.getElementById("vol").innerHTML = "Volunteer";
+    document.getElementById("vol").addEventListener("click", html_vol);
 
-    let btn_soc = document.createElement("BUTTON");
-    document.body.appendChild(btn_soc);
-    btn_soc.innerHTML = "Social Worker";
-    btn_soc.addEventListener("click", html_social);
+    document.getElementById("btn").style.display = "block";
+    document.getElementById("soc").innerHTML = "Social Worker";
+    document.getElementById("soc").addEventListener("click", html_social);
+
+    document.getElementById("btn").style.textAlign = "center";
 }
 //clicking on volunteer or social worker button redirects to criteria html page
 function html_vol() {
@@ -28,5 +60,11 @@ function html_social(){
     window.location.href = 'signup_socworker.html';
 }
 </script>
+
+<footer>
+    <div class="col-sm-12" style="background-color: mediumspringgreen"></div>
+</footer>
+
+<script src="js/index.js"></script>
 </body>
 </html>
