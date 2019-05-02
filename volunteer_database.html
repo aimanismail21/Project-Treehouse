@@ -28,6 +28,12 @@
         }
 
     </style>
+
+    <!--initialize firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+    <script src="js/firebase_setup.js"></script>
+    <script src="js/volunteer_database.js"></script>
+
 </head>
 <body>
     <div class="header">
@@ -38,14 +44,48 @@
             <div>FAQ</div>
         </div>
     </div>
-
+    <!--Menu to list volunteers and search the volunteer list by criteria or address-->
     <div id="search_menu">
         <div id="search_criteria">
-            <b>search criteria</b>
-            <div>location</div><br>
-            <div>has pets</div><br>
-            <div>age</div><br>
-            <div>family members</div><br>
+
+            <!--Search by criteria form-->
+            <b>Search by criteria</b>
+            <form id="search_by_criteria_form">
+
+                City:<br>
+                <input type="radio" name="city" value="Burnaby">Burnaby
+                <br>
+                <input type="radio" name="city" value="Surrey">Surrey
+                <br>
+                <input type="radio" name="city" value="Vancouver">Vancouver
+                <br>
+                <input type="radio" name="city" value="Richmond">Richmond
+                <br>
+                Pets:<br>
+                <input type="radio" name="pets" value="yes">Yes
+                <br>
+                <input type="radio" name="pets" value="no">No
+                <br>
+                Family Members:<br>
+                <input type="radio" name="family" value="1">1
+                <br>
+                <input type="radio" name="family" value="2">2
+                <br>
+                <input type="radio" name="family" value="3">3
+                <br>
+                <input type="radio" name="family" value="4">4
+                <br>
+                <input type="radio" name="family" value="5+">5+
+                <br>
+            </form>
+
+            <!--Search by address form-->
+            <b>Or search by address</b>
+            <form id="search_by_address_form">
+                Address:<br>
+                <input type="text" name="address" value="">
+                <br>
+            </form>
         </div>
 
         <div id="volunteers_list">
