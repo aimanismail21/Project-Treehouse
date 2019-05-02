@@ -11,9 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <style>
-
-    </style>
 </head>
 <body>
 <header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
@@ -36,21 +33,24 @@
 
 <!--Sign up button only works once-->
 
-<button type="button" class="btn btn-primary btn-lg mx-auto d-block" onclick="myFunction();this.onclick=null;">
-    Sign Up</button><br>
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" id="vol" style="display:none"></a>
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" id="soc" style="display:none"></a>
-
+<button type="button" class="btn btn-primary btn-lg mx-auto d-block btn-group-toggle col-sm-2" onclick="myFunction();
+        this.onclick=null;">Sign Up</button><br>
+<div id="btn" style="display:none">
+    <a href="#" class="btn btn-primary btn-lg active col-sm-2" role="button" aria-pressed="true" id="vol"></a>
+    <a href="#" class="btn btn-primary btn-lg active col-sm-2" role="button" aria-pressed="true" id="soc"></a>
+</div>
 <script>
 //if user clicks on sign up button, volunteer and social worker buttons appear
 function myFunction(){
-    document.getElementById("vol").style.display = "block";
+    document.getElementById("btn").style.display = "block";
     document.getElementById("vol").innerHTML = "Volunteer";
     document.getElementById("vol").addEventListener("click", html_vol);
 
-    document.getElementById("soc").style.display = "block";
+    document.getElementById("btn").style.display = "block";
     document.getElementById("soc").innerHTML = "Social Worker";
     document.getElementById("soc").addEventListener("click", html_social);
+
+    document.getElementById("btn").style.textAlign = "center";
 }
 //clicking on volunteer or social worker button redirects to criteria html page
 function html_vol() {
