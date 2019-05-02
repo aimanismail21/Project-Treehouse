@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+<body>
 <!--Header Nav Top Right-->
 <header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
 
@@ -29,33 +30,8 @@
         <button class="openbtn" onclick="openNav()">&#9776;</button>
     </div>
 </header>
-<body>
-<div class="signup-form">
-    <form action="/examples/actions/confirmation.php" method="post">
-        <div class="form-header">
-            <h2>Create a New Account</h2>
-        </div>
-        <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" class="form-control" name="email" required="required">
-        </div>
-        <div class="form-group">
-            <label>Confirm Email</label>
-            <input type="email" class="form-control" name="confirm_email" required="required">
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password" required="required">
-        </div>
-        <div class="form-group">
-            <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the<a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
-        </div>
-    </form>
-    <div class="text-center small">Already have an account? <a href="#">Login here</a></div>
-</div>
+<!--Body-->
+
 
 
 
@@ -64,8 +40,6 @@
 </footer>
 
 <script src="js/index.js"></script>
-
-
 </body>
 </html>
 

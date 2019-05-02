@@ -1,78 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Icons used on web page (Hamburger Menu) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!--CDNs for Jquery, and bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <title>Donations</title>
     <style>
         .button {
-            display: inline-block;
+            display: block;
             border: 1px black solid;
-            padding: 0.5%;
-            width: 3%;
-            margin-bottom: 1%;
+            padding: 5% 0;
+            float: left;
+            width: 33.33%;
+            height: auto;
+            margin: 0;
             text-align: center;
         }
         #other {
-            width: 12%;
+            width: 100%;
         }
         input {
-            width: 80%;
-            margin-left: 3%;
+            width: 25%;
         }
     </style>
 </head>
 <body>
+    <!--  Header contains navbar  -->
+    <header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
+        <!--  Navbar/Sidebar  -->
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="signup_homepage.html">Sign-Up</a>
+            <a href="#">Login</a>
+            <a href="frequently_asked_questions.html">FAQ</a>
+            <a href="donation.html">Donations</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <!--The menu button that opens the nav bar-->
+        <div id="main">
+            <button class="openbtn" onclick="openNav()">&#9776;</button>
+        </div>
+    </header>
 
 <!--  Progress Bar  -->
-    <div class="progress-bar">(*)--------------------------------( )--------------------------------( )</div>
+    <div class="progress-bar">(O)---------------------( )---------------------( )</div>
 
 <!--  First Page, Select Donation Amount  -->
-    <div class="donation-box">
-        <div class="title">Select Contribution</div>
-        <!--  One of the Amounts should be pre-selected  -->
-        <div class="button">$5</div>
-        <div class="button">$10</div>
-        <div class="button">$15</div><br>
-        <div class="button">$25</div>
-        <div class="button">$50</div>
-        <div class="button">$100</div><br>
-        <!--  Provides User ability to specify amount to donate  -->
-        <div class="button" id="other">
-            $<input type="text">
+    <section>
+        <div class="container col-sm-4">
+            <div class="title">Select Contribution</div>
+            <!--  One of the Amounts should be pre-selected  -->
+            <div class="button">$5</div>
+            <div class="button">$10</div>
+            <div class="button">$15</div><br>
+            <div class="button">$25</div>
+            <div class="button">$50</div>
+            <div class="button">$100</div><br>
+            <!--  Provides User ability to specify amount to donate  -->
+            <div class="button" id="other">
+                Other: $<input type="text">
+            </div>
         </div>
-    </div>
 
-    <br> <!-- This break is just to indicate the changing pages  -->
+        <br> <!-- This break is just to indicate the changing pages  -->
 
-    <!--  Payment Page, where user will select method of pay and input card details  -->
-    <div class="payment">
-        <div class="payment-type">
-            Select Method of Pay
-            <!--  The following should be clickable buttons  -->
-            <div>PayPal</div>
-            <div>Credit Card</div>
+        <!--  Payment Page, where user will select method of pay and input card details  -->
+        <div class="container col-sm-4" style="display: none">
+            <div class="payment-type">
+                Select Method of Pay
+                <!--  The following should be clickable buttons  -->
+                <div>PayPal</div>
+                <div>Credit Card</div>
+            </div>
+            <!--  Input fields should appear only after method is chosen above  -->
+            <div>
+                Input field for card info
+            </div>
+            <!--  Confirm button will process payment and proceed to last page  -->
+            <div>
+                Confirm
+            </div>
         </div>
-        <!--  Input fields should appear only after method is chosen above  -->
-        <div>
-            Input field for card info
-        </div>
-        <!--  Confirm button will process payment and proceed to last page  -->
-        <div>
-            Confirm
-        </div>
-    </div>
 
-    <br> <!-- This break is just to indicate the changing pages  -->
+        <br> <!-- This break is just to indicate the changing pages  -->
 
-    <!--  Receipt Page, where users will be allowed to print or email it  -->
-    <div class="receipt">
-        <div class="message">Thank you for you Donation!</div>
-        <div class="receipt-report">
-            <div>Receipt Info</div>
-            <!--  Buttons to print or email receipt  -->
-            <div>Print or Email</div>
+        <!--  Receipt Page, where users will be allowed to print or email it  -->
+        <div class="container col-sm-4" style="display: none">
+            <div class="message">Thank you for you Donation!</div>
+            <div class="receipt-report">
+                <div>Receipt Info</div>
+                <!--  Buttons to print or email receipt  -->
+                <div>Print or Email</div>
+            </div>
         </div>
-    </div>
+
+    </section>
+
+    <footer>
+        <div class="col-sm-12" style="background-color: mediumspringgreen"></div>
+    </footer>
+
+    <script src="js/index.js"></script>
 </body>
 </html>
