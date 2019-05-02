@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Volunteers</title>
 
-    <style>
+    <!--volunteer database stylesheet-->
+    <link rel="stylesheet" href="css/volunteer_database.css">
 
-        .show {
-            display: block;
-        }
+    <!--Icons used on web page (Hamburger Menu) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
 
-    </style>
-    
     <!--bootstrap scripts-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -24,16 +23,35 @@
 
     <!--volunteer database script-->
     <script src="js/volunteer_database.js"></script>
+    <script src="js/index.js"></script>
 
 </head>
 <body onload="displayVolunteers()">
+
+    <header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
+
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="signup_homepage.html">Sign-Up</a>
+            <a href="#">Login</a>
+            <a href="frequently_asked_questions.html">FAQ</a>
+            <a href="donation.html">Donations</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <!--The menu button that opens the nav bar-->
+        <div id="main">
+            <button class="openbtn" onclick="openNav()">&#9776;</button>
+        </div>
+    </header>
 
     <!--Menu to list volunteers and search the volunteer list by criteria or address-->
     <div class="container">
         <!--row with search form and volunteer list-->
         <div class="row">
             <!--column with search criteria-->
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <!--Search by criteria form-->
                 <b>Search by criteria</b> <br>
 
@@ -76,13 +94,15 @@
                 <button value="submit" onclick="update_by_address()">Search</button>
                 <br>
                 <button value="submit" onclick ="displayVolunteers()">Reset</button>
+                <br>
+                <br>
                 <div id="go_back">
                     <button>go back to menu</button>
                 </div>
             </div>
 
             <!--Volunteers list column-->
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <div>
                     <b>Volunteers List</b>
                 </div>
