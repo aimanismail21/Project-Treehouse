@@ -10,7 +10,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .signup-form form{
+            border-radius: 2%;
+            margin-bottom: 2%;
+            box-shadow: 2px 2px 2px rgba(0.3, 0.3, 0.3, 0.3);
+            padding:5%;
+        }
+        .signup-form .form-group{
+            margin-bottom: 2%;
+        }
+        .signup-form label{
+            font-weight: normal;
+            font-size: 15px;
+        }
+        .signup-form .btn{
+            font-size: 16px;
+            font-weight: bold;
+            background: #00cb82;
+            border: none;
+            min-width: 200px;
+        }
+    </style>
 </head>
+
 <!--Header Nav Top Right-->
 <header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
 
@@ -36,6 +59,14 @@
             <h2>Create a New Account</h2>
         </div>
         <div class="form-group">
+            <label>First name</label>
+            <input type="name" class="form-control" name="first_name" required="required">
+        </div>
+        <div class="form-group">
+            <label>Last name</label>
+            <input type="name" class="form-control" name="last_name" required="required">
+        </div>
+        <div class="form-group">
             <label>Email Address</label>
             <input type="email" class="form-control" name="email" required="required">
         </div>
@@ -47,16 +78,22 @@
             <label>Password</label>
             <input type="password" class="form-control" name="password" required="required">
         </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Upload proof of identification</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+        </form>
         <div class="form-group">
-            <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the<a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+            <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Create</button>
         </div>
+
     </form>
     <div class="text-center small">Already have an account? <a href="#">Login here</a></div>
 </div>
-
 
 
 <footer>
@@ -64,7 +101,6 @@
 </footer>
 
 <script src="js/index.js"></script>
-
 
 </body>
 </html>
