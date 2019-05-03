@@ -17,9 +17,7 @@
 
     <title>Donations</title>
     <style>
-        .button {
-            display: block;
-            border: 1px black solid;
+        .bg-light {
             padding: 5% 0;
             float: left;
             width: 33.33%;
@@ -100,60 +98,55 @@
             <!-- Page Content -->
             <h1>Donate Now</h1>
             <hr>
-            <p>Put in releveant profile information</p>
+            <!--  First Page, Select Donation Amount  -->
+            <div class="container col-sm-4">
+                <h4>Select Contribution</h4>
+                <!--  One of the Amounts should be pre-selected  -->
+                <button type="button" class="bg-light">$5</button>
+                <button type="button" class="bg-light" autofocus>$10</button>
+                <button type="button" class="bg-light">$15</button><br>
+                <button type="button" class="bg-light">$25</button>
+                <button type="button" class="bg-light">$50</button>
+                <button type="button" class="bg-light">$100</button><br>
+                <!--  Provides User ability to specify amount to donate  -->
+                <button type="button" class="bg-light" id="other">
+                    Other
+                </button>
+            </div>
 
         </div>
         <!-- /.container-fluid -->
-        <!--  First Page, Select Donation Amount  -->
-            <section>
-                <div class="container col-sm-4">
-                    <div class="title">Select Contribution</div>
-                    <!--  One of the Amounts should be pre-selected  -->
-                    <div class="button">$5</div>
-                    <div class="button">$10</div>
-                    <div class="button">$15</div><br>
-                    <div class="button">$25</div>
-                    <div class="button">$50</div>
-                    <div class="button">$100</div><br>
-                    <!--  Provides User ability to specify amount to donate  -->
-                    <div class="button" id="other">
-                        Other: $ <input type="text">
-                    </div>
+
+        <section id="hidden">
+            <!--  Payment Page, where user will select method of pay and input card details  -->
+            <div class="container col-sm-4" style="display: none">
+                <div class="payment-type">
+                    Select Method of Pay
+                    <!--  The following should be clickable buttons  -->
+                    <div>PayPal</div>
+                    <div>Credit Card</div>
                 </div>
-
-                <br> <!-- This break is just to indicate the changing pages  -->
-
-                <!--  Payment Page, where user will select method of pay and input card details  -->
-                <div class="container col-sm-4" style="display: none">
-                    <div class="payment-type">
-                        Select Method of Pay
-                        <!--  The following should be clickable buttons  -->
-                        <div>PayPal</div>
-                        <div>Credit Card</div>
-                    </div>
-                    <!--  Input fields should appear only after method is chosen above  -->
-                    <div>
-                        Input field for card info
-                    </div>
-                    <!--  Confirm button will process payment and proceed to last page  -->
-                    <div>
-                        Confirm
-                    </div>
+                <!--  Input fields should appear only after method is chosen above  -->
+                <div>
+                    Input field for card info
                 </div>
-
-                <br> <!-- This break is just to indicate the changing pages  -->
-
-                <!--  Receipt Page, where users will be allowed to print or email it  -->
-                <div class="container col-sm-4" style="display: none">
-                    <div class="message">Thank you for you Donation!</div>
-                    <div class="receipt-report">
-                        <div>Receipt Info</div>
-                        <!--  Buttons to print or email receipt  -->
-                        <div>Print or Email</div>
-                    </div>
+                <!--  Confirm button will process payment and proceed to last page  -->
+                <div>
+                    Confirm
                 </div>
+            </div>
 
-            </section>
+            <!--  Receipt Page, where users will be allowed to print or email it  -->
+            <div class="container col-sm-4" style="display: none">
+                <div class="message">Thank you for you Donation!</div>
+                <div class="receipt-report">
+                    <div>Receipt Info</div>
+                    <!--  Buttons to print or email receipt  -->
+                    <div>Print or Email</div>
+                </div>
+            </div>
+
+        </section>
 
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
