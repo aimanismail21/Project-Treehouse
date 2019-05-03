@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Icons used on web page (Hamburger Menu) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/index.css">
-    <!--CDNs for Jquery, and bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>User Profile - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="css/profile_page.css" rel="stylesheet">
+
     <title>Donations</title>
     <style>
         .button {
@@ -30,84 +35,174 @@
         }
     </style>
 </head>
-<body>
-    <!--  Header contains navbar  -->
-    <header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
-        <!--  Navbar/Sidebar  -->
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
-            <a href="signup_homepage.html">Sign-Up</a>
-            <a href="#">Login</a>
-            <a href="frequently_asked_questions.html">FAQ</a>
-            <a href="donation.html">Donations</a>
-            <a href="#">Contact</a>
+
+<body id="page-top">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="profile.html"></a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" href="#" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+</nav>
+
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">
+                <i class="fas fa-user-circle fa-fw"></i>
+                <span>Profile</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Tools</span>
+            </a>
+            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
+                <h6 class="dropdown-header">Options:</h6>
+                <a class="dropdown-item active" href="querymenu.html">Search & Query Menu</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Account Options</span>
+            </a>
+            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
+
+                <h6 class="dropdown-header">Login Screens:</h6>
+                <a class="dropdown-item" href="login.html">Login</a>
+                <a class="dropdown-item" href="register.html">Register</a>
+                <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+            </div>
+        </li>
+
+    </ul>
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Donations</li>
+            </ol>
+
+            <!-- Page Content -->
+            <h1>Donate Now</h1>
+            <hr>
+            <p>Put in releveant profile information</p>
+
         </div>
+        <!-- /.container-fluid -->
+        <!--  First Page, Select Donation Amount  -->
+            <section>
+                <div class="container col-sm-4">
+                    <div class="title">Select Contribution</div>
+                    <!--  One of the Amounts should be pre-selected  -->
+                    <div class="button">$5</div>
+                    <div class="button">$10</div>
+                    <div class="button">$15</div><br>
+                    <div class="button">$25</div>
+                    <div class="button">$50</div>
+                    <div class="button">$100</div><br>
+                    <!--  Provides User ability to specify amount to donate  -->
+                    <div class="button" id="other">
+                        Other: $ <input type="text">
+                    </div>
+                </div>
 
-        <!--The menu button that opens the nav bar-->
-        <div id="main">
-            <button class="openbtn" onclick="openNav()">&#9776;</button>
-        </div>
-    </header>
+                <br> <!-- This break is just to indicate the changing pages  -->
 
-<!--  Progress Bar  -->
-    <div class="progress-bar">(O)---------------------( )---------------------( )</div>
+                <!--  Payment Page, where user will select method of pay and input card details  -->
+                <div class="container col-sm-4" style="display: none">
+                    <div class="payment-type">
+                        Select Method of Pay
+                        <!--  The following should be clickable buttons  -->
+                        <div>PayPal</div>
+                        <div>Credit Card</div>
+                    </div>
+                    <!--  Input fields should appear only after method is chosen above  -->
+                    <div>
+                        Input field for card info
+                    </div>
+                    <!--  Confirm button will process payment and proceed to last page  -->
+                    <div>
+                        Confirm
+                    </div>
+                </div>
 
-<!--  First Page, Select Donation Amount  -->
-    <section>
-        <div class="container col-sm-4">
-            <div class="title">Select Contribution</div>
-            <!--  One of the Amounts should be pre-selected  -->
-            <div class="button">$5</div>
-            <div class="button">$10</div>
-            <div class="button">$15</div><br>
-            <div class="button">$25</div>
-            <div class="button">$50</div>
-            <div class="button">$100</div><br>
-            <!--  Provides User ability to specify amount to donate  -->
-            <div class="button" id="other">
-                Other: $<input type="text">
+                <br> <!-- This break is just to indicate the changing pages  -->
+
+                <!--  Receipt Page, where users will be allowed to print or email it  -->
+                <div class="container col-sm-4" style="display: none">
+                    <div class="message">Thank you for you Donation!</div>
+                    <div class="receipt-report">
+                        <div>Receipt Info</div>
+                        <!--  Buttons to print or email receipt  -->
+                        <div>Print or Email</div>
+                    </div>
+                </div>
+
+            </section>
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © Project Treehouse 2019</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="logoutModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
             </div>
         </div>
+    </div>
+</div>
 
-        <br> <!-- This break is just to indicate the changing pages  -->
+<!-- Bootstrap core JavaScript-->
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!--  Payment Page, where user will select method of pay and input card details  -->
-        <div class="container col-sm-4" style="display: none">
-            <div class="payment-type">
-                Select Method of Pay
-                <!--  The following should be clickable buttons  -->
-                <div>PayPal</div>
-                <div>Credit Card</div>
-            </div>
-            <!--  Input fields should appear only after method is chosen above  -->
-            <div>
-                Input field for card info
-            </div>
-            <!--  Confirm button will process payment and proceed to last page  -->
-            <div>
-                Confirm
-            </div>
-        </div>
+<!-- Core plugin JavaScript-->
+<script src="js/jquery-easing/jquery.easing.js"></script>
 
-        <br> <!-- This break is just to indicate the changing pages  -->
+<!-- Custom scripts for all pages-->
+<script src="js/profile_page.min.js"></script>
 
-        <!--  Receipt Page, where users will be allowed to print or email it  -->
-        <div class="container col-sm-4" style="display: none">
-            <div class="message">Thank you for you Donation!</div>
-            <div class="receipt-report">
-                <div>Receipt Info</div>
-                <!--  Buttons to print or email receipt  -->
-                <div>Print or Email</div>
-            </div>
-        </div>
-
-    </section>
-
-    <footer>
-        <div class="col-sm-12" style="background-color: mediumspringgreen"></div>
-    </footer>
-
-    <script src="js/index.js"></script>
 </body>
 </html>
