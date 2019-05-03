@@ -17,6 +17,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
     <script src="js/firebase_setup.js"></script>
 
+    <script src="js/Guest_room.js"></script>
 </head>
 
 <body>
@@ -34,15 +35,21 @@
     </header>
 
    <div class="container-fluid">
+       <div class="row" id="header">
+           <div class="col-sm-12 col-lg-12 col-md-12">
+               <div class = "text-center">
+                    <b style="font-size: 30px;">Enter Guest Room info</b> <br>
+               </div>
+           </div>
+       </div>
+       <br>
        <div class="row">
 
            <div class="col-sm-3 col-lg-3 col-md-3">
            </div>
 
+           <!--Search by criteria form-->
            <div class="col-sm-3 col-lg-3 col-md-3">
-               <!--Search by criteria form-->
-               <b>Enter Guest Room info</b> <br>
-
                <!--First name-->
                <label>First Name:</label><br>
                <input style="width: 100%;" type="text" id="first_name" value=""><br>
@@ -50,14 +57,6 @@
                <!--Last name-->
                <label>Last Name:</label><br>
                <input style="width: 100%;" type="text" id="last_name" value=""><br>
-
-               <!--Address-->
-               <label>Address:</label><br>
-               <input style="width: 100%;" type="text" id="address" value=""><br>
-
-               <!--Phone Number: -->
-               <label>Phone Number:</label><br>
-               <input style="width: 100%;" type="text" id="phone_number" value=""><br>
 
                <!--city dropdown selection-->
                <label for="city">City: </label>
@@ -76,6 +75,19 @@
                    <option>yes</option>
                    <option>No</option>
                </select>
+               <br>
+               <button class="btn btn-default" style="width: 100%" value="submit" onclick="update_info()">Update info</button><br>
+               <br>
+               <button class="btn btn-default" style="width: 100%" value="submit" onclick="">Reset info</button>
+           </div>
+           <div class="col-sm-3 col-lg-3 col-md-3">
+               <!--Address-->
+               <label>Address:</label><br>
+               <input style="width: 100%;" type="text" id="address" value=""><br>
+
+               <!--Phone Number: -->
+               <label>Phone Number:</label><br>
+               <input style="width: 100%;" type="text" id="phone_number" value=""><br>
 
                <!--city dropdown selection-->
                <label for="family">Family: </label>
@@ -96,13 +108,7 @@
                    <option>3</option>
                    <option>4+</option>
                </select>
-               <br>
-               <button class="btn btn-default" style="width: 100%" value="submit" onclick="">Update info</button><br>
-               <br>
-               <button class="btn btn-default" style="width: 100%" value="submit" onclick="">Reset info</button>
-           </div>
-           <div class="col-sm-3 col-lg-3 col-md-3">
-               <br>
+
                <br>
                <button class="btn btn-default" style="width: 100%" value="submit" onclick="">Set room to available</button><br>
                <br>
