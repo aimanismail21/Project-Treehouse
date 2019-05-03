@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House listing</title>
+
+    <!--Icons used on web page (Hamburger Menu) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!--bootstrap scripts-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!--initialize firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+    <script src="js/firebase_setup.js"></script>
+
+</head>
+
+<body>
+   <div class="container-fluid">
+       <div class="row">
+           <div class="col-sm-4 col-lg-4 col-md-4">
+               <!--Search by criteria form-->
+               <b>Enter New Guest Room</b> <br>
+
+               <!--First name-->
+               <label>First Name:</label><br>
+               <input style="width: 100%;" type="text" id="first_name" value=""><br>
+
+               <!--Last name-->
+               <label>Last Name:</label><br>
+               <input style="width: 100%; type="text" id="last_name" value=""><br>
+
+               <!--Address-->
+               <label>Address:</label><br>
+               <input style="width: 100%; type="text" id="address" value=""><br>
+
+               <!--Phone Number: -->
+               <label>Phone Number:</label><br>
+               <input style="width: 100%; type="text" id="phone_number" value=""><br>
+
+               <!--city dropdown selection-->
+               <label for="city">City: </label>
+               <select class="form-control" id="city">
+                   <option></option>
+                   <option>Vancouver</option>
+                   <option>Burnaby</option>
+                   <option>Surrey</option>
+                   <option>Richmond</option>
+               </select>
+
+               <!--pets dropdown selection-->
+               <label for="pets">Pets: </label>
+               <select class="form-control" id="pets">
+                   <option></option>
+                   <option>yes</option>
+                   <option>No</option>
+               </select>
+
+               <!--city dropdown selection-->
+               <label for="family">Family: </label>
+               <select class="form-control" id="family">
+                   <option></option>
+                   <option>1</option>
+                   <option>2</option>
+                   <option>3</option>
+                   <option>4+</option>
+               </select>
+               <br>
+
+               <button value="submit" onclick="">Create Listing</button><br>
+            </div>
+        </div>
+   </div>
+</body>
+</html>
