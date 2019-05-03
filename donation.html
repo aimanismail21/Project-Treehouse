@@ -28,9 +28,6 @@
         #other {
             width: 100%;
         }
-        input {
-            width: 25%;
-        }
     </style>
 </head>
 
@@ -109,9 +106,7 @@
                 <button type="button" class="bg-light">$50</button>
                 <button type="button" class="bg-light">$100</button><br>
                 <!--  Provides User ability to specify amount to donate  -->
-                <button type="button" class="bg-light" id="other">
-                    Other
-                </button>
+                <input type="text" pattern="\d*" placeholder="Other" class="bg-light" id="other">
             </div>
 
         </div>
