@@ -21,7 +21,7 @@ function update_info(){
 
     // change Uid2 to uid that is taken from logged in user
     let dbref = firebase.database().ref("Volunteers/"+"Uid2");
-    dbref.set({
+    dbref.update({
         FirstName: first_name,
         LastName: last_name,
         Address: address,
@@ -31,4 +31,47 @@ function update_info(){
         TypeOfRoom: room_type,
         City: city
     });
+    document.getElementById('confirmation').innerHTML = 'info has been written'
+}
+
+// resets into to what is currently in the database
+function reset_info(){
+    initialize_page();
+    document.getElementById('confirmation').innerHTML = 'info has been reset';
+}
+
+// initialized all input sections to what is currently in the database
+function initialize_page(){
+    let dbref = firebase.database().ref("Volunteers/"+"Uid2");
+    dbref.on('value', (snapshot) => {
+        document.getElementById("first_name").value = snapshot.child('FirstName').val();
+        document.getElementById("last_name").value = snapshot.child('LastName').val();
+        document.getElementById("city").value = snapshot.child('City').val();
+        document.getElementById("pets").value = snapshot.child('Pets').val();
+        document.getElementById("family").value = snapshot.child('HouseHoldMembers').val();
+        document.getElementById("roomtype").value = snapshot.child('TypeOfRoom').val();
+        document.getElementById("address").value = snapshot.child('Address').val();
+        document.getElementById("phone_number").value = snapshot.child('PhoneNumber').val();
+
+    });
+}
+
+// sets room availability in database given no or yes
+function set_room_availability(availability){
+    let dbref = firebase.database().ref("Volunteers/"+"Uid2");
+    
+    // if availability = yes then availability is set to open in database
+    if(availability === 'yes'){
+        dbref.update({
+            Availability: 'Open'
+        });
+        document.getElementById('confirmation').innerHTML = 'Room set to Available'
+    }
+    // if availability = no then availability is set to closed in database
+    else if(availability === 'no'){
+        dbref.update({
+            Availability: 'Closed'
+        });
+        document.getElementById('confirmation').innerHTML = 'Room set to Not Available'
+    }
 }
