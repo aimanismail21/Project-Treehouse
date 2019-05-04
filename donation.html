@@ -28,9 +28,6 @@
         #other {
             width: 100%;
         }
-        input {
-            width: 25%;
-        }
     </style>
 </head>
 
@@ -102,16 +99,20 @@
             <div class="container col-sm-4">
                 <h4>Select Contribution</h4>
                 <!--  One of the Amounts should be pre-selected  -->
-                <button type="button" class="bg-light">$5</button>
-                <button type="button" class="bg-light" autofocus>$10</button>
-                <button type="button" class="bg-light">$15</button><br>
-                <button type="button" class="bg-light">$25</button>
-                <button type="button" class="bg-light">$50</button>
-                <button type="button" class="bg-light">$100</button><br>
+                <button type="button" class="bg-light" value="5">$5</button>
+                <button type="button" class="bg-light" value="10" autofocus>$10</button>
+                <button type="button" class="bg-light" value="15">$15</button><br>
+                <button type="button" class="bg-light" value="25">$25</button>
+                <button type="button" class="bg-light" value="50">$50</button>
+                <button type="button" class="bg-light" value="100">$100</button><br>
                 <!--  Provides User ability to specify amount to donate  -->
-                <button type="button" class="bg-light" id="other">
-                    Other
-                </button>
+                <input type="text" pattern="\d*" placeholder="Other" class="bg-light" id="other">
+
+                <script>
+                    // Save the value of selected button
+                    // Event Listener for button click
+                </script>
+
             </div>
 
         </div>
