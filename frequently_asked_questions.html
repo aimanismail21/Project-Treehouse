@@ -1,194 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
+    <title>Bootstrap Tutorial Sample Page</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Icons used on web page (Hamburger Menu) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/index.css">
-    <!--CDNs for Jquery, and bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!-- Gives the page its title -->
-    <title>Frequently Asked Questions</title>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
-
-
 <style>
-    .question {
-        background-color: powderblue;
-    }
-    .group {
-        border-color: powderblue;
-        border-width: 1px;
-        border-style: solid;
-        max-width: 900px;
-    }
-    .answer{
-        display: none;
-        border-color: powderblue;
-        background-color: lightcyan;
-    }
-    #q_a{
-        padding: 20px;
-    }
-    #qa_main{
-        position: relative;
-        left: 200px;
-    }
-
     .sidenav {
         height: 100%;
         width: 160px;
         position: fixed;
-        z-index: 1;
         top: 0;
         left: 0;
         background-color: #111;
         overflow-x: hidden;
         padding-top: 20px;
+        float: left;
+    }
+
+    #accordion{
+        float: right;
+        width: calc (100% + 200px);
     }
 </style>
 
-<!--Header Nav Top Right-->
-<header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
-
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="signup_homepage.html">Sign-Up</a>
-        <a href="#">Login</a>
-        <a href="frequently_asked_questions.html">FAQ</a>
-        <a href="donation.html">Donations</a>
-        <a href="#">Contact</a>
-    </div>
-
-    <!--The menu button that opens the nav bar-->
-    <div id="main">
-        <button class="openbtn" onclick="openNav()">&#9776;</button>
-    </div>
-
-</header>
 
 <body>
 
 
-    <!-- the left nav bar -->
-    <div class="sidenav">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#clients">Clients</a>
-        <a href="#contact">Contact</a>
+
+<!-- the left nav bar -->
+<div class="sidenav">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#clients">Clients</a>
+    <a href="#contact">Contact</a>
+</div>
+
+
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Collapsible Group Item #1
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+        </div>
     </div>
-
-
-
-    <div id="qa_main">
-    <section id="q_a">
-
-        <!--The heading-->
-        <h1>
-            Frequently Asked Questions
-        </h1>
-
-        <!-- Each div of class group is a question and answer pair
-        Onlick makes each group clickable to make the answer appear or disappear-->
-
-        <div>
-
-            <h5> Overview </h5>
-
-            <div class = "group" onclick = "make_visible('a1')">
-                <div class="question" id="q1">Question 1</div>
-                <div class="answer" id="a1">Answer 1</div>
-            </div> <br>
-
-            <div class = "group" onclick = "make_visible('a2')">
-                <div class="question" id="q2">Question 2</div>
-                <div class="answer" id="a2">Answer 2<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
-            </div> <br>
-
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Collapsible Group Item #2
+                </button>
+            </h5>
         </div>
-
-
-        <div>
-
-            <h5> Hosting </h5>
-
-            <div class = "group" onclick = "make_visible('a3')">
-                <div class="question" id="q3">Question 3</div>
-                <div class="answer" id="a3">Answer 3</div>
-            </div> <br>
-
-            <div class = "group" onclick = "make_visible('a4')">
-                <div class="question" id="q4">Question 4</div>
-                <div class="answer" id="a4">Answer 4</div>
-            </div> <br>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
         </div>
-
-
-        <div>
-
-            <h5> Donating </h5>
-
-            <div class = "group" onclick = "make_visible('a5')">
-                <div class="question" id="q5">Question 5</div>
-                <div class="answer" id="a5">Answer 5</div>
-            </div> <br>
-
-            <div class = "group" onclick = "make_visible('a6')">
-                <div class="question" id="q6">Question 6</div>
-                <div class="answer" id="a6">Answer 6</div>
-            </div> <br>
-
-        </div>
-
-
-        <div>
-
-            <h5> Other ways to help </h5>
-
-            <div class = "group" onclick = "make_visible('a7')">
-                <div class="question" id="q7">Question 5</div>
-                <div class="answer" id="a7">Answer 5</div>
-            </div> <br>
-
-            <div class = "group" onclick = "make_visible('a8')">
-                <div class="question" id="q8">Question 6</div>
-                <div class="answer" id="a8">Answer 6</div>
-            </div> <br>
-
-        </div>
-
-    </section>
     </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Collapsible Group Item #3
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+        </div>
+    </div>
+</div>
 
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 
-
-    <script>
+<script>
 
     /*  a function that changes to display to none if it is currently block, and to block if it is currently none */
     var make_visible = function make_visible(answer_id){
         let can_see = document.getElementById(answer_id);
         if (can_see.style.display === "block"){
-            can_see.style.display = "none"; 
+            can_see.style.display = "none";
         } else {
             can_see.style.display = "block";
         }
 
     }
 
-    </script>
+</script>
 
-    <footer>
-        <div class="col-sm-12" style="background-color: mediumspringgreen"></div>
-    </footer>
+<footer>
+    <div class="col-sm-12" style="background-color: mediumspringgreen"></div>
+</footer>
 
-    <script src="js/index.js"></script>
+<script src="js/index.js"></script>
+
+
 </html>
+
