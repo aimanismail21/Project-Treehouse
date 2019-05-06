@@ -46,7 +46,7 @@ function displayVolunteers(){
 
                     // set volunteer_listing info
                     var volunteer_info = document.createElement('div');
-                    volunteer_info.style = 'position: relative; left: 220px;';
+                    volunteer_info.style = 'position: relative; left: 220px;width: 100px';
                     volunteer_info.innerHTML ='<b>' + first_name + '<br>' + last_name + '<br>' + city + '<br>' + address + '<br>' +
                         phone_number + '<br>' + household_members + '<br>' + 'pets: ' + pets + '<br>' +
                         type_of_room + '<br>' + email + '</b>';
