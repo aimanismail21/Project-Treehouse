@@ -75,3 +75,14 @@ function set_room_availability(availability){
         document.getElementById('confirmation').innerHTML = 'Room set to Not Available'
     }
 }
+
+// submit house image to storage
+function submit_image() {
+    var fileButton = document.getElementById("fileButton");
+    var file = fileButton.files[0];
+    var new_file = new File([file], 'house_image', {
+        type: 'image/jpeg',
+    });
+    var storageRef = firebase.storage().ref('Uid2/' + new_file.name);
+    storageRef.put(new_file);
+}
