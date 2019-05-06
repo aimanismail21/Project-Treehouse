@@ -28,7 +28,7 @@
 </head>
 <body onload="displayVolunteers()">
 
-    <header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
+    <header class="col-sm-12" style="background-color: mediumspringgreen; padding: 5%;">
 
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -50,10 +50,12 @@
     <div class="container-fluid">
         <!--row with search form and volunteer list-->
         <div class="row">
+            <div class="col-sm-2">
+            </div>
             <!--column with search criteria-->
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <!--Search by criteria form-->
-                <b>Search by criteria</b> <br>
+                <b style="font-size: 2em">Search by criteria</b> <br>
 
                 <!--city dropdown selection-->
                 <label for="city">City: </label>
@@ -88,9 +90,8 @@
             <br>
 
             <!--Search by address form-->
-            <b>Or search by address</b>
-                <br>
-                <input type="text" id="address" value=""><br>
+                <label for="address">Or search by address</label>
+                <input style="width: 100%;" type="text" id="address" value=""><br>
                 <button value="submit" onclick="update_by_address()">Search</button>
                 <br>
                 <button value="submit" onclick ="displayVolunteers()">Reset</button>
@@ -102,16 +103,19 @@
             </div>
 
             <!--Volunteers list column-->
-            <div class="col-sm-8">
+            <div class="col-sm-5">
                 <div>
-                    <b>Volunteers List</b>
+                    <b style="font-size: 2em">Volunteers List</b>
                 </div>
                 <div id="volunteers">
 
                 </div>
             </div>
+
+            <div class="col-sm-2">
+
+            </div>
         </div>
     </div>
-
 </body>
 </html>
