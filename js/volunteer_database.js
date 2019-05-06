@@ -18,19 +18,47 @@ function displayVolunteers(){
                 let pets = snap.child("Pets").val();
                 let type_of_room = snap.child("TypeOfRoom").val();
                 let availability = snap.child("Availability").val();
+                let user_id = snap.key;
 
-                // create new volunteer listing element
-                let volunteer_listing = document.createElement("div");
-                volunteer_listing.setAttribute("class", "volunteer_info");
-                volunteer_listing.style.border = '2px solid black';
-                volunteer_listing.innerHTML = first_name +'<br>'+ last_name +'<br>' + city + '<br>' + address + '<br>' +
-                    phone_number + '<br>' + household_members + '<br>' + 'pets: ' + pets + '<br>' +
-                    type_of_room + '<br>' + availability + '<br>' + email + '<br>';
-                volunteer_listing.onclick = function() {
-                    // - go to volunteers profile
-                };
-                // append volunteer listing to volunteers list
-                document.getElementById('volunteers').appendChild(volunteer_listing);
+                // only display info if availability is set to open
+                if(availability === 'Open') {
+                    // create new volunteer listing element
+                    let volunteer_listing = document.createElement("div");
+                    // retrieve image of house from database and display with volunteer info
+                    var storageRef = firebase.storage().ref();
+                    storageRef.child(user_id + '/house_image').getDownloadURL().then(function (url) {
+                        var house_image = document.createElement('img');
+                        house_image.src = url;
+                        house_image.style = 'width: 196px; position: relative; top: -179px; left: 0px;';
+                        volunteer_listing.appendChild(house_image);
+
+                    }).catch(function (error) {
+
+                    });
+
+                    // set volunteer_listing
+                    volunteer_listing.setAttribute("class", "volunteer_info");
+                    volunteer_listing.style = 'height: 200px;';
+                    volunteer_listing.style.border = '2px solid black';
+                    volunteer_listing.onclick = function () {
+                        // - go to volunteers profile
+                    };
+
+                    // set volunteer_listing info
+                    var volunteer_info = document.createElement('div');
+                    volunteer_info.style = 'position: relative; left: 220px;';
+                    volunteer_info.innerHTML ='<b>' + first_name + '<br>' + last_name + '<br>' + city + '<br>' + address + '<br>' +
+                        phone_number + '<br>' + household_members + '<br>' + 'pets: ' + pets + '<br>' +
+                        type_of_room + '<br>' + email + '</b>';
+                    // append volunteer info to volunteer listing
+                    volunteer_listing.appendChild(volunteer_info);
+
+                    // append volunteer listing to volunteers list
+                    let linebreak = document.createElement('br');
+                    document.getElementById('volunteers').appendChild(volunteer_listing);
+                    document.getElementById('volunteers').appendChild(linebreak)
+
+                }
             });
 
         });
@@ -96,21 +124,47 @@ function update_by_criteria() {
                 let pets = snap.child("Pets").val();
                 let type_of_room = snap.child("TypeOfRoom").val();
                 let availability = snap.child("Availability").val();
+                let user_id = snap.key;
 
                 // display volunteers that fit criteria
-                if(city == city_selection && pets == pets_selection && household_members == family_selection) {
+                if(city == city_selection && pets == pets_selection
+                    && household_members == family_selection && availability == "Open") {
                     // create new volunteer listing element
                     let volunteer_listing = document.createElement("div");
+                    // retrieve image of house from database and display with volunteer info
+                    var storageRef = firebase.storage().ref();
+                    storageRef.child(user_id + '/house_image').getDownloadURL().then(function (url) {
+                        var house_image = document.createElement('img');
+                        house_image.src = url;
+                        house_image.style = 'width: 196px; position: relative; top: -179px; left: 0px;';
+                        volunteer_listing.appendChild(house_image);
+
+                    }).catch(function (error) {
+
+                    });
+
+                    // set volunteer_listing
                     volunteer_listing.setAttribute("class", "volunteer_info");
+                    volunteer_listing.style = 'height: 200px;';
                     volunteer_listing.style.border = '2px solid black';
-                    volunteer_listing.innerHTML = first_name + '<br>' + last_name + '<br>' + city + '<br>' + address + '<br>' +
-                        phone_number + '<br>' + household_members + '<br>' + 'pets: ' + pets + '<br>' +
-                        type_of_room + '<br>' + availability + '<br>' + email;
                     volunteer_listing.onclick = function () {
                         // - go to volunteers profile
                     };
+
+                    // set volunteer_listing info
+                    var volunteer_info = document.createElement('div');
+                    volunteer_info.style = 'position: relative; left: 220px;';
+                    volunteer_info.innerHTML ='<b>' + first_name + '<br>' + last_name + '<br>' + city + '<br>' + address + '<br>' +
+                        phone_number + '<br>' + household_members + '<br>' + 'pets: ' + pets + '<br>' +
+                        type_of_room + '<br>' + email + '</b>';
+                    // append volunteer info to volunteer listing
+                    volunteer_listing.appendChild(volunteer_info);
+
                     // append volunteer listing to volunteers list
-                    document.getElementById('volunteers').appendChild(volunteer_listing)
+                    let linebreak = document.createElement('br');
+                    document.getElementById('volunteers').appendChild(volunteer_listing);
+                    document.getElementById('volunteers').appendChild(linebreak)
+
                 }
             });
 
@@ -143,20 +197,44 @@ function update_by_address() {
                     let pets = snap.child("Pets").val();
                     let type_of_room = snap.child("TypeOfRoom").val();
                     let availability = snap.child("Availability").val();
+                    let user_id = snap.key;
 
                     // create new volunteer listing element
                     let volunteer_listing = document.createElement("div");
+                    // retrieve image of house from database and display with volunteer info
+                    var storageRef = firebase.storage().ref();
+                    storageRef.child(user_id + '/house_image').getDownloadURL().then(function (url) {
+                        var house_image = document.createElement('img');
+                        house_image.src = url;
+                        house_image.style = 'width: 196px; position: relative; top: -179px; left: 0px;';
+                        volunteer_listing.appendChild(house_image);
+
+                    }).catch(function (error) {
+
+                    });
+
+                    // set volunteer_listing
                     volunteer_listing.setAttribute("class", "volunteer_info");
+                    volunteer_listing.style = 'height: 200px;';
                     volunteer_listing.style.border = '2px solid black';
-                    volunteer_listing.innerHTML = first_name + '<br>' + last_name + '<br>' + city + '<br>' + address + '<br>' +
-                        phone_number + '<br>' + household_members + '<br>' + 'pets: ' + pets + '<br>' +
-                        type_of_room + '<br>' + availability + '<br>' + email + '<br>';
                     volunteer_listing.onclick = function () {
                         // - go to volunteers profile
                     };
 
+                    // set volunteer_listing info
+                    var volunteer_info = document.createElement('div');
+                    volunteer_info.style = 'position: relative; left: 220px;';
+                    volunteer_info.innerHTML ='<b>' + first_name + '<br>' + last_name + '<br>' + city + '<br>' + address + '<br>' +
+                        phone_number + '<br>' + household_members + '<br>' + 'pets: ' + pets + '<br>' +
+                        type_of_room + '<br>' + email + '</b>';
+                    // append volunteer info to volunteer listing
+                    volunteer_listing.appendChild(volunteer_info);
+
                     // append volunteer listing to volunteers list
+                    let linebreak = document.createElement('br');
                     document.getElementById('volunteers').appendChild(volunteer_listing);
+                    document.getElementById('volunteers').appendChild(linebreak)
+
                 }
             });
 
