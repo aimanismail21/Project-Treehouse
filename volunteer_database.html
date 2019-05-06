@@ -53,9 +53,11 @@
             <div class="col-sm-2">
             </div>
             <!--column with search criteria-->
-            <div class="col-sm-3">
+            <div id='searchform' class="col-sm-3">
                 <!--Search by criteria form-->
-                <b style="font-size: 2em">Search by criteria</b> <br>
+                <div>
+                    <b style="font-size: 2em"><u>Search criteria</u></b>
+                </div>
 
                 <!--city dropdown selection-->
                 <label for="city">City: </label>
@@ -84,16 +86,28 @@
                     <option>3</option>
                     <option>4+</option>
                 </select>
+                <br>
 
                 <button value="submit" onclick="update_by_criteria()">Search</button><br>
-
-            <br>
+                <br><br>
 
             <!--Search by address form-->
-                <label for="address">Or search by address</label>
-                <input style="width: 100%;" type="text" id="address" value=""><br>
+                <label for="address">Search by address</label>
+                <input style="width: 100%;" type="text" id="address" value=""><br><br>
+
                 <button value="submit" onclick="update_by_address()">Search</button>
+                <button value="submit" onclick ="displayVolunteers()">Reset</button>
                 <br>
+                <br>
+                <br>
+
+                <label>Search by name</label><br>
+                <label for="first_name">First Name</label>
+                <input style="width: 100%;" type="text" id="first_name" value=""><br>
+                <label for="last_name">Last Name</label>
+                <input style="width: 100%;" type="text" id="last_name" value=""><br><br>
+
+                <button value="submit" onclick="update_by_name()">Search</button>
                 <button value="submit" onclick ="displayVolunteers()">Reset</button>
                 <br>
                 <br>
@@ -105,7 +119,7 @@
             <!--Volunteers list column-->
             <div class="col-sm-5">
                 <div>
-                    <b style="font-size: 2em">Volunteers List</b>
+                    <b style="font-size: 2em"><u>Volunteers List</u></b>
                 </div>
                 <div id="volunteers">
 
