@@ -1,138 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Tutorial Sample Page</title>
+    <title>Frequent Asked Questions</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- All the links, both css and to bootstrap-->
+    <link rel = "stylesheet" type = "text/css" href = "./css/faq_page.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS and other information for the navigation bar -->
+        <!-- Custom fonts for this template-->
+        <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <!-- Custom styles for this template-->
+        <link href="css/profile_page.css" rel="stylesheet">
 </head>
-
-<style>
-    .sidenav {
-        height: 100%;
-        width: 160px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        padding-top: 20px;
-        float: left;
-    }
-
-    #accordion{
-        float: right;
-        width: calc (100% + 200px);
-    }
-</style>
-
 
 <body>
 
 
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
 
-<!-- the left nav bar -->
-<div class="sidenav">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#clients">Clients</a>
-    <a href="#contact">Contact</a>
-</div>
+        <a class="navbar-brand mr-auto p-2" href="#">
+            <img src="images/logo.png" width="100" height="100" class="d-inline-block float-right" alt="Logo">
+        </a>
+        <span class="text-light" style="margin: 5px;">BCIT: Project Treehouse </span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-
-<div id="accordion">
-
-
-    <div class="card">
-        <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Collapsible Group Item #1
-                </button>
-            </h5>
-        </div>
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Collapsible Group Item #2
-                </button>
-            </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
         </div>
     </div>
+</nav>
 
 
+<!-- the main part of the page -->
+<section class="accordion-section clearfix mt-3" aria-label="Question Accordions">
+    <div class="container">
+        <h2>Frequently Asked Questions </h2><br> <!-- The Main Heading -->
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-
-
-    <div class="card">
-        <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Collapsible Group Item #3
-                </button>
-            </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            <!-- One Q&A accordion -->
+            <div class="panel panel-default">
+                <!-- The Question and the clickable -->
+                <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+                    <h3 class="panel-title">
+                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse0" aria-expanded="true" aria-controls="collapse0">
+                            I want to help out, but I am unable to host somebody. What can I do?
+                        </a>
+                    </h3>
+                </div>
+                <!-- Answer, stays hidden unless clicked -->
+                <div id="collapse0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading0">
+                    <div class="panel-body px-3 mb-4">
+                        <p> There are many other things that you can do to help!</p>
+                        <ul>
+                            <li>Due to safety concerns and other restrictions, we are only able to accept monetary donation at this moment.</li>
+                            <li>Help us spread the word. Tell your friends, tell your co-workers, tell your family, tell everybody you know!</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+
+            <!-- One Q&A accordion -->
+            <div class="panel panel-default">
+                <!-- The Question and the clickable -->
+                <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+                    <h3 class="panel-title">
+                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                            Question #2
+                        </a>
+                    </h3>
+                </div>
+                <!-- Answer, stays hidden unless clicked -->
+                <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                    <div class="panel-body px-3 mb-4">
+                        <p>Answer #2</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- One Q&A accordion -->
+            <div class="panel panel-default">
+                <!-- The Question and the clickable -->
+                <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                    <h3 class="panel-title">
+                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                            Question #3
+                        </a>
+                    </h3>
+                </div>
+                <!-- Answer, stays hidden unless clicked -->
+                <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                    <div class="panel-body px-3 mb-4">
+                        <p>Answer #3</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- One Q&A accordion -->
+            <div class="panel panel-default">
+                <!-- The Question and the clickable -->
+                <div class="panel-heading p-3 mb-3" role="tab" id="heading3">
+                    <h3 class="panel-title">
+                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                            What inspired us?
+                        </a>
+                    </h3>
+                </div>
+                <!-- Answer, stays hidden unless clicked -->
+                <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+                    <div class="panel-body px-3 mb-4">
+                        <p>
+                            We were inspired by the large amount of Canadians who opened up their homes during the Syrian Refugee Crisis, as well as those who continue to do so.
+                            It made us realize that the community, as a housing resource, was not being used to its full potential.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- One Q&A accordion -->
+            <div class="panel panel-default">
+                <!-- The Question and the clickable -->
+                <div class="panel-heading p-3 mb-3" role="tab" id="heading4">
+                    <h3 class="panel-title">
+                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                            Question #5
+                        </a>
+                    </h3>
+                </div>
+                <!-- Answer, stays hidden unless clicked -->
+                <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+                    <div class="panel-body px-3 mb-4">
+                        <p>Answer #5</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+</section>
 
-
-
-    <div class="card">
-        <div class="card-header" id="headingFour">
-            <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    Collapsible Group Item Test
-                </button>
-            </h5>
-        </div>
-        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
+<!-- footer -->
+<footer class="fixed-bottom">
+    <div class="py-4 bg-dark text-white-50 text-center">
+        <small>Copyright &copy; Projet Treehouse</small>
     </div>
-
-
-
-</div>
-
-
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
-
-
-<footer>
-    <div class="col-sm-12" style="background-color: mediumspringgreen"></div>
 </footer>
 
-<script src="js/index.js"></script>
+</body>
 
+<!-- External Javascript -->
+
+<!-- Scroll to Top Button-->
+<script>// SideNav Button Initialization
+$(".button-collapse").sideNav();
+// SideNav Scrollbar Initialization
+var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+var ps = new PerfectScrollbar(sideNavScrollbar);</script>
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
 </html>
-
