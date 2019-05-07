@@ -29,7 +29,7 @@ function displayVolunteers(){
                     storageRef.child(user_id + '/house_image').getDownloadURL().then(function (url) {
                         var house_image = document.createElement('img');
                         house_image.src = url;
-                        house_image.style = 'width: 216px; position: relative; top: -212px; left: 0px;';
+                        house_image.style = 'width: 216px; position: relative; top: -216px; left: 0px;';
                         volunteer_listing.appendChild(house_image);
 
                     }).catch(function (error) {
@@ -38,7 +38,7 @@ function displayVolunteers(){
 
                     // set volunteer_listing
                     volunteer_listing.setAttribute("class", "volunteer_info");
-                    volunteer_listing.style = 'height: 220px;';
+                    volunteer_listing.style = 'height: 220px; overflow-y: hidden';
                     volunteer_listing.style.border = '2px solid black';
                     volunteer_listing.onclick = function () {
                         // - go to volunteers profile
@@ -46,11 +46,11 @@ function displayVolunteers(){
 
                     // set volunteer_listing info
                     var volunteer_info = document.createElement('div');
-                    volunteer_info.style = 'position: relative; left: 220px;width: 250px';
+                    volunteer_info.style = 'position: relative; left: 220px;width: 250px; font-size: 1em';
                     volunteer_info.innerHTML ='<b>First Name: ' + first_name + '<br>Last Name:' + last_name +
                         '<br>City: ' + city + '<br>Address: ' + address + '<br>Phone Number:' +
                         phone_number + '<br>Family Members:' + household_members + '<br>Pets:' + pets + '<br>RoomType: ' +
-                        type_of_room + '<br>Email: ' + email + '</b>';
+                        type_of_room + '<br>Email: ' + email;
                     // append volunteer info to volunteer listing
                     volunteer_listing.appendChild(volunteer_info);
 
