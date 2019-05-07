@@ -5392,6 +5392,12 @@ input[type="button"].btn-block {
     background-color: #e9ecef;
     border-radius: 0.25rem;
 }
+.brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;  /* 50% of your logo width */
+    display: block;
+}
 
 .breadcrumb-item + .breadcrumb-item {
     padding-left: 0.5rem;
@@ -6661,6 +6667,7 @@ a.close.disabled {
 
 .carousel {
     position: relative;
+
 }
 
 .carousel.pointer-event {
@@ -6681,6 +6688,13 @@ a.close.disabled {
 }
 
 .carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     position: relative;
     display: none;
     float: left;
@@ -11117,6 +11131,7 @@ a.text-dark:hover, a.text-dark:focus {
 
     .navbar {
         display: none;
+        position: relative;
     }
 
     .badge {
