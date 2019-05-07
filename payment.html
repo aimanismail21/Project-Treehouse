@@ -7,9 +7,7 @@
     <meta content="" name="description">
     <meta content="" name="author">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
-    <title>Donate</title>
+    <title>User Profile - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -91,69 +89,69 @@
                 <li class="breadcrumb-item">
                     <a href="./index.html">Home</a>
                 </li>
-                <li class="breadcrumb-item active">Donations</li>
+                <li class="breadcrumb-item">
+                    <a href="./donation.html">Donations</a>
+                </li>
+                <li class="breadcrumb-item active">Payment</li>
             </ol>
 
             <!-- Page Content -->
-            <h1 id="title">Donate Now</h1>
+            <h1>Payment</h1>
             <hr>
-            <!--  First Page, Select Donation Amount  -->
-            <div class="container col-sm-4" id="donation_amount">
-                <h4>Select Contribution</h4>
-                <!--  One of the Amounts should be pre-selected  -->
-
-                <select id="currency">
-                </select><br>
-                <input type="button" class="bg-light" value="5" name="five" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="10" name="ten" onclick="getAmount(this)" autofocus>
-                <input type="button" class="bg-light" value="15" name="fifteen" onclick="getAmount(this)"><br>
-                <input type="button" class="bg-light" value="25" name="twenty_five" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="50" name="fifty" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="100" name="hundred" onclick="getAmount(this)"><br>
-                <!--  Provides User ability to specify amount to donate  -->
-                <input type="text" pattern="\d*" placeholder="Other" class="bg-light" name="other" id="other" onchange="getAmount(this)">
-                <button class="bg-light" id="nextPage">Donate</button>
-
+            <!--  Payment Page, where user will select method of pay and input card details  -->
+            <div class="container col-sm-4">
+                <div class="payment-type">
+                    <h4>Select Method of Pay</h4>
+                    <!--  The following should be clickable buttons  -->
+                    <button>PayPal</button>
+                    <button>Credit Card</button>
+                </div>
+                <!--  Input fields should appear only after method is chosen above  -->
+<!--                <input type="text" pattern="\d*" placeholder="Input field for card info">-->
+                <!--  Confirm button will process payment and proceed to last page  -->
+<!--                <button type="submit">Confirm</button>-->
             </div>
-            <div class="container col-sm-4" id="payment"></div>
-            <script>
-                // Save the value of selected button
-                // Event Listener for button click
-                let amount = 10;
-                function getAmount(objButton){
-                    amount =objButton.value;
-                    console.log(amount);
-                }
-
-                // AJAX update page after clicking "Donate"
-                $('#nextPage').on('click', function(){
-                    $('#payment').load('./payment.html #payment-type');
-                    $('#donation_amount').hide();
-                    $('#title').html("Payment");
-                });
-
-                // Dynamically add currency selections with their exchange rates compared to CAD
-                let currencies = document.getElementById("currency");
-                $.getJSON('https://api.exchangeratesapi.io/latest?base=CAD', function(data) {
-                    let ratesObj = data.rates;
-                    console.log(ratesObj);
-                    for(let key in ratesObj){
-                        let option = document.createElement("option");
-                        option.value = ratesObj[key];
-                        option.innerHTML = key;
-                        if(key === "CAD"){
-                            option.selected = "selected";
-                        }
-                        currencies.appendChild(option);
-                    }
-                })
-
-
-            </script>
 
         </div>
         <!-- /.container-fluid -->
 
+        <section id="hidden">
+            <!--  First Page, Select Donation Amount  -->
+            <div class="container col-sm-4" style="display:none;">
+                <h4>Select Contribution</h4>
+                <!--  One of the Amounts should be pre-selected  -->
+                <form action="" method="post">
+                    <input type="button" class="bg-light" value="5">$5</input>
+                    <input type="button" class="bg-light" value="10" autofocus>$10</input>
+                    <input type="button" class="bg-light" value="15">$15</input><br>
+                    <input type="button" class="bg-light" value="25">$25</input>
+                    <input type="button" class="bg-light" value="50">$50</input>
+                    <input type="button" class="bg-light" value="100">$100</input><br>
+                    <!--  Provides User ability to specify amount to donate  -->
+                    <input type="text" pattern="\d*" placeholder="Other" class="bg-light" id="other">
+                    <input type="submit" class="bg-light">Donate</input>
+                </form>
+
+
+                <script>
+                    // Save the value of selected button
+                    // Event Listener for button click
+
+                </script>
+
+            </div>
+
+            <!--  Receipt Page, where users will be allowed to print or email it  -->
+            <div class="container col-sm-4" style="display: none">
+                <div class="message">Thank you for you Donation!</div>
+                <div class="receipt-report">
+                    <div>Receipt Info</div>
+                    <!--  Buttons to print or email receipt  -->
+                    <div>Print or Email</div>
+                </div>
+            </div>
+
+        </section>
 
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
@@ -196,13 +194,13 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="js/jquery/jquery.min.js"></script>
-<!--<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
 <script src="js/jquery-easing/jquery.easing.js"></script>
 
 <!-- Custom scripts for all pages-->
-<!--<script src="js/profile_page.min.js"></script>-->
+<script src="js/profile_page.min.js"></script>
 
 </body>
 </html>
