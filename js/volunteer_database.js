@@ -29,7 +29,7 @@ function displayVolunteers(){
                     storageRef.child(user_id + '/house_image').getDownloadURL().then(function (url) {
                         var house_image = document.createElement('img');
                         house_image.src = url;
-                        house_image.style = 'width: 216px; position: relative; top: -216px; left: 0px;';
+                        house_image.style = 'width: 216px; height: 216px; position: relative; top: -216px; left: 0px;';
                         volunteer_listing.appendChild(house_image);
 
                     }).catch(function (error) {
