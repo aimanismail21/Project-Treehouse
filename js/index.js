@@ -1,5 +1,6 @@
+// Side Bar
 (function($) {
-    "use strict"; // Start of use strict
+    "use strict";
 
     // Toggle the side navigation
     $("#sidebarToggle").on('click', function(e) {
@@ -36,5 +37,46 @@
         }, 1000, 'easeInOutExpo');
         event.preventDefault();
     });
+})(jQuery);
 
-})(jQuery); // End of use strict
+
+//Easter Egg Script
+var counter = 0;
+nyan_cat_attack = document.getElementById('easter_egg');
+nyan_cat_attack.addEventListener('click', function(){
+    counter += 1;
+    if(counter === 3) {
+        function image(src) {
+            this.im = document.createElement('img');
+            this.im.src = src;
+            document.body.appendChild(this.im);
+            this.im.style.position = 'absolute';
+            this.setTop = function (top) {
+                this.im.style.top = top
+            };
+            this.setRandomLocation = function () {
+                this.im.style.top = Math.random() * (window.innerHeight - 200);
+                this.im.style.left = Math.random() * (window.innerWidth - 200)
+            };
+
+            this.animate = function() {
+                setInterval(() => {
+                    $(this.im).animate({left: Math.random() * (window.innerWidth - 50),
+                        top: Math.random() * (window.innerHeight - 50),
+                        height: '150px',
+                    }, 'slow')
+                }, 800);
+
+            }
+        }
+        let imageArray = [];
+        for (i = 0; i < 1; i++) {
+            imageArray.push(new image('images/nyancat.gif'));
+            imageArray[i].animate()
+        }
+        var audio = new Audio ('sound/8_bit_NYAN.mp3');
+        audio.play();
+    }
+});
+
+
