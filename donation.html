@@ -130,6 +130,13 @@
                     $('#payment').load('./payment.html #payment-type');
                     $('#donation_amount').hide();
                     $('#title').html("Payment");
+                    let link = document.createElement("li");
+                    let olds = document.getElementsByClassName("breadcrumb-item");
+                    olds[1].innerHTML = "<a href='./donation.html'>Donations</a>";
+                    link.className = "breadcrumb-item active";
+                    link.innerHTML = "Payment";
+                    let bread = $('.breadcrumb');
+                    bread[0].appendChild(link);
                 });
 
                 // Dynamically add currency selections with their exchange rates compared to CAD
