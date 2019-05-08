@@ -19,15 +19,11 @@
 
     <title>Donations</title>
     <style>
-        .bg-light {
-            padding: 5% 0;
-            float: left;
-            width: 33.33%;
-            height: auto;
-            margin: 0;
-            text-align: center;
-        }
         #other {
+            width: 100%;
+        }
+        #nextPage {
+            margin-top: 10%;
             width: 100%;
         }
     </style>
@@ -112,22 +108,32 @@
                 <input type="button" class="bg-light" value="100" name="hundred" onclick="getAmount(this)"><br>
                 <!--  Provides User ability to specify amount to donate  -->
                 <input type="text" pattern="\d*" placeholder="Other" class="bg-light" name="other" id="other" onchange="getAmount(this)">
-                <button class="bg-light" id="nextPage">Donate</button>
+                <button class="bg-info" id="nextPage">Donate</button>
+
+
 
             </div>
-            <div class="container col-sm-4" id="payment"></div>
+            <div class="container col-sm-4" id="payment" style="display:none">
+                <div class="payment-type">
+                    <h4>Select Method of Pay</h4>
+                    <!--  The following are placeholders for Payment API  -->
+                    <p id="place_amount">Donating: N/A</p>
+                    <p id="selected_currency">Currency: N/A</p>
+                    <button>PayPal</button>
+                    <button>Credit Card</button>
+                </div>
+            </div>
             <script>
                 // Save the value of selected button
                 // Event Listener for button click
                 let amount = 10;
                 function getAmount(objButton){
-                    amount =objButton.value;
+                    amount = objButton.value;
                     console.log(amount);
                 }
 
-                // AJAX update page after clicking "Donate"
+                // Update page after clicking "Donate"
                 $('#nextPage').on('click', function(){
-                    $('#payment').load('./payment.html #payment-type');
                     $('#donation_amount').hide();
                     $('#title').html("Payment");
                     let link = document.createElement("li");
@@ -137,10 +143,15 @@
                     link.innerHTML = "Payment";
                     let bread = $('.breadcrumb');
                     bread[0].appendChild(link);
+                    $('#payment').show();
+                    $('#place_amount').html("Donating: " + amount);
+                    $('#selected_currency').html("Currency: " + selected_currency);
+                    console.log(amount);
                 });
 
                 // Dynamically add currency selections with their exchange rates compared to CAD
                 let currencies = document.getElementById("currency");
+                let selected_currency = "CAD";
                 $.getJSON('https://api.exchangeratesapi.io/latest?base=CAD', function(data) {
                     let ratesObj = data.rates;
                     console.log(ratesObj);
@@ -148,12 +159,33 @@
                         let option = document.createElement("option");
                         option.value = ratesObj[key];
                         option.innerHTML = key;
+                        option.label = key;
                         if(key === "CAD"){
-                            option.selected = "selected";
+                            option.selected = true;
                         }
                         currencies.appendChild(option);
                     }
-                })
+                });
+
+                // Update donation amount according to currency
+                currencies.addEventListener('change', function(){
+                    for(let i = 0; i < 6; i++){
+                        let amounts = [5, 10, 15, 25, 50, 100];
+                        $('.bg-light')[i].value = Math.round(amounts[i]*this.value);
+                        console.log($('.bg-light')[i].value);
+                    }
+                    let options = this.children;
+                    for(let i in options){
+                        if(options[i].selected){
+                            selected_currency = options[i].label;
+                            console.log(selected_currency);
+                        }
+                    }
+                    amount = Math.round(10*this.value);
+                    console.log(this.value);
+                }, false);
+                // let options = document.getElementsByTagName('option');
+
 
 
             </script>
