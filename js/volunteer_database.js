@@ -19,6 +19,18 @@ function displayVolunteers(){
                 let type_of_room = snap.child("TypeOfRoom").val();
                 let availability = snap.child("Availability").val();
                 let user_id = snap.key;
+                let is_social_worker = snap.child('IsSocialWorker').val();
+                let is_volunteer = snap.child('IsVolunteer').val();
+
+                // only show elements for social workers / volunteers that they should be able to see
+                if(is_social_worker){
+                    document.getElementById('guest_room').style.display = 'none';
+                    document.getElementById('query_menu').style.display = 'block';
+                }
+                if(is_volunteer){
+                    document.getElementById('query_menu').style.display = 'none';
+                    document.getElementById('guest_room').style.display = 'block';
+                }
 
                 // only display info if availability is set to open
                 if(availability === 'Open') {

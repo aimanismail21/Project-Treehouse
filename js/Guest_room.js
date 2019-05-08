@@ -1,7 +1,6 @@
 // takes all database profile data to display on profile page
 var uid = null;
 var displayName = null;
-
 // initialize page elements
 initApp = function () {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -19,7 +18,18 @@ initApp = function () {
                 document.getElementById("roomtype").value = snapshot.child('TypeOfRoom').val();
                 document.getElementById("address").value = snapshot.child('Address').val();
                 document.getElementById("phone_number").value = snapshot.child('PhoneNumber').val();
+                let is_social_worker = snapshot.child('IsSocialWorker').val();
+                let is_volunteer = snapshot.child('IsVolunteer').val();
 
+                // only show elements for social workers / volunteers that they should be able to see
+                if(is_social_worker){
+                    document.getElementById('guest_room').style.display = 'none';
+                    document.getElementById('query_menu').style.display = 'block';
+                }
+                if(is_volunteer){
+                    document.getElementById('query_menu').style.display = 'none';
+                    document.getElementById('guest_room').style.display = 'block';
+                }
             });
 
         } else {
