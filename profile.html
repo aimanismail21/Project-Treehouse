@@ -17,6 +17,13 @@
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
 
+    <!--initialize firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+    <script src="js/firebase_setup.js"></script>
+
+    <script src="js/profile_page.js"></script>
+    <script src="js/profile_logout.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -90,9 +97,115 @@
             </ol>
 
             <!-- Page Content -->
-            <h1>Profile Page</h1>
-            <hr>
-            <p>Put in releveant profile information</p>
+            <div class="row" id="header">
+                <div class="col-md-12">
+                    <div>
+                        <b style="font-size: 30px;">Profile Settings</b> <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div id="profile_picture" style="width:256px;height:256px">
+                        <img id='profile_image' style="width:256px;height:256px" src="" alt="No profile picture">
+                    </div>
+                    <div id="filesubmit">
+                        <label for="fileButton">Upload a profile picture</label><br>
+                        <input type="file" id="fileButton" class="file-select" accept="image/*"/>
+                        <button class="file-submit" onclick="submit_profile_image()">SUBMIT</button>
+                    </div>
+                </div>
+
+                <!--Search by criteria form-->
+                <div class="col-md-4">
+                    <!--First name-->
+                    <label for="first_name">First Name:</label><br>
+                    <input style="width: 100%;" type="text" id="first_name" value=""><br>
+
+                    <!--Last name-->
+                    <label for="last_name">Last Name:</label><br>
+                    <input style="width: 100%;" type="text" id="last_name" value=""><br>
+
+                    <!--city dropdown selection-->
+                    <label for="city">City: </label>
+                    <select class="form-control" id="city">
+                        <option></option>
+                        <option>Vancouver</option>
+                        <option>Burnaby</option>
+                        <option>Surrey</option>
+                        <option>Richmond</option>
+                    </select>
+
+                    <!--pets dropdown selection-->
+                    <label for="pets">Pets: </label>
+                    <select class="form-control" id="pets">
+                        <option></option>
+                        <option>yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <!--Address-->
+                    <label for="address">Address:</label><br>
+                    <input style="width: 100%;" type="text" id="address" value=""><br>
+
+                    <!--Phone Number: -->
+                    <label for="phone_number">Phone Number:</label><br>
+                    <input style="width: 100%;" type="text" id="phone_number" value=""><br>
+
+                    <!--city dropdown selection-->
+                    <label for="family">Family: </label>
+                    <select class="form-control" id="family">
+                        <option></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4+</option>
+                    </select>
+
+                    <!--type of room dropdown selection-->
+                    <label for="roomtype">Room Type: </label>
+                    <select class="form-control" id="roomtype">
+                        <option></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4+</option>
+                    </select>
+                </div>
+
+                <div class="col-md-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+
+                <div class="col-md-4">
+                    <button class="btn btn-default" style="width: 100%" value="submit" onclick="update_profile_info()">Update info</button><br>
+                </div>
+
+                <div class="col-md-4">
+                    <button class="btn btn-default" style="width: 100%" value="submit" onclick="reset_profile_info()">Reset info</button>
+                </div>
+            </div>
+
+                <button onclick="mainApp.logOut()">Log out</button>
+
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-8">
+                    <div class = "text-center">
+                        <br>
+                        <b id="confirmation" style="font-size: 25px;"></b> <br>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <!-- /.container-fluid -->
