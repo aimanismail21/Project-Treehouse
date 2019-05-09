@@ -74,10 +74,7 @@ function update_profile_info() {
         FirstName: first_name,
         LastName: last_name,
         Address: address,
-        HouseHoldMembers: family,
-        Pets: pets,
         PhoneNumber: phone_number,
-        TypeOfRoom: room_type,
         City: city
     });
     document.getElementById('confirmation').innerHTML = 'info has been written'
