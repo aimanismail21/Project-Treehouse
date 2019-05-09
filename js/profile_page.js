@@ -97,6 +97,7 @@ window.addEventListener('load', function () {
 })(jQuery); // End of use strict
 
 
+
 // submit profile image to storage
 function submit_profile_image() {
   var fileButton = document.getElementById("fileButton");
@@ -140,3 +141,4 @@ function reset_profile_info(){
   initApp();
   document.getElementById('confirmation').innerHTML = 'info has been reset';
 }
+
