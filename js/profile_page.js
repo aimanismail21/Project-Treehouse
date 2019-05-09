@@ -97,9 +97,6 @@ function initialize_info(snapshot) {
     document.getElementById("first_name").value = snapshot.child('FirstName').val();
     document.getElementById("last_name").value = snapshot.child('LastName').val();
     document.getElementById("city").value = snapshot.child('City').val();
-    document.getElementById("pets").value = snapshot.child('Pets').val();
-    document.getElementById("family").value = snapshot.child('HouseHoldMembers').val();
-    document.getElementById("roomtype").value = snapshot.child('TypeOfRoom').val();
     document.getElementById("address").value = snapshot.child('Address').val();
     document.getElementById("phone_number").value = snapshot.child('PhoneNumber').val();
 }
@@ -119,6 +116,23 @@ function initialize_elements(snapshot) {
         document.getElementById('query_menu').style.display = 'none';
         document.getElementById('guest_room').style.display = 'block';
     }
+}
+
+function set_user_type(type) {
+
+    if (type === 'volunteer') {
+        is_volunteer = true;
+        is_social_worker = false;
+    } else if (type === 'social_worker') {
+        is_volunteer = false;
+        is_social_worker = true;
+    }
+    
+    let dbref = firebase.database().ref("Users/" + uid);
+    dbref.update({
+        IsSocialWorker: is_social_worker,
+        IsVolunteer: is_volunteer
+    });
 }
 
 
