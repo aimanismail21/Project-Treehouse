@@ -62,9 +62,6 @@ function submit_profile_image() {
 // update info of volunteer in database
 function update_profile_info() {
     let city = document.getElementById("city").value;
-    let pets = document.getElementById("pets").value;
-    let family = document.getElementById("family").value;
-    let room_type = document.getElementById("roomtype").value;
     let first_name = document.getElementById("first_name").value;
     let last_name = document.getElementById("last_name").value;
     let address = document.getElementById("address").value;
