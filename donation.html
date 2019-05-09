@@ -227,6 +227,7 @@
                     link.innerHTML = "Payment";
                     let bread = $('.breadcrumb');
                     bread[0].appendChild(link);
+                    default_amount.value = amount;
                     $('#payment').show();
                     $('#place_amount').html("Donating: " + amount);
                     $('#selected_currency').html("Currency: " + selected_currency);
@@ -270,8 +271,8 @@
                 }, false);
 
                 let default_amount = document.getElementById("amount");
-                default_amount.value = amount;
-                Stripe.setPublishableKey( /* TODO: add your stripe publishable key */ );
+
+                Stripe.setPublishableKey("pk_test_T8PiFwZj8C2M3x0SzvZ8ohVe00mE6oIvRZ");
                 var firebaseUI = new firebaseui.auth.AuthUI(firebase.auth());
                 var firebaseAuthOptions = {
                     callbacks: {
