@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Volunteers</title>
+
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>Query Menu</title>
 
     <!--volunteer database stylesheet-->
     <link rel="stylesheet" href="css/volunteer_database.css">
@@ -13,7 +19,6 @@
     <link rel="stylesheet" href="css/index.css">
 
     <!--bootstrap scripts-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
@@ -25,107 +30,211 @@
     <script src="js/volunteer_database.js"></script>
     <script src="js/index.js"></script>
 
+    <!-- Custom fonts for this template-->
+    <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="css/profile_page.css" rel="stylesheet">
+
 </head>
-<body onload="displayVolunteers()">
 
-    <header class="col-sm-12" style="background-color: mediumspringgreen; padding: 5%;">
+<body onload="displayVolunteers()" id="page-top">
 
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
-            <a href="retired_homepage.html">Sign-Up</a>
-            <a href="#">Login</a>
-            <a href="frequently_asked_questions.html">FAQ</a>
-            <a href="donation.html">Donations</a>
-            <a href="#">Contact</a>
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="profile.html"></a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" href="#" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+</nav>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="profile.html">
+                <i class="fas fa-user-circle fa-fw"></i>
+                <span>Profile</span>
+            </a>
+
+            <a id="query_menu" class="nav-link" style="display: none" href="volunteer_database.html">
+                <i class="fas fa-database fa-fw"></i>
+                <span>Query Menu</span>
+            </a>
+
+            <a id="guest_room" class="nav-link" style="display: none" href="Guest_room.html">
+                <i class="fas fa-house-damage fa-fw"></i>
+                <span>Guest Room Menu</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Tools</span>
+            </a>
+            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
+                <h6 class="dropdown-header">Options:</h6>
+                <a class="dropdown-item active" href="querymenu.html">Search & Query Menu</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Account Options</span>
+            </a>
+            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
+
+                <h6 class="dropdown-header">Login Screens:</h6>
+                <a class="dropdown-item" href="login.html">Login</a>
+                <a class="dropdown-item" href="register.html">Register</a>
+                <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+            </div>
+        </li>
+
+    </ul>
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Account</a>
+                </li>
+                <li class="breadcrumb-item active">Profile</li>
+            </ol>
+
+            <!-- Page Content -->
+            <!--row with search form and volunteer list-->
+            <div class="row">
+                <!--column with search criteria-->
+                <div id='searchform' class="col-sm-5">
+                    <!--Search by criteria form-->
+                    <div>
+                        <b style="font-size: 1.5em"><u>Search criteria</u></b>
+                    </div>
+
+                    <!--city dropdown selection-->
+                    <label for="city">City: </label>
+                    <select class="form-control" id="city">
+                        <option></option>
+                        <option>Vancouver</option>
+                        <option>Burnaby</option>
+                        <option>Surrey</option>
+                        <option>Richmond</option>
+                    </select>
+
+                    <!--pets dropdown selection-->
+                    <label for="pets">Pets: </label>
+                    <select class="form-control" id="pets">
+                        <option></option>
+                        <option>yes</option>
+                        <option>No</option>
+                    </select>
+
+                    <!--city dropdown selection-->
+                    <label for="family">Family: </label>
+                    <select class="form-control" id="family">
+                        <option></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4+</option>
+                    </select>
+                    <br>
+
+                    <button value="submit" onclick="update_by_criteria()">Search</button><br>
+                    <br><br>
+
+                    <!--Search by address form-->
+                    <label for="address">Search by address</label>
+                    <input style="width: 100%;" type="text" id="address" value=""><br><br>
+
+                    <button value="submit" onclick="update_by_address()">Search</button>
+                    <button value="submit" onclick ="displayVolunteers()">Reset</button>
+                    <br>
+                    <br>
+
+                    <label>Search by name</label><br>
+                    <label for="first_name">First Name</label>
+                    <input style="width: 100%;" type="text" id="first_name" value=""><br>
+                    <label for="last_name">Last Name</label>
+                    <input style="width: 100%;" type="text" id="last_name" value=""><br><br>
+
+                    <button value="submit" onclick="update_by_name()">Search</button>
+                    <button value="submit" onclick ="displayVolunteers()">Reset</button>
+                    <br>
+                    <br>
+                    <div id="go_back">
+                        <button>go back to menu</button>
+                    </div>
+                </div>
+
+                <!--Volunteers list column-->
+                <div class="col-sm-7">
+                    <div>
+                        <b style="font-size: 1.5em"><u>Volunteers List</u></b>
+                    </div>
+                    <div id="volunteers">
+
+                    </div>
+                </div>
+
         </div>
+        <!-- /.container-fluid -->
 
-    </header>
-
-    <!--Menu to list volunteers and search the volunteer list by criteria or address-->
-    <div class="container-fluid">
-        <!--row with search form and volunteer list-->
-        <div class="row">
-            <div class="col-sm-2">
-            </div>
-            <!--column with search criteria-->
-            <div id='searchform' class="col-sm-3">
-                <!--Search by criteria form-->
-                <div>
-                    <b style="font-size: 2em"><u>Search criteria</u></b>
-                </div>
-
-                <!--city dropdown selection-->
-                <label for="city">City: </label>
-                <select class="form-control" id="city">
-                    <option></option>
-                    <option>Vancouver</option>
-                    <option>Burnaby</option>
-                    <option>Surrey</option>
-                    <option>Richmond</option>
-                </select>
-
-                <!--pets dropdown selection-->
-                <label for="pets">Pets: </label>
-                <select class="form-control" id="pets">
-                    <option></option>
-                    <option>yes</option>
-                    <option>No</option>
-                </select>
-
-                <!--city dropdown selection-->
-                <label for="family">Family: </label>
-                <select class="form-control" id="family">
-                    <option></option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4+</option>
-                </select>
-                <br>
-
-                <button value="submit" onclick="update_by_criteria()">Search</button><br>
-                <br><br>
-
-            <!--Search by address form-->
-                <label for="address">Search by address</label>
-                <input style="width: 100%;" type="text" id="address" value=""><br><br>
-
-                <button value="submit" onclick="update_by_address()">Search</button>
-                <button value="submit" onclick ="displayVolunteers()">Reset</button>
-                <br>
-                <br>
-                <br>
-
-                <label>Search by name</label><br>
-                <label for="first_name">First Name</label>
-                <input style="width: 100%;" type="text" id="first_name" value=""><br>
-                <label for="last_name">Last Name</label>
-                <input style="width: 100%;" type="text" id="last_name" value=""><br><br>
-
-                <button value="submit" onclick="update_by_name()">Search</button>
-                <button value="submit" onclick ="displayVolunteers()">Reset</button>
-                <br>
-                <br>
-                <div id="go_back">
-                    <button>go back to menu</button>
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © Project Treehouse 2019</span>
                 </div>
             </div>
+        </footer>
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
 
-            <!--Volunteers list column-->
-            <div class="col-sm-5">
-                <div>
-                    <b style="font-size: 2em"><u>Volunteers List</u></b>
-                </div>
-                <div id="volunteers">
+</div>
+<!-- /#wrapper -->
 
-                </div>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="logoutModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
-
-            <div class="col-sm-2">
-
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="js/jquery-easing/jquery.easing.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/profile_page.min.js"></script>
 </body>
+
 </html>

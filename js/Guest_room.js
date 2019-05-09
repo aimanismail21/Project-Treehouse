@@ -1,12 +1,48 @@
 // takes all database profile data to display on profile page
 var uid = null;
-var name = null;
-var user = firebase.auth().currentUser;
+var displayName = null;
+// initialize page elements
+initApp = function () {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            displayName = user.displayName;
+            uid = user.uid;
+            let dbref = firebase.database().ref("Volunteers/"+uid);
+            dbref.on('value', (snapshot) => {
+                document.getElementById("first_name").value = snapshot.child('FirstName').val();
+                document.getElementById("last_name").value = snapshot.child('LastName').val();
+                document.getElementById("city").value = snapshot.child('City').val();
+                document.getElementById("pets").value = snapshot.child('Pets').val();
+                document.getElementById("family").value = snapshot.child('HouseHoldMembers').val();
+                document.getElementById("roomtype").value = snapshot.child('TypeOfRoom').val();
+                document.getElementById("address").value = snapshot.child('Address').val();
+                document.getElementById("phone_number").value = snapshot.child('PhoneNumber').val();
+                let is_social_worker = snapshot.child('IsSocialWorker').val();
+                let is_volunteer = snapshot.child('IsVolunteer').val();
 
-if (user != null) {
-    name = user.displayName;
-    uid = user.uid;
-}
+                // only show elements for social workers / volunteers that they should be able to see
+                if(is_social_worker){
+                    document.getElementById('guest_room').style.display = 'none';
+                    document.getElementById('query_menu').style.display = 'block';
+                }
+                if(is_volunteer){
+                    document.getElementById('query_menu').style.display = 'none';
+                    document.getElementById('guest_room').style.display = 'block';
+                }
+            });
+
+        } else {
+
+        }
+    }, function (error) {
+        console.log(error);
+    });
+};
+
+window.addEventListener('load', function () {
+    initApp()
+});
 
 // update info of volunteer guest room in database
 function update_info(){
@@ -20,7 +56,7 @@ function update_info(){
     let phone_number = document.getElementById("phone_number").value;
 
     // change Uid2 to uid that is taken from logged in user
-    let dbref = firebase.database().ref("Volunteers/"+"Uid2");
+    let dbref = firebase.database().ref("Volunteers/"+uid);
     dbref.update({
         FirstName: first_name,
         LastName: last_name,
@@ -36,29 +72,13 @@ function update_info(){
 
 // resets into to what is currently in the database
 function reset_info(){
-    initialize_page();
+    initApp();
     document.getElementById('confirmation').innerHTML = 'info has been reset';
-}
-
-// initialized all input sections to what is currently in the database
-function initialize_page(){
-    let dbref = firebase.database().ref("Volunteers/"+"Uid2");
-    dbref.on('value', (snapshot) => {
-        document.getElementById("first_name").value = snapshot.child('FirstName').val();
-        document.getElementById("last_name").value = snapshot.child('LastName').val();
-        document.getElementById("city").value = snapshot.child('City').val();
-        document.getElementById("pets").value = snapshot.child('Pets').val();
-        document.getElementById("family").value = snapshot.child('HouseHoldMembers').val();
-        document.getElementById("roomtype").value = snapshot.child('TypeOfRoom').val();
-        document.getElementById("address").value = snapshot.child('Address').val();
-        document.getElementById("phone_number").value = snapshot.child('PhoneNumber').val();
-
-    });
 }
 
 // sets room availability in database given no or yes
 function set_room_availability(availability){
-    let dbref = firebase.database().ref("Volunteers/"+"Uid2");
+    let dbref = firebase.database().ref("Volunteers/" + uid);
     
     // if availability = yes then availability is set to open in database
     if(availability === 'yes'){
@@ -83,6 +103,6 @@ function submit_image() {
     var new_file = new File([file], 'house_image', {
         type: 'image/jpeg',
     });
-    var storageRef = firebase.storage().ref('Uid2/' + new_file.name);
+    var storageRef = firebase.storage().ref(uid + '/' + new_file.name);
     storageRef.put(new_file);
 }
