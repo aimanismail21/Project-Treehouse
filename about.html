@@ -1,44 +1,203 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Icons used on web page (Hamburger Menu) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/index.css">
-    <!--CDNs for Jquery, and bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>Project Treehouse</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template-->
+    <link href="css/profile_page.css" rel="stylesheet">
+
 </head>
-<body>
-<!--Header Nav Top Right-->
-<header class="col-sm-12 col-lg-12 col-md-12" style="background-color: mediumspringgreen; padding: 5%;">
 
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="retired_homepage.html">Sign-Up</a>
-        <a href="#">Login</a>
-        <a href="frequently_asked_questions.html">FAQ</a>
-        <a href="donation.html">Donations</a>
-        <a href="#">Contact</a>
+<body id="page-top">
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+
+        <a class="navbar-brand mr-auto p-2" href="#">
+            <img src="images/logo.png" width="100" height="100" class="d-inline-block float-right" alt="Logo">
+
+        </a>
+        <span class="text-light" style="margin: 5px;">About Project Treehouse</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="frequently_asked_questions.html">Frequently Asked Questions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signup_volunteer.html">Login & Sign-up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="donation.html">Contribution</a>
+                </li>
+            </ul>
+        </div>
     </div>
+</nav>
 
-    <!--The menu button that opens the nav bar-->
-    <div id="main">
-        <button class="openbtn" onclick="openNav()">&#9776;</button>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('images/IMG_20190501_135933.jpg');">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('images/VID_20190426_151333.jpg')">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('images/image0.jpg')">
+            <div class="carousel-caption">
+            </div>
+        </div>
     </div>
-</header>
-<!--Body-->
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
 
+<!-- Page Content -->
+<section class="py-12" id="page-content-wrapper">
 
+    <div class="container-fluid">
 
-<footer>
-    <div class="col-sm-12" style="background-color: mediumspringgreen"></div>
+        <!-- Page Content -->
+        <section class="py-5">
+            <div class="jumbotron">
+                <h1 class="display-7">The Team at Project Treehouse</h1>
+                <p class="lead">Our team members who made this project possible.</p>
+                <hr class="my-4">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Placedholder</h5>
+                                <p class="card-text">Placedholder</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Placedholder</h5>
+                                <p class="card-text">Placedholder</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 py-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Placedholder</h5>
+                                <p class="card-text">Placedholder</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 py-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Placedholder</h5>
+                                <p class="card-text">Placedholder</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 py-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Placedholder</h5>
+                                <p class="card-text">Placedholder</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+<footer class="">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"> <a class="nav-link" href="#">Contact Us</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Affiliates</a></li>
+            </ul>
+            <form class="form-inline my-2 my-md-0"> </form>
+        </div>
+
+        <small class="text-white">Copyright &copy; Projet Treehouse</small>
+    </nav>
+
 </footer>
 
+
+
+<!-- Scroll to Top Button-->
+<script>// SideNav Button Initialization
+$(".button-collapse").sideNav();
+// SideNav Scrollbar Initialization
+var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+var ps = new PerfectScrollbar(sideNavScrollbar);</script>
+<a class="scroll-to-top rounded" href="#page-top" id="easter_egg">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="js/jquery-easing/jquery.easing.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/profile_page.min.js"></script>
 <script src="js/index.js"></script>
+
+
+
 </body>
+
 </html>

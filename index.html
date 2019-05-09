@@ -27,6 +27,7 @@
 
         <a class="navbar-brand mr-auto p-2" href="#">
             <img src="images/logo.png" width="100" height="100" class="d-inline-block float-right" alt="Logo">
+
         </a>
         <span class="text-light" style="margin: 5px;">BCIT: Project Treehouse </span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,16 +42,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">About</a>
+                    <a class="nav-link" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="profile.html">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="frequently_asked_questions.html">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="frequently_asked_questions.html">Frequently Asked Questions</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="signup_volunteer.html">Login & Sign-up</a>
@@ -66,6 +64,7 @@
 
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -108,8 +107,10 @@
 
 
 <!-- Page Content -->
-<section class="py-12">
-    <div class="container">
+<section class="py-12" id="page-content-wrapper">
+
+    <div class="container-fluid">
+
         <!-- Page Content -->
         <section class="py-5">
             <div class="jumbotron">
@@ -143,10 +144,21 @@
     </div>
 </section>
 
-<footer class="fixed-bottom">
-    <div class="py-4 bg-dark text-white-50 text-center">
-        <small>Copyright &copy; Projet Treehouse</small>
-    </div>
+
+<footer class="">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"> <a class="nav-link" href="#">Contact Us</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Affiliates</a></li>
+            </ul>
+            <form class="form-inline my-2 my-md-0"> </form>
+        </div>
+
+        <small class="text-white">Copyright &copy; Projet Treehouse</small>
+    </nav>
+
 </footer>
 
 
@@ -157,7 +169,7 @@
     // SideNav Scrollbar Initialization
     var sideNavScrollbar = document.querySelector('.custom-scrollbar');
     var ps = new PerfectScrollbar(sideNavScrollbar);</script>
-<a class="scroll-to-top rounded" href="#page-top">
+<a class="scroll-to-top rounded" href="#page-top" id="easter_egg">
     <i class="fas fa-angle-up"></i>
 </a>
 

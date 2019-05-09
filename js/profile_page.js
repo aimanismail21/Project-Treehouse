@@ -45,6 +45,7 @@ window.addEventListener('load', function () {
 });
 
 
+
 // submit profile image to storage
 function submit_profile_image() {
     var fileButton = document.getElementById("fileButton");
@@ -176,3 +177,9 @@ function set_user_type(type) {
     });
 
 })(jQuery); // End of use strict
+
+function reset_profile_info(){
+  initApp();
+  document.getElementById('confirmation').innerHTML = 'info has been reset';
+}
+
