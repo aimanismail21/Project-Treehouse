@@ -81,7 +81,12 @@
                 <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
             </div>
         </li>
-
+        <li class="nav-item">
+            <a class="nav-link" onclick="mainApp.logOut()">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Log Out</span>
+            </a>
+        </li>
     </ul>
 
     <div id="content-wrapper">
@@ -194,8 +199,6 @@
                     <button class="btn btn-default" style="width: 100%" value="submit" onclick="reset_profile_info()">Reset info</button>
                 </div>
             </div>
-
-                <button onclick="mainApp.logOut()">Log out</button>
 
             <div class="row">
                 <div class="col-md-3"></div>
