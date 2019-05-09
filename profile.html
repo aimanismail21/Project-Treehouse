@@ -136,6 +136,14 @@
                     <label for="last_name">Last Name:</label><br>
                     <input style="width: 100%;" type="text" id="last_name" value=""><br>
 
+                    <!--Phone Number: -->
+                    <label for="phone_number">Phone Number:</label><br>
+                    <input style="width: 100%;" type="text" id="phone_number" value=""><br>
+
+                    <!--Address-->
+                    <label for="address">Address:</label><br>
+                    <input style="width: 100%;" type="text" id="address" value=""><br>
+
                     <!--city dropdown selection-->
                     <label for="city">City: </label>
                     <select class="form-control" id="city">
@@ -146,60 +154,30 @@
                         <option>Richmond</option>
                     </select>
 
-                    <!--pets dropdown selection-->
-                    <label for="pets">Pets: </label>
-                    <select class="form-control" id="pets">
-                        <option></option>
-                        <option>yes</option>
-                        <option>No</option>
-                    </select>
                 </div>
 
                 <div class="col-md-4">
-                    <!--Address-->
-                    <label for="address">Address:</label><br>
-                    <input style="width: 100%;" type="text" id="address" value=""><br>
-
-                    <!--Phone Number: -->
-                    <label for="phone_number">Phone Number:</label><br>
-                    <input style="width: 100%;" type="text" id="phone_number" value=""><br>
-
-                    <!--city dropdown selection-->
-                    <label for="family">Family: </label>
-                    <select class="form-control" id="family">
-                        <option></option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4+</option>
-                    </select>
-
-                    <!--type of room dropdown selection-->
-                    <label for="roomtype">Room Type: </label>
-                    <select class="form-control" id="roomtype">
-                        <option></option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4+</option>
-                    </select>
+                    <div class="text-center"><h4>Set user type</h4></div>
+                    <br>
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="set_user_type('volunteer')">Volunteer</button><br>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="set_user_type('social_worker')">Social Worker</button><br>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="update_profile_info()">Update info</button><br>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="reset_profile_info()">Reset info</button>
+                    </div>
                 </div>
 
                 <div class="col-md-1"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-3">
-
-                </div>
-
-                <div class="col-md-4">
-                    <button class="btn btn-default" style="width: 100%" value="submit" onclick="update_profile_info()">Update info</button><br>
-                </div>
-
-                <div class="col-md-4">
-                    <button class="btn btn-default" style="width: 100%" value="submit" onclick="reset_profile_info()">Reset info</button>
-                </div>
             </div>
 
             <div class="row">
