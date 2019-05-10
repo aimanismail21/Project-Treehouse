@@ -15,57 +15,56 @@
         <link href="css/profile_page.css" rel="stylesheet">
 </head>
 
+<body id="page-top">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
 
+        <a class="navbar-brand mr-auto p-2" href="#">
+            <img src="images/logo.png" width="100" height="100" class="d-inline-block float-right" alt="Logo">
+        </a>
+        <span class="text-light" style="margin: 5px;">BCIT: Project Treehouse </span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="frequently_asked_questions.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signup_volunteer.html">Login & Sign-up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="donation.html">Contribution</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
+<!-- End of Navbar -->
 
 
 
 <!-- the main part of the page -->
-<section class="accordion-section clearfix mt-3" aria-label="Question Accordions" >
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+<section class="accordion-section clearfix mt-3" aria-label="Question Accordions">
 
-            <a class="navbar-brand mr-auto p-2" href="#">
-                <img src="images/logo.png" width="100" height="100" class="d-inline-block float-right" alt="Logo">
-            </a>
-            <span class="text-light" style="margin: 5px;">BCIT: Project Treehouse </span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.html">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="frequently_asked_questions.html">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signup_volunteer.html">Login & Sign-up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="donation.html">Contribution</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container">
+    <div class="container" id="faq_main_accord">
         <h2>Frequently Asked Questions </h2><br> <!-- The Main Heading -->
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -115,14 +114,35 @@
                 <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
                     <h3 class="panel-title">
                         <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
-                            Question #3
+                            Where does my donation go?
                         </a>
                     </h3>
                 </div>
                 <!-- Answer, stays hidden unless clicked -->
                 <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
                     <div class="panel-body px-3 mb-4">
-                        <p>Answer #3</p>
+                        <p>Your donation goes solely towards providing for the youth. Part of it is given directly to
+                            the host to help them house and feed the youth. We take great care to make sure the money
+                            given to the host are use solely on the youth and nothing else. </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- One Q&A accordion -->
+            <div class="panel panel-default">
+                <!-- The Question and the clickable -->
+                <div class="panel-heading p-3 mb-3" role="tab" id="heading4">
+                    <h3 class="panel-title">
+                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                            Why can't I see much on this website?
+                        </a>
+                    </h3>
+                </div>
+                <!-- Answer, stays hidden unless clicked -->
+                <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+                    <div class="panel-body px-3 mb-4">
+                        <p>Since we are dealing with youht, which is an incredibility vulnerable population, we have
+                            taken precautions to protect their privacy for their safety and the safety of their hosts. </p>
                     </div>
                 </div>
             </div>
@@ -151,24 +171,27 @@
             <!-- One Q&A accordion -->
             <div class="panel panel-default">
                 <!-- The Question and the clickable -->
-                <div class="panel-heading p-3 mb-3" role="tab" id="heading4">
+                <div class="panel-heading p-3 mb-3" role="tab" id="heading6">
                     <h3 class="panel-title">
-                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
-                            Question #5
+                        <a class="collapsed" role="button" title="" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="true" aria-controls="collapse6">
+                            CAN THIS BE SEEN
                         </a>
                     </h3>
                 </div>
                 <!-- Answer, stays hidden unless clicked -->
-                <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+                <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
                     <div class="panel-body px-3 mb-4">
                         <p>Answer #5</p>
                     </div>
                 </div>
             </div>
 
+
+
         </div>
     </div>
 </section>
+
 
 <!-- footer -->
 <footer class="fixed-bottom">
@@ -192,8 +215,9 @@ var ps = new PerfectScrollbar(sideNavScrollbar);</script>
 </a>
 
 
+
+</html>
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-
-</html>
