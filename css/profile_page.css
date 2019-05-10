@@ -7016,6 +7016,12 @@ button.bg-success:focus {
 
 .bg-info {
     background-color: #17a2b8 !important;
+    padding: 5% 0;
+    float: left;
+    width: 33.33%;
+    height: auto;
+    margin-bottom: 5%;
+    text-align: center;
 }
 
 a.bg-info:hover, a.bg-info:focus,
@@ -7046,6 +7052,16 @@ button.bg-danger:focus {
 
 .bg-light {
     background-color: #f8f9fa !important;
+    padding: 5% 0;
+    float: left;
+    width: 33.33%;
+    height: auto;
+    margin: 0;
+    text-align: center;
+}
+.bg-light:hover,
+.bg-light:focus {
+    background-color: #dae0e5 !important;
 }
 
 a.bg-light:hover, a.bg-light:focus,
@@ -11525,3 +11541,7 @@ body.sidebar-toggled footer.sticky-footer {
         width: calc(100% - 90px);
     }
 }
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
