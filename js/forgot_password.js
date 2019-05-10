@@ -1,6 +1,7 @@
-//Reset password email is sent
-function forgot_password(){
-    var email = document.getElementById("example_email");
+
+//Reset password email is sent.
+function forgotPassword(){
+    var email = document.getElementById("exampleInputEmail1");
     let input = email.value;
     console.log(email.value);
     firebase.auth().sendPasswordResetEmail(input).then(function() {
@@ -8,4 +9,3 @@ function forgot_password(){
     }).catch(function(error) {
         // An error happened.
     })}
-
