@@ -77,8 +77,9 @@ function update_info() {
 
 // validate all form elements
 function validate_inputs() {
-    let first_name_match = first_name.match(/^([a-z]+)$/i);
-    let last_name_match = last_name.match(/^([a-z]+)$/i);
+    let first_name_match = first_name.match(/^([a-z A-z]+)$/i);
+    let last_name_match = last_name.match(/^([a-z A-Z]+)$/i);
+    let phone_match = phone_number.match(/^((\d){3}(-)(\d){3}(-)(\d){4})$/i);
 
     if (first_name_match === null) {
         window.alert("Please enter your first name.");
@@ -92,7 +93,7 @@ function validate_inputs() {
         return false;
     }
 
-    if (phone_number.length !== 12) {
+    if (phone_match === null) {
         window.alert("Please enter a correct phone number eg: 999-999-9999.");
         document.getElementById('phone_number').focus();
         return false;
