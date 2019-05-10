@@ -1,4 +1,8 @@
 let amount = 10;
+let default_amount = document.getElementById("amount");
+let currencies = document.getElementById("currency");
+let selected_currency = "CAD";
+default_amount.value = amount;
 function getAmount(objButton){
     amount = objButton.value;
     console.log(amount);
@@ -15,14 +19,12 @@ $('#nextPage').on('click', function(){
     let bread = $('.breadcrumb');
     bread[0].appendChild(link);
     default_amount.value = amount;
+    default_amount.placeholder = amount;
     $('#payment').show();
-    $('#place_amount').html("Donating: " + amount);
-    $('#selected_currency').html("Currency: " + selected_currency);
     console.log(amount);
 });
+
 // Dynamically add currency selections with their exchange rates compared to CAD
-let currencies = document.getElementById("currency");
-let selected_currency = "CAD";
 $.getJSON('https://api.exchangeratesapi.io/latest?base=CAD', function(data) {
     let ratesObj = data.rates;
     console.log(ratesObj);
@@ -54,7 +56,6 @@ currencies.addEventListener('change', function(){
     amount = Math.round(10*this.value);
     console.log(this.value);
 }, false);
-let default_amount = document.getElementById("amount");
 
 Stripe.setPublishableKey("pk_test_T8PiFwZj8C2M3x0SzvZ8ohVe00mE6oIvRZ");
 var firebaseUI = new firebaseui.auth.AuthUI(firebase.auth());

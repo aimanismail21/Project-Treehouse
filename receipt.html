@@ -7,9 +7,14 @@
     <meta content="" name="description">
     <meta content="" name="author">
 
+    <title>Review Payment</title>
+
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-    <title>Review Payment</title>
+    <!--script for authentication list-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,9 +22,14 @@
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
 
+    <!-- Stripe JS/CSS -->
     <script src="https://js.stripe.com/v2/"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />\
+
+    <!--initialize firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+    <script src="js/firebase_setup.js"></script>
 
 </head>
 
@@ -103,8 +113,30 @@
     </div>
 </section>
 
+<footer class="fixed-bottom">
+    <div class="py-4 bg-dark text-white-50 text-center">
+        <small>Copyright &copy; Project Treehouse</small>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button-->
+<script>// SideNav Button Initialization
+$(".button-collapse").sideNav();
+// SideNav Scrollbar Initialization
+var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+var ps = new PerfectScrollbar(sideNavScrollbar);</script>
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Access page functions -->
+<script src="./js/donation.js"></script>
 <!-- Access Stripe functions -->
-<script src="functions/stripe.js"></script>
+<script src="./functions/stripe.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/profile_page.min.js"></script>
+<script src="js/index.js"></script>
 
 <!-- Import and configure the Firebase SDK -->
 <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
@@ -116,38 +148,6 @@
 
 <!-- Import Firebase UI -->
 <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-
-<footer class="fa-sticky-note">
-
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarsExample02">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"> <a class="nav-link" href="#">Contact Us</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Affiliates</a></li>
-            </ul>
-            <form class="form-inline my-2 my-md-0"> </form>
-        </div>
-
-        <small class="text-white">Copyright &copy; Projet Treehouse</small>
-    </nav>
-
-</footer>
-
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top" id="easter_egg">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Bootstrap core JavaScript-->
-<script src="js/jquery/jquery.min.js"></script>
-<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="js/jquery-easing/jquery.easing.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="js/profile_page.min.js"></script>
-<script src="js/index.js"></script>
 
 </body>
 </html>
