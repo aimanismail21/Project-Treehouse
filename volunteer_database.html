@@ -132,7 +132,7 @@
                     <label for="pets">Pets: </label>
                     <select class="form-control" id="pets">
                         <option></option>
-                        <option>yes</option>
+                        <option>Yes</option>
                         <option>No</option>
                     </select>
 
@@ -147,7 +147,8 @@
                     </select>
                     <br>
 
-                    <button class="btn btn-dark" value="submit" onclick="update_by_criteria()">Search</button><br>
+                    <button class="btn btn-dark" value="submit" onclick="update_by_criteria()">Search</button>
+                    <button class="btn btn-dark" value="submit" onclick ="reset_form()">Reset</button>
                     <br><br>
 
                     <!--Search by address form-->
@@ -155,7 +156,7 @@
                     <input style="width: 100%;" type="text" id="address" value=""><br><br>
 
                     <button class="btn btn-dark" value="submit" onclick="update_by_address()">Search</button>
-                    <button class="btn btn-dark" value="submit" onclick ="displayVolunteers()">Reset</button>
+                    <button class="btn btn-dark" value="submit" onclick ="reset_form()">Reset</button>
                     <br>
                     <br>
 
@@ -166,7 +167,7 @@
                     <input style="width: 100%;" type="text" id="last_name" value=""><br><br>
 
                     <button class="btn btn-dark" value="submit" onclick="update_by_name()">Search</button>
-                    <button class="btn btn-dark" value="submit" onclick ="displayVolunteers()">Reset</button>
+                    <button class="btn btn-dark" value="submit" onclick ="reset_form()">Reset</button>
                     <br>
                 </div>
 
