@@ -5,6 +5,11 @@ var displayName = null;
 // initialize variables
 let is_social_worker = null;
 let is_volunteer = null;
+let first_name = null;
+let last_name = null;
+let address = null;
+let phone_number = null;
+let city = null;
 
 // initialize page elements
 initApp = function () {
@@ -45,7 +50,6 @@ window.addEventListener('load', function () {
 });
 
 
-
 // submit profile image to storage
 function submit_profile_image() {
     var fileButton = document.getElementById("fileButton");
@@ -61,23 +65,27 @@ function submit_profile_image() {
 
 // update info of volunteer in database
 function update_profile_info() {
-    let city = document.getElementById("city").value;
-    let first_name = document.getElementById("first_name").value;
-    let last_name = document.getElementById("last_name").value;
-    let address = document.getElementById("address").value;
-    let phone_number = document.getElementById("phone_number").value;
+    city = document.getElementById("city").value;
+    first_name = document.getElementById("first_name").value;
+    last_name = document.getElementById("last_name").value;
+    address = document.getElementById("address").value;
+    phone_number = document.getElementById("phone_number").value;
+
+    // if all form elements are valid update user info
+    if (validate_inputs()) {
 
 
-    // sets entered info to associated user id in database
-    let dbref = firebase.database().ref("Users/" + uid);
-    dbref.update({
-        FirstName: first_name,
-        LastName: last_name,
-        Address: address,
-        PhoneNumber: phone_number,
-        City: city
-    });
-    document.getElementById('confirmation').innerHTML = 'info has been written'
+        // sets entered info to associated user id in database
+        let dbref = firebase.database().ref("Users/" + uid);
+        dbref.update({
+            FirstName: first_name,
+            LastName: last_name,
+            Address: address,
+            PhoneNumber: phone_number,
+            City: city
+        });
+        document.getElementById('confirmation').innerHTML = 'info has been written'
+    }
 }
 
 // resets into to what is currently in the database
@@ -97,6 +105,7 @@ function initialize_info(snapshot) {
 }
 
 
+// initialize page elements
 function initialize_elements(snapshot) {
     // get info on user type
     is_social_worker = snapshot.child('IsSocialWorker').val();
@@ -113,6 +122,8 @@ function initialize_elements(snapshot) {
     }
 }
 
+
+// set user type to either volunteer or social worker
 function set_user_type(type) {
 
     if (type === 'volunteer') {
@@ -122,7 +133,7 @@ function set_user_type(type) {
         is_volunteer = false;
         is_social_worker = true;
     }
-    
+
     let dbref = firebase.database().ref("Users/" + uid);
     dbref.update({
         IsSocialWorker: is_social_worker,
@@ -130,6 +141,32 @@ function set_user_type(type) {
     });
 }
 
+
+// validate all form elements
+function validate_inputs() {
+    let first_name_match = first_name.match(/^([a-z A-Z]+)$/i);
+    let last_name_match = last_name.match(/^([a-z A-Z]+)$/i);
+    let phone_match = phone_number.match(/^((\d){3}(-)(\d){3}(-)(\d){4})$/i);
+
+    if (first_name_match === null) {
+        window.alert("Please enter your first name.");
+        document.getElementById('first_name').focus();
+        return false;
+    }
+
+    if (last_name_match === null) {
+        window.alert("Please enter your last name.");
+        document.getElementById('last_name').focus();
+        return false;
+    }
+
+    if (phone_match === null) {
+        window.alert("Please enter a correct phone number eg: 999-999-9999.");
+        document.getElementById('phone_number').focus();
+        return false;
+    }
+    return true;
+}
 
 (function ($) {
     "use strict"; // Start of use strict
@@ -171,9 +208,3 @@ function set_user_type(type) {
     });
 
 })(jQuery); // End of use strict
-
-function reset_profile_info(){
-  initApp();
-  document.getElementById('confirmation').innerHTML = 'info has been reset';
-}
-
