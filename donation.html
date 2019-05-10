@@ -9,8 +9,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-    <title>Donate</title>
-
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -21,7 +19,8 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
-    <title>Donations</title>
+    <title>Contribution</title>
+
     <style>
         #other {
             width: 100%;
@@ -88,7 +87,7 @@
                     <li class="breadcrumb-item">
                         <a href="./index.html">Home</a>
                     </li>
-                    <li class="breadcrumb-item active">Donations</li>
+                    <li class="breadcrumb-item active">Donation</li>
                 </ol>
                 <h1 id="title">Donate Now</h1>
                 <hr>
@@ -193,7 +192,9 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <button v-on:click="submitNewCharge">Charge</button>
+                                        <a href="./review_payment.html">
+                                            <button v-on:click="submitNewCharge">Charge</button>
+                                        </a>
                                         {{ newCharge.error }}
                                     </div>
                                 </div>
@@ -306,25 +307,6 @@ var ps = new PerfectScrollbar(sideNavScrollbar);</script>
 <a class="scroll-to-top rounded" href="#page-top" id="easter_egg">
     <i class="fas fa-angle-up"></i>
 </a>
-
-<!-- Logout Modal-->
-<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="logoutModal" role="dialog" tabindex="-1">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" data-dismiss="modal" type="button">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Bootstrap core JavaScript-->
 <script src="js/jquery/jquery.min.js"></script>
