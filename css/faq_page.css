@@ -30,3 +30,7 @@ h2 {
 .accordion-section .panel-default .panel-body {
     font-size: 1.2rem;
 }
+
+#faq_main_accord{
+    padding-bottom: 150px;
+}

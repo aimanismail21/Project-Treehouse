@@ -197,7 +197,7 @@ function createVolunteerListing() {
     // append volunteer listing to volunteers list
     let linebreak = document.createElement('br');
     document.getElementById('volunteers').appendChild(volunteer_listing);
-    document.getElementById('volunteers').appendChild(linebreak)
+    document.getElementById('volunteers').appendChild(linebreak);
 
 }
 
@@ -209,7 +209,7 @@ function FindVolunteerInfo(snap) {
     }
     // if a city is selected take its value
     else {
-        city_selection = document.getElementById('city').value
+        city_selection = document.getElementById('city').value;
     }
 
     // initialize pets to value in database if nothing is selected
@@ -218,7 +218,7 @@ function FindVolunteerInfo(snap) {
     }
     // if pets is selected take its value
     else {
-        pets_selection = document.getElementById('pets').value
+        pets_selection = document.getElementById('pets').value;
     }
 
     // initialize family to value in database if nothing is selected
@@ -227,7 +227,7 @@ function FindVolunteerInfo(snap) {
     }
     // if family is selected take its value
     else {
-        family_selection = document.getElementById('family').value
+        family_selection = document.getElementById('family').value;
     }
 }
 
@@ -275,4 +275,16 @@ function setVolunteerInfo() {
     volunteer_listing.onclick = function () {
         // - go to volunteers profile
     };
+}
+
+
+//resets search criteria form
+function reset_form() {
+    document.getElementById("city").value = '';
+    document.getElementById("pets").value = '';
+    document.getElementById("family").value = '';
+    document.getElementById("first_name").value = '';
+    document.getElementById("last_name").value = '';
+    document.getElementById("address").value = '';
+    displayVolunteers();
 }
