@@ -70,6 +70,7 @@ nyan_cat_attack.addEventListener('click', function () {
             }
         }
 
+
         for (let i = 0; i < 3; i++) {
             catImageArray[i] = new image('images/nyancat.gif', i);
             catImageArray[i].im.onclick = function () {
@@ -78,6 +79,7 @@ nyan_cat_attack.addEventListener('click', function () {
                 checkCatsAlive();
             };
             catImageArray[i].animate();
+
         }
         audio = new Audio('sound/8_bit_NYAN.mp3');
         audio.play();
