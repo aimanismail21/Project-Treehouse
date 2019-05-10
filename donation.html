@@ -208,66 +208,8 @@
     </div>
 </section>
 
-<script>
-    let amount = 10;
-    function getAmount(objButton){
-        amount = objButton.value;
-        console.log(amount);
-    }
-    // Update page after clicking "Donate"
-    $('#nextPage').on('click', function(){
-        $('#donation_amount').hide();
-        $('#title').html("Payment");
-        let link = document.createElement("li");
-        let olds = document.getElementsByClassName("breadcrumb-item");
-        olds[1].innerHTML = "<a href='./donation.html'>Donations</a>";
-        link.className = "breadcrumb-item active";
-        link.innerHTML = "Payment";
-        let bread = $('.breadcrumb');
-        bread[0].appendChild(link);
-        default_amount.value = amount;
-        $('#payment').show();
-        $('#place_amount').html("Donating: " + amount);
-        $('#selected_currency').html("Currency: " + selected_currency);
-        console.log(amount);
-    });
-    // Dynamically add currency selections with their exchange rates compared to CAD
-    let currencies = document.getElementById("currency");
-    let selected_currency = "CAD";
-    $.getJSON('https://api.exchangeratesapi.io/latest?base=CAD', function(data) {
-        let ratesObj = data.rates;
-        console.log(ratesObj);
-        for(let key in ratesObj){
-            let option = document.createElement("option");
-            option.value = ratesObj[key];
-            option.innerHTML = key;
-            option.label = key;
-            if(key === "CAD"){
-                option.selected = true;
-            }
-            currencies.appendChild(option);
-        }
-    });
-    // Update donation amount according to currency
-    currencies.addEventListener('change', function(){
-        for(let i = 0; i < 6; i++){
-            let amounts = [5, 10, 15, 25, 50, 100];
-            $('.bg-light')[i].value = Math.round(amounts[i]*this.value);
-            console.log($('.bg-light')[i].value);
-        }
-        let options = this.children;
-        for(let i in options){
-            if(options[i].selected){
-                selected_currency = options[i].label;
-                console.log(selected_currency);
-            }
-        }
-        amount = Math.round(10*this.value);
-        console.log(this.value);
-    }, false);
-    let default_amount = document.getElementById("amount");
-</script>
-
+<!-- Access page functions -->
+<script src="./js/donation.js"></script>
 <!-- Access Stripe functions -->
 <script src="functions/stripe.js"></script>
 
