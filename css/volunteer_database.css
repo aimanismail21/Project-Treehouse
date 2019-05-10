@@ -2,3 +2,10 @@
 .show {
     display: block;
 }
+
+#volunteers {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 80vh;
+}
+

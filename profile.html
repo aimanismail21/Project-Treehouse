@@ -17,6 +17,15 @@
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
 
+    <!--initialize firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+    <script src="js/firebase_setup.js"></script>
+
+    <script src="js/profile_page.js"></script>
+
+    <script src="js/profile_logout.js"></script>
+
+
 </head>
 
 <body id="page-top">
@@ -36,9 +45,19 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="profile.html">
                 <i class="fas fa-user-circle fa-fw"></i>
                 <span>Profile</span>
+            </a>
+
+            <a id="query_menu" class="nav-link" style="display: none;" href="volunteer_database.html">
+                <i class="fas fa-database fa-fw"></i>
+                <span>Query Menu</span>
+            </a>
+
+            <a id="guest_room" class="nav-link" style="display: none;" href="Guest_room.html">
+                <i class="fas fa-house-damage fa-fw"></i>
+                <span>Guest Room Menu</span>
             </a>
         </li>
         <li class="nav-item dropdown">
@@ -64,7 +83,12 @@
                 <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
             </div>
         </li>
-
+        <li class="nav-item">
+            <a class="nav-link" onclick="mainApp.logOut()">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Log Out</span>
+            </a>
+        </li>
     </ul>
 
     <div id="content-wrapper">
@@ -80,9 +104,93 @@
             </ol>
 
             <!-- Page Content -->
-            <h1>Profile Page</h1>
-            <hr>
-            <p>Put in releveant profile information</p>
+            <div class="row" id="header">
+                <div class="col-md-12">
+                    <div>
+                        <b style="font-size: 30px;">Profile Settings</b> <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div id="profile_picture" style="width:256px;height:256px">
+                        <img id='profile_image' style="width:256px;height:256px" src="" alt="No profile picture">
+                    </div>
+                    <div id="filesubmit">
+                        <label for="fileButton">Upload a profile picture</label><br>
+                        <input type="file" id="fileButton" class="file-select" accept="image/*"/>
+                        <button class="file-submit" onclick="submit_profile_image()">SUBMIT</button>
+                    </div>
+                </div>
+
+                <!--Search by criteria form-->
+                <div class="col-md-4">
+                    <br>
+                    <!--First name-->
+                    <label for="first_name">*First Name:</label><br>
+                    <input style="width: 100%;" type="text" id="first_name" value=""><br>
+
+                    <!--Last name-->
+                    <label for="last_name">*Last Name:</label><br>
+                    <input style="width: 100%;" type="text" id="last_name" value=""><br>
+
+                    <!--Phone Number: -->
+                    <label for="phone_number">*Phone Number:</label><br>
+                    <input placeholder="eg: 999-999-9999" style="width: 100%;" type="text" id="phone_number" value=""><br>
+
+                    <!--Address-->
+                    <label for="address">Address:</label><br>
+                    <input style="width: 100%;" type="text" id="address" value=""><br>
+
+                    <!--city dropdown selection-->
+                    <label for="city">City: </label>
+                    <select class="form-control" id="city">
+                        <option></option>
+                        <option>Vancouver</option>
+                        <option>Burnaby</option>
+                        <option>Surrey</option>
+                        <option>Richmond</option>
+                    </select>
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="text-center"><h5>Set user type</h5></div>
+                    <br>
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="set_user_type('volunteer')">Volunteer</button><br>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="set_user_type('social_worker')">Social Worker</button><br>
+                    </div>
+                    <br>
+                    <div class="text-center"><h5>Confirm changes</h5></div>
+                    <br>
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="update_profile_info()">Update info</button><br>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="reset_profile_info()">Reset info</button>
+                    </div>
+                </div>
+
+                <div class="col-md-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-8">
+                    <div class = "text-center">
+                        <br>
+                        <b id="confirmation" style="font-size: 25px;"></b> <br>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <!-- /.container-fluid -->
