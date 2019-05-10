@@ -1,6 +1,11 @@
-<!DOCTYPE html>
-
 <?php
+
+// Create the variables that grab the form input
+$name = $_REQUEST['name'];
+$email = $_REQUEST['email'];
+$subject = $_REQUEST['subject'];
+$body = $_REQUEST['message'];
+
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -16,11 +21,12 @@ try {
     //Server settings
     $mail->SMTPDebug = 1;                                       // Enable verbose debug output
     $mail->isSMTP();                                            // Set mailer to use SMTP
-    $mail->Host       = 'smtp.mail.yahoo.com';  // Specify main and backup SMTP servers
+    $mail->Host       = 'smtp.mail.yahoo.com';                  // Specify main and backup SMTP servers
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'project_treehouse@yahoo.com';                     // SMTP username
-    $mail->Password   = "bcit1234";                               // SMTP password
-    $mail->SMTPSecure = 'tls';                          // Enable TLS encryption, `ssl` also accepted
+    $mail->Username   = 'project_treehouse@yahoo.com';          // SMTP username
+    $mail->Password   = "bcit1234";                             // SMTP password
+    // We understand the security problems behind this. No sensitive information is stored in this email
+    $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
     $mail->Port       = 587;                                    // TCP port to connect to
 
     //Recipients
@@ -28,12 +34,9 @@ try {
     $mail->addAddress('project_treehouse@yahoo.com', 'Joe User');     // Add a recipient
     $mail->addReplyTo('project_treehouse@yahoo.com', 'Information');
 
-
-    $body = " i like pineapples ";
-
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Test';
+    $mail->Subject = $subject;
     $mail->Body    = $body;
     $mail->AltBody = strip_tags($body);
 
