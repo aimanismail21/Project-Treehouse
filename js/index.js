@@ -70,7 +70,7 @@ nyan_cat_attack.addEventListener('click', function(){
             }
         }
         let imageArray = [];
-        for (i = 0; i < 1; i++) {
+        for (i = 0; i < 3; i++) {
             imageArray.push(new image('images/nyancat.gif'));
             imageArray[i].animate()
         }
