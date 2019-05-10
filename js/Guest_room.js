@@ -2,9 +2,19 @@
 var uid = null;
 var displayName = null;
 
+
 // initialize variable
 let is_social_worker = null;
 let is_volunteer = null;
+let city = null;
+let first_name = null;
+let last_name = null;
+let address = null;
+let pets = null;
+let family = null;
+let room_type = null;
+let phone_number = null;
+
 
 // initialize page
 initApp = function () {
@@ -38,28 +48,62 @@ window.addEventListener('load', function () {
 
 // update info of volunteer guest room in database
 function update_info() {
-    let city = document.getElementById("city").value;
-    let pets = document.getElementById("pets").value;
-    let family = document.getElementById("family").value;
-    let room_type = document.getElementById("roomtype").value;
-    let first_name = document.getElementById("first_name").value;
-    let last_name = document.getElementById("last_name").value;
-    let address = document.getElementById("address").value;
-    let phone_number = document.getElementById("phone_number").value;
+    city = document.getElementById("city").value;
+    pets = document.getElementById("pets").value;
+    family = document.getElementById("family").value;
+    room_type = document.getElementById("roomtype").value;
+    first_name = document.getElementById("first_name").value;
+    last_name = document.getElementById("last_name").value;
+    address = document.getElementById("address").value;
+    phone_number = document.getElementById("phone_number").value;
 
-    // sets entered info to associated user id in database
-    let dbref = firebase.database().ref("Users/" + uid);
-    dbref.update({
-        FirstName: first_name,
-        LastName: last_name,
-        Address: address,
-        HouseHoldMembers: family,
-        Pets: pets,
-        PhoneNumber: phone_number,
-        TypeOfRoom: room_type,
-        City: city
-    });
-    document.getElementById('confirmation').innerHTML = 'info has been written'
+    if (validate_inputs()) {
+        // sets entered info to associated user id in database
+        let dbref = firebase.database().ref("Users/" + uid);
+        dbref.update({
+            FirstName: first_name,
+            LastName: last_name,
+            Address: address,
+            HouseHoldMembers: family,
+            Pets: pets,
+            PhoneNumber: phone_number,
+            TypeOfRoom: room_type,
+            City: city
+        });
+        document.getElementById('confirmation').innerHTML = 'info has been written'
+    }
+}
+
+
+// validate all form elements
+function validate_inputs() {
+    let first_name_match = first_name.match(/^([a-z]+)$/i);
+    let last_name_match = last_name.match(/^([a-z]+)$/i);
+
+    if (first_name_match === null) {
+        window.alert("Please enter your first name.");
+        document.getElementById('first_name').focus();
+        return false;
+    }
+
+    if (last_name_match === null) {
+        window.alert("Please enter your last name.");
+        document.getElementById('last_name').focus();
+        return false;
+    }
+
+    if (phone_number.length !== 12) {
+        window.alert("Please enter a correct phone number eg: 999-999-9999.");
+        document.getElementById('phone_number').focus();
+        return false;
+    }
+
+    if (address === '') {
+        window.alert("Please enter your address");
+        document.getElementById('address').focus();
+        return false;
+    }
+    return true;
 }
 
 
@@ -116,6 +160,7 @@ function initialize_info(snapshot) {
 }
 
 
+// initialize page elements
 function initialize_elements(snapshot) {
     // get info on user type
     is_social_worker = snapshot.child('IsSocialWorker').val();
