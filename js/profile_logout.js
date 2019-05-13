@@ -1,4 +1,4 @@
-var mainApp = {};
+var main_app = {};
 
 //Allows user to logout, redirected to sign-in page
 (function(){
@@ -15,9 +15,9 @@ var mainApp = {};
         }
     });
 
-    function logOut(){
+    function log_out(){
         firebase.auth().signOut();
     }
 
-    mainApp.logOut = logOut;
+    main_app.log_out = log_out;
 })();
