@@ -35,7 +35,7 @@
 <body id="page-top">
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
 
         <a class="navbar-brand mr-auto p-2" href="#">
@@ -74,11 +74,11 @@
     </div>
 </nav>
 
-<section class="py-5" id="page-content-wrapper">
-    <div class="py-5 container-fluid">
+<section class="py-12" id="page-content-wrapper">
+    <div class="container-fluid">
         <!-- Page Content -->
         <section class="py-5">
-            <div class="container">
+            <div class="container-fluid">
                 <!-- Breadcrumbs-->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
@@ -191,7 +191,7 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <a href="./review_payment_logged_in.html">
+                                        <a href="./review_payment.html">
                                             <button style="width:100%" class="bg-info" v-on:click="submitNewCharge">Charge</button>
                                         </a>
                                         {{ newCharge.error }}
@@ -205,6 +205,7 @@
             </div>
         </section>
     </div>
+
 </section>
 
 <!-- Access page functions -->
@@ -222,20 +223,6 @@
 
 <!-- Import Firebase UI -->
 <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-
-<footer class="fixed-bottom">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarsExample02">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"> <a class="nav-link" href="#">Contact Us</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Affiliates</a></li>
-            </ul>
-            <form class="form-inline my-2 my-md-0"> </form>
-        </div>
-
-        <small class="text-white">Copyright &copy; Projet Treehouse</small>
-    </nav>
-</footer>
 
 <!-- Scroll to Top Button-->
 <script>// SideNav Button Initialization
