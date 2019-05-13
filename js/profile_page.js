@@ -18,6 +18,7 @@ initApp = function () {
             // User is signed in.
             displayName = user.displayName;
             uid = user.uid;
+            email = user.email;
             let dbref = firebase.database().ref("Users/" + uid);
             dbref.on('value', (snapshot) => {
                 // initialize page elements with data from database
@@ -83,7 +84,8 @@ function update_profile_info() {
             Address: address,
             PhoneNumber: phone_number,
             City: city,
-            IsVolunteer: true
+            IsVolunteer: true,
+            Email: email,
         });
         document.getElementById('confirmation').innerHTML = 'info has been written'
     }
