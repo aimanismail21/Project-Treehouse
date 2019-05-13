@@ -75,19 +75,11 @@
                 <a class="dropdown-item active" href="querymenu.html">Search & Query Menu</a>
             </div>
         </li>
-
-        <li class="nav-item dropdown">
-            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
-                <i class="fas fa-fw fa-sign-out-alt"></i>
-                <span>Account Options</span>
+        <li class="nav-item">
+            <a class="nav-link" href="donation_logged_in.html">
+                <i class="fas fa-donate fa-fw"></i>
+                <span>Contribute</span>
             </a>
-            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
-
-                <h6 class="dropdown-header">Login Screens:</h6>
-                <a class="dropdown-item" href="login.html">Login</a>
-                <a class="dropdown-item" href="register.html">Register</a>
-                <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" onclick="mainApp.logOut()">
@@ -104,7 +96,7 @@
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="./index.html">Home</a>
+                    <a href="./profile.html">Account</a>
                 </li>
                 <li class="breadcrumb-item active">Donation</li>
             </ol>
@@ -137,8 +129,9 @@
                         <div id="firebaseui-auth-container"></div>
                         <div id="loader">&hellip;</div>
                         <div v-if="currentUser">
-                            <h2>Hello {{ currentUser.email }},</h2>
-                            <button v-on:click="signOut">Sign out</button>
+                            <h4>Hello {{ currentUser.email }},</h4>
+                            <button class="bg-white" v-on:click="signOut">Sign out</button>
+                            <hr>
                             <div v-if="stripeCustomerInitialized">
                                 <h3>Credit Cards</h3>
                                 <ul>
@@ -175,10 +168,11 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <button v-on:click="submitNewCreditCard">Add</button>
+                                        <button class="bg-white" v-on:click="submitNewCreditCard">Add</button>
                                         {{ newCreditCard.error }}
                                     </div>
                                 </div>
+                                <hr>
                                 <h3>Charges</h3>
                                 <ul>
                                     <li v-for="(charge, id) in charges">
@@ -214,7 +208,7 @@
                                 </div>
                                 <div>
                                     <a href="./review_payment_logged_in.html">
-                                        <button v-on:click="submitNewCharge">Charge</button>
+                                        <button style="width:100%" class="bg-info" v-on:click="submitNewCharge">Charge</button>
                                     </a>
                                     {{ newCharge.error }}
                                 </div>

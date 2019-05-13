@@ -113,8 +113,9 @@
                             <div id="firebaseui-auth-container"></div>
                             <div id="loader">&hellip;</div>
                             <div v-if="currentUser">
-                                <h2>Hello {{ currentUser.email }},</h2>
-                                <button v-on:click="signOut">Sign out</button>
+                                <h4>Hello {{ currentUser.email }},</h4>
+                                <button class="bg-white" v-on:click="signOut">Sign out</button>
+                                <hr>
                                 <div v-if="stripeCustomerInitialized">
                                     <h3>Credit Cards</h3>
                                     <ul>
@@ -151,10 +152,11 @@
                                             </label>
                                         </div>
                                         <div>
-                                            <button v-on:click="submitNewCreditCard">Add</button>
+                                            <button class="bg-white" v-on:click="submitNewCreditCard">Add</button>
                                             {{ newCreditCard.error }}
                                         </div>
                                     </div>
+                                    <hr>
                                     <h3>Charges</h3>
                                     <ul>
                                         <li v-for="(charge, id) in charges">
@@ -189,8 +191,8 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <a href="./review_payment.html">
-                                            <button v-on:click="submitNewCharge">Charge</button>
+                                        <a href="./review_payment_logged_in.html">
+                                            <button style="width:100%" class="bg-info" v-on:click="submitNewCharge">Charge</button>
                                         </a>
                                         {{ newCharge.error }}
                                     </div>

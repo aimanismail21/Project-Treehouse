@@ -19,10 +19,6 @@
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-    <!-- Custom scripts for this page -->
-    <script src="js/profile_page.js"></script>
-    <script src="js/profile_logout.js"></script>
-
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/donation.css" type="text/css">
@@ -82,19 +78,11 @@
                 <a class="dropdown-item active" href="querymenu.html">Search & Query Menu</a>
             </div>
         </li>
-
-        <li class="nav-item dropdown">
-            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
-                <i class="fas fa-fw fa-sign-out-alt"></i>
-                <span>Account Options</span>
+        <li class="nav-item">
+            <a class="nav-link" href="donation_logged_in.html">
+                <i class="fas fa-donate fa-fw"></i>
+                <span>Contribute</span>
             </a>
-            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
-
-                <h6 class="dropdown-header">Login Screens:</h6>
-                <a class="dropdown-item" href="login.html">Login</a>
-                <a class="dropdown-item" href="register.html">Register</a>
-                <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" onclick="mainApp.logOut()">
@@ -111,13 +99,13 @@
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="./index.html">Home</a>
+                    <a href="./profile.html">Account</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="./donation.html">Donation</a>
+                    <a href="./donation_logged_in.html">Donation</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="./review_payment.html">Review</a>
+                    <a href="./review_payment_logged_in.html">Review</a>
                 </li>
                 <li class="breadcrumb-item active">Receipt</li>
             </ol>
@@ -125,11 +113,34 @@
             <hr>
             <!--  Take info from Stripe API and populate this div  -->
             <div class="container col-sm-4">
-                <h4>Placeholder</h4>
+                <h4>Receipt</h4>
                 <!--  Payment info here  -->
-                <p>Info here</p>
-                <a href="./index.html">
-                    <button class="bg-light">Home</button>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Transaction No:</th>
+                        <td>[newCharges doc.id]</td>
+                    </tr>
+                    <tr>
+                        <th>Name:</th>
+                        <td>[app.currentUser / firebaseUser]</td>
+                    </tr>
+                    <tr>
+                        <th>Transaction Date:</th>
+                        <td>
+                            <script>
+                                let now = new Date();
+                                let current_date = now.getFullYear() + '/' + now.getMonth() + '/' + now.getDate();
+                                document.write(current_date);
+                            </script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Amount Paid:</th>
+                        <td>[amount donated]</td>
+                    </tr>
+                </table>
+                <a href="./profile.html">
+                    <button class="bg-light">Profile</button>
                 </a>
                 <input class="bg-info" type="button" name="print" value="Print/PDF" onClick="window.print()">
             </div>
@@ -164,9 +175,19 @@
 </a>
 
 <!-- Access page functions -->
-<script src="./js/donation.js"></script>
+<script src="js/donation.js"></script>
 <!-- Access Stripe functions -->
-<!--<script src="./functions/stripe.js"></script>-->
+<!--<script src="functions/stripe.js"></script>-->
+<!-- Custom scripts for this page -->
+<script src="js/profile_page.js"></script>
+<script src="js/profile_logout.js"></script>
+
+<!-- Bootstrap core JavaScript-->
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="js/jquery-easing/jquery.easing.js"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="js/profile_page.min.js"></script>
