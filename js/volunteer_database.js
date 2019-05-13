@@ -23,7 +23,8 @@ let family_selection = null;
 let volunteer_listing = null;
 let house_image = null;
 let volunteer_row = null;
-let house_cell = null;
+let house_cell = [];
+let house_counter = 0;
 
 
 // initialize page elements
@@ -251,20 +252,29 @@ function initializeVolunteerInfo(snap) {
 
 // gets house image from database and creates a data cell to hold it
 function displayHouseImage() {
-    house_cell = document.createElement('td');
-    house_cell.style.width = '220px';
+    house_cell[house_counter] = document.createElement('td');
+    house_cell[house_counter].style.width = '220px';
+    house_cell[house_counter].id = house_counter;
     var storageRef = firebase.storage().ref();
+    var currentIndex = house_counter;
+
     storageRef.child(user_id + '/house_image').getDownloadURL().then(function (url) {
-        house_image = document.createElement('img');
-        house_image.src = url;
-        house_image.style = 'width: 214px; height: 214px;';
-        house_cell.appendChild(house_image);
+        createHouseImage(url, currentIndex)
     }).catch(function (error) {
 
     });
-    volunteer_row.appendChild(house_cell);
+
+    volunteer_row.appendChild(house_cell[house_counter]);
+    house_counter++;
 }
 
+// creates the house image element and appends it to the house cell with the correct id
+function createHouseImage(url, index){
+    house_image = document.createElement('img');
+    house_image.src = url;
+    house_image.style = 'width: 214px; height: 214px;';
+    document.getElementById(index).appendChild(house_image);
+}
 
 // initializes the volunteer_listing element
 function setVolunteerInfo() {
