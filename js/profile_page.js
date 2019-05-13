@@ -18,6 +18,7 @@ initApp = function () {
             // User is signed in.
             displayName = user.displayName;
             uid = user.uid;
+            email = user.email;
             let dbref = firebase.database().ref("Users/" + uid);
             dbref.on('value', (snapshot) => {
                 // initialize page elements with data from database
@@ -82,7 +83,9 @@ function update_profile_info() {
             LastName: last_name,
             Address: address,
             PhoneNumber: phone_number,
-            City: city
+            City: city,
+            IsVolunteer: true,
+            Email: email,
         });
         document.getElementById('confirmation').innerHTML = 'info has been written'
     }
@@ -112,33 +115,16 @@ function initialize_elements(snapshot) {
     is_volunteer = snapshot.child('IsVolunteer').val();
 
     // only show elements for social workers / volunteers that they should be able to see
-    if (is_social_worker) {
-        document.getElementById('guest_room').style.display = 'none';
-        document.getElementById('query_menu').style.display = 'block';
-    }
-    if (is_volunteer) {
+    if (is_volunteer === true) {
         document.getElementById('query_menu').style.display = 'none';
         document.getElementById('guest_room').style.display = 'block';
     }
-}
 
 
-// set user type to either volunteer or social worker
-function set_user_type(type) {
-
-    if (type === 'volunteer') {
-        is_volunteer = true;
-        is_social_worker = false;
-    } else if (type === 'social_worker') {
-        is_volunteer = false;
-        is_social_worker = true;
+    if (is_social_worker === true) {
+        document.getElementById('guest_room').style.display = 'none';
+        document.getElementById('query_menu').style.display = 'block';
     }
-
-    let dbref = firebase.database().ref("Users/" + uid);
-    dbref.update({
-        IsSocialWorker: is_social_worker,
-        IsVolunteer: is_volunteer
-    });
 }
 
 
@@ -163,6 +149,12 @@ function validate_inputs() {
     if (phone_match === null) {
         window.alert("Please enter a correct phone number eg: 999-999-9999.");
         document.getElementById('phone_number').focus();
+        return false;
+    }
+
+    if (address === '') {
+        window.alert("Please enter your address");
+        document.getElementById('address').focus();
         return false;
     }
     return true;

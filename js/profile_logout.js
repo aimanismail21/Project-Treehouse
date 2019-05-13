@@ -3,7 +3,7 @@ var main_app = {};
 //Allows user to logout, redirected to sign-in page
 (function(){
     var firebase = app_fireBase;
-var uid = null;
+    var uid = null;
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.

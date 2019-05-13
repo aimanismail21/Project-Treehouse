@@ -13,6 +13,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/input_validation.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
@@ -132,19 +133,20 @@
                     <br>
                     <!--First name-->
                     <label for="first_name">*First Name:</label><br>
-                    <input style="width: 100%;" type="text" id="first_name" value=""><br>
+                    <input style="width: 100%;" type="text" id="first_name" value="" required pattern="^([a-z A-z]+)$"><br>
 
                     <!--Last name-->
                     <label for="last_name">*Last Name:</label><br>
-                    <input style="width: 100%;" type="text" id="last_name" value=""><br>
+                    <input style="width: 100%;" type="text" id="last_name" value="" required pattern="^([a-z A-z]+)$"><br>
 
                     <!--Phone Number: -->
                     <label for="phone_number">*Phone Number:</label><br>
-                    <input placeholder="eg: 999-999-9999" style="width: 100%;" type="text" id="phone_number" value=""><br>
+                    <input placeholder="eg: 999-999-9999" style="width: 100%;" type="text" id="phone_number" value=""
+                           required pattern="^((\d){3}(-)(\d){3}(-)(\d){4})$"><br>
 
                     <!--Address-->
-                    <label for="address">Address:</label><br>
-                    <input style="width: 100%;" type="text" id="address" value=""><br>
+                    <label for="address">*Address:</label><br>
+                    <input style="width: 100%;" type="text" id="address" value="" required pattern=".*"><br>
 
                     <!--city dropdown selection-->
                     <label for="city">City: </label>
@@ -155,19 +157,6 @@
                         <option>Surrey</option>
                         <option>Richmond</option>
                     </select>
-
-                </div>
-
-                <div class="col-md-4">
-                    <div class="text-center"><h5>Set user type</h5></div>
-                    <br>
-                    <div class="col-md-12">
-                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="set_user_type('volunteer')">Volunteer</button><br>
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="set_user_type('social_worker')">Social Worker</button><br>
-                    </div>
                     <br>
                     <div class="text-center"><h5>Confirm changes</h5></div>
                     <br>
@@ -178,6 +167,17 @@
                     <div class="col-md-12">
                         <button class="btn btn-dark" style="width: 100%" value="submit" onclick="reset_profile_info()">Reset info</button>
                     </div>
+
+                </div>
+
+                <div class="col-md-4">
+                    <br>
+                    <div class="text-center"><h5>Change user type</h5></div>
+                    <br>
+                    <p>to change your account to a social worker please send us an email with your name, position, and
+                        a piece of identification at
+                        <a href = "mailto: ouremail@email.com"> ouremail@email.com</a>
+                    </p>
                 </div>
 
                 <div class="col-md-1"></div>
