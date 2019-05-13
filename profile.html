@@ -13,6 +13,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/input_validation.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
@@ -131,19 +132,20 @@
                     <br>
                     <!--First name-->
                     <label for="first_name">*First Name:</label><br>
-                    <input style="width: 100%;" type="text" id="first_name" value=""><br>
+                    <input style="width: 100%;" type="text" id="first_name" value="" required pattern="^([a-z A-z]+)$"><br>
 
                     <!--Last name-->
                     <label for="last_name">*Last Name:</label><br>
-                    <input style="width: 100%;" type="text" id="last_name" value=""><br>
+                    <input style="width: 100%;" type="text" id="last_name" value="" required pattern="^([a-z A-z]+)$"><br>
 
                     <!--Phone Number: -->
                     <label for="phone_number">*Phone Number:</label><br>
-                    <input placeholder="eg: 999-999-9999" style="width: 100%;" type="text" id="phone_number" value=""><br>
+                    <input placeholder="eg: 999-999-9999" style="width: 100%;" type="text" id="phone_number" value=""
+                           required pattern="^((\d){3}(-)(\d){3}(-)(\d){4})$"><br>
 
                     <!--Address-->
-                    <label for="address">Address:</label><br>
-                    <input style="width: 100%;" type="text" id="address" value=""><br>
+                    <label for="address">*Address:</label><br>
+                    <input style="width: 100%;" type="text" id="address" value="" required pattern=".*"><br>
 
                     <!--city dropdown selection-->
                     <label for="city">City: </label>

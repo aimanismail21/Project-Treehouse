@@ -149,6 +149,12 @@ function validate_inputs() {
         document.getElementById('phone_number').focus();
         return false;
     }
+
+    if (address === '') {
+        window.alert("Please enter your address");
+        document.getElementById('address').focus();
+        return false;
+    }
     return true;
 }
 
