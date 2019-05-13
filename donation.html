@@ -187,9 +187,12 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <label>
-                                            Amount <input v-model="newCharge.amount" id="amount">
+                                        <label id="pay_amount">
+                                            Amount:
                                         </label>
+                                        <script>
+                                            $('#pay_amount').html += amount;
+                                        </script>
                                     </div>
                                     <div>
                                         <a href="./review_payment.html">

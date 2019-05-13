@@ -154,7 +154,7 @@ var app = new Vue({
         submitNewCharge: function() {
             firebase.firestore().collection('stripe_customers').doc(this.currentUser.uid).collection('charges').add({
                 source: this.newCharge.source,
-                amount: parseInt(this.newCharge.amount)
+                amount: amount
             });
         },
         signOut: function() {
