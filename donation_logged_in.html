@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>Contribution</title>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--script for authentication list-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- Custom fonts for this template-->
+    <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="css/profile_page.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/donation.css" type="text/css">
+
+    <!-- Stripe JS/CSS -->
+    <script src="https://js.stripe.com/v2/"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!--initialize firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+    <script src="js/firebase_setup.js"></script>
+</head>
+
+<body id="page-top">
+
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="profile.html"></a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" href="#" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+</nav>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="profile.html">
+                <i class="fas fa-user-circle fa-fw"></i>
+                <span>Profile</span>
+            </a>
+
+            <a id="query_menu" class="nav-link" style="display: none;" href="volunteer_database.html">
+                <i class="fas fa-database fa-fw"></i>
+                <span>Query Menu</span>
+            </a>
+
+            <a id="guest_room" class="nav-link" style="display: none;" href="Guest_room.html">
+                <i class="fas fa-house-damage fa-fw"></i>
+                <span>Guest Room Menu</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Tools</span>
+            </a>
+            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
+                <h6 class="dropdown-header">Options:</h6>
+                <a class="dropdown-item active" href="querymenu.html">Search & Query Menu</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="donation_logged_in.html">
+                <i class="fas fa-donate fa-fw"></i>
+                <span>Contribute</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="mainApp.logOut()">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Log Out</span>
+            </a>
+        </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="./profile.html">Account</a>
+                </li>
+                <li class="breadcrumb-item active">Donation</li>
+            </ol>
+            <h1 id="title">Donate Now</h1>
+            <hr>
+
+            <!-- Page Content -->
+            <!--  Select Donation Amount  -->
+            <div class="container col-sm-4" id="donation_amount">
+                <h4>Select Contribution</h4>
+                <!--  One of the Amounts should be pre-selected  -->
+
+                <select id="currency">
+                </select><br>
+                <input type="button" class="bg-light" value="5" name="five" onclick="getAmount(this)">
+                <input type="button" class="bg-light" value="10" name="ten" onclick="getAmount(this)" autofocus>
+                <input type="button" class="bg-light" value="15" name="fifteen" onclick="getAmount(this)"><br>
+                <input type="button" class="bg-light" value="25" name="twenty_five" onclick="getAmount(this)">
+                <input type="button" class="bg-light" value="50" name="fifty" onclick="getAmount(this)">
+                <input type="button" class="bg-light" value="100" name="hundred" onclick="getAmount(this)"><br>
+                <!--  Provides User ability to specify amount to donate  -->
+                <input type="text" pattern="\d*" placeholder="Other" class="bg-light" name="other" id="other" onchange="getAmount(this)">
+                <button class="bg-info" id="nextPage">Donate</button>
+            </div>
+
+            <!-- Hidden Stripe API -->
+            <div class="container col-sm-4" id="payment">
+                <div class="container">
+                    <div id="app">
+                        <div id="firebaseui-auth-container"></div>
+                        <div id="loader">&hellip;</div>
+                        <div v-if="currentUser">
+                            <h4>Hello {{ currentUser.email }},</h4>
+                            <button class="bg-white" v-on:click="signOut">Sign out</button>
+                            <hr>
+                            <div v-if="stripeCustomerInitialized">
+                                <h3>Credit Cards</h3>
+                                <ul>
+                                    <li v-for="source in sources">
+                                        <span v-if="source.id">
+                                          {{ source.brand }} &hellip;{{ source.last4 }}
+                                          (exp. {{ source.exp_month }}/{{ source.exp_year }})
+                                        </span>
+                                        <span v-else>&hellip;</span>
+                                    </li>
+                                </ul>
+                                <div>
+                                    <h4>New</h4>
+                                    <div>
+                                        <label>
+                                            Number <input v-model="newCreditCard.number">
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            CCV <input v-model="newCreditCard.cvc">
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            Exp
+                                            <input v-model="newCreditCard.exp_month" size="2"> /
+                                            <input v-model="newCreditCard.exp_year" size="4">
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            Zip <input v-model="newCreditCard.address_zip">
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <button class="bg-white" v-on:click="submitNewCreditCard">Add</button>
+                                        {{ newCreditCard.error }}
+                                    </div>
+                                </div>
+                                <hr>
+                                <h3>Charges</h3>
+                                <ul>
+                                    <li v-for="(charge, id) in charges">
+                                        {{ charge.amount }}
+                                        <span v-if="charge.error">
+                                          {{ charge.error }}
+                                        </span>
+                                        <span v-else-if="charge.outcome">
+                                          {{ charge.outcome.seller_message }}
+                                          {{ charge.source.brand }} &hellip;{{ charge.source.last4 }}
+                                          (exp. {{ charge.source.exp_month }}/{{ charge.source.exp_year }})
+                                        </span>
+                                        <span v-else>&hellip;</span>
+                                    </li>
+                                </ul>
+                                <h4>New</h4>
+                                <div>
+                                    <label>
+                                        Card
+                                        <select v-model="newCharge.source">
+                                            <option :value="null">Default payment method</option>
+                                            <option v-for="(source, id) in sources" v-bind:value="source.id" v-if="source.id">
+                                                {{ source.brand }} &hellip;{{ source.last4 }}
+                                                (exp. {{ source.exp_month }}/{{ source.exp_year }})
+                                            </option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label id="pay_amount">
+                                        Amount <input v-model="newCharge.amount" id="amount">
+                                    </label>
+                                </div>
+                                <div>
+                                    <a href="./review_payment_logged_in.html">
+                                        <button style="width:100%" class="bg-info" v-on:click="submitNewCharge">Charge</button>
+                                    </a>
+                                    {{ newCharge.error }}
+                                </div>
+                            </div>
+                            <div v-else>&hellip;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © Project Treehouse 2019</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="logoutModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Access page functions -->
+<script src="js/donation.js"></script>
+<!-- Access Stripe functions -->
+<!--<script src="functions/stripe.js"></script>-->
+<!-- Custom scripts for this page -->
+<script src="js/profile_page.js"></script>
+<script src="js/profile_logout.js"></script>
+
+<!-- Bootstrap core JavaScript-->
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="js/jquery-easing/jquery.easing.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/profile_page.min.js"></script>
+<script src="js/index.js"></script>
+
+<!-- Import and configure the Firebase SDK -->
+<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+<!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+<script src="/__/firebase/5.9.1/firebase-app.js"></script>
+<script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+<script src="/__/firebase/5.9.1/firebase-firestore.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<!-- Import Firebase UI -->
+<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
+</body>
+</html>

@@ -13,6 +13,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="css/input_validation.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
@@ -70,21 +71,15 @@
                 <a class="dropdown-item active" href="querymenu.html">Search & Query Menu</a>
             </div>
         </li>
-        <li class="nav-item dropdown">
-            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
-                <i class="fas fa-fw fa-sign-out-alt"></i>
-                <span>Account Options</span>
-            </a>
-            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
-
-                <h6 class="dropdown-header">Login Screens:</h6>
-                <a class="dropdown-item" href="login.html">Login</a>
-                <a class="dropdown-item" href="register.html">Register</a>
-                <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-            </div>
-        </li>
         <li class="nav-item">
-            <a class="nav-link" onclick="mainApp.logOut()">
+            <a class="nav-link" href="donation_logged_in.html">
+                <i class="fas fa-donate fa-fw"></i>
+                <span>Contribute</span>
+            </a>
+        </li>
+        <!--Log out feature-->
+        <li class="nav-item">
+            <a class="nav-link" onclick="main_app.log_out()">
                 <i class="fas fa-fw fa-sign-out-alt"></i>
                 <span>Log Out</span>
             </a>
@@ -131,19 +126,20 @@
                     <br>
                     <!--First name-->
                     <label for="first_name">*First Name:</label><br>
-                    <input style="width: 100%;" type="text" id="first_name" value=""><br>
+                    <input style="width: 100%;" type="text" id="first_name" value="" required pattern="^([a-z A-z]+)$"><br>
 
                     <!--Last name-->
                     <label for="last_name">*Last Name:</label><br>
-                    <input style="width: 100%;" type="text" id="last_name" value=""><br>
+                    <input style="width: 100%;" type="text" id="last_name" value="" required pattern="^([a-z A-z]+)$"><br>
 
                     <!--Phone Number: -->
                     <label for="phone_number">*Phone Number:</label><br>
-                    <input placeholder="eg: 999-999-9999" style="width: 100%;" type="text" id="phone_number" value=""><br>
+                    <input placeholder="eg: 999-999-9999" style="width: 100%;" type="text" id="phone_number" value=""
+                           required pattern="^((\d){3}(-)(\d){3}(-)(\d){4})$"><br>
 
                     <!--Address-->
-                    <label for="address">Address:</label><br>
-                    <input style="width: 100%;" type="text" id="address" value=""><br>
+                    <label for="address">*Address:</label><br>
+                    <input style="width: 100%;" type="text" id="address" value="" required pattern=".*"><br>
 
                     <!--city dropdown selection-->
                     <label for="city">City: </label>
@@ -154,19 +150,6 @@
                         <option>Surrey</option>
                         <option>Richmond</option>
                     </select>
-
-                </div>
-
-                <div class="col-md-4">
-                    <div class="text-center"><h5>Set user type</h5></div>
-                    <br>
-                    <div class="col-md-12">
-                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="set_user_type('volunteer')">Volunteer</button><br>
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="set_user_type('social_worker')">Social Worker</button><br>
-                    </div>
                     <br>
                     <div class="text-center"><h5>Confirm changes</h5></div>
                     <br>
@@ -177,6 +160,17 @@
                     <div class="col-md-12">
                         <button class="btn btn-dark" style="width: 100%" value="submit" onclick="reset_profile_info()">Reset info</button>
                     </div>
+
+                </div>
+
+                <div class="col-md-4">
+                    <br>
+                    <div class="text-center"><h5>Change user type</h5></div>
+                    <br>
+                    <p>to change your account to a social worker please send us an email with your name, position, and
+                        a piece of identification at
+                        <a href = "mailto: ouremail@email.com"> ouremail@email.com</a>
+                    </p>
                 </div>
 
                 <div class="col-md-1"></div>

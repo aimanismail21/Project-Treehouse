@@ -1,0 +1,7 @@
+input:invalid {
+    background-color: #ffdddd;
+}
+
+input:focus:invalid {
+    box-shadow: none;
+}

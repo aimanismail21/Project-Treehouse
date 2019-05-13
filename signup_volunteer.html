@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <meta content="" name="description">
     <meta content="" name="author">
-    <title>Sign Up - Volunteer</title>
-    <title>User Profile - Dashboard</title>
+
+    <title>Sign Up & Register</title>
+
+    <!--initialize firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+    <script src="js/firebase_setup.js"></script>
 
     <!--script for authentication list-->
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
@@ -14,33 +19,19 @@
 
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
-    <!--Icons used on web page (Hamburger Menu) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/profile_page.css">
 
-    <!--CDNs for Jquery, and bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <!--initialize firebase-->
-    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
-    <script src="js/firebase_setup.js"></script>
-
-    <!--volunteer signup database script-->
+    <!--volunteer sign up database script-->
     <script src="js/signup_volunteer.js"></script>
 
 </head>
 
-<body id="page-top">
+<body>
 
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
 
         <a class="navbar-brand mr-auto p-2" href="#">
@@ -81,64 +72,24 @@
     </div>
 </nav>
 
-<header>
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <!-- Slide One - Set the background image for this slide in the line below -->
-            <div class="carousel-item active" style="background-image: url('images/treehouse img.gif')  ">
-                <div class="carousel-caption">
-
-                    <p class="lead">This is a description for the first slide.</p>
-                    <button class="display-6 btn-link">Learn More</button>
-                </div>
-            </div>
-            <!-- Slide Two - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('images/treehouse img.gif')">
-                <div class="carousel-caption">
-                    <h3 class="display-4">Second Slide</h3>
-                    <p class="lead">This is a description for the second slide.</p>
-                </div>
-            </div>
-            <!-- Slide Three - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('images/treehouse img.gif')">
-                <div class="carousel-caption">
-                    <h3 class="display-4">Third Slide</h3>
-                    <p class="lead">This is a description for the third slide.</p>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</header>
 
 
 <!-- Page Content -->
-<section class="py-12">
+<section class="py-5">
     <div class="container">
         <!-- Page Content -->
-        <section class="py-5">
+        <section>
             <div class="jumbotron">
-                <h1 class="display-7">Project Treehouse</h1>
-                <p class="lead">A community sharing housing initiative that supports homeless youth in Vancouver.</p>
+                <h1 class="medium">Sign In</h1>
+                <p class="lead">Continue to Personal Dashboard</p>
                 <hr class="my-4">
+                <!-- Firebase Authentication SDK-->
                 <div id="firebaseui-auth-container"></div>
                 <div class="col-md-offset-3 col-lg  text-center">
                     <button onclick="window.location.href = 'forgot_password.html';" type="button" class="btn btn-primary">
-                    Forgot Password?</button>
+                        Forgot Password?</button>
                 </div>
+                <!--End of  Firebase Authentication SDK-->
             </div>
         </section>
     </div>
