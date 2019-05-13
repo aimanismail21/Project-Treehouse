@@ -54,12 +54,12 @@
                 <span>Profile</span>
             </a>
 
-            <a id="query_menu" class="nav-link" style="display: none" href="volunteer_database.html">
+            <a id="query_menu" class="nav-link" style="display: none;" href="volunteer_database.html">
                 <i class="fas fa-database fa-fw"></i>
                 <span>Query Menu</span>
             </a>
 
-            <a id="guest_room" class="nav-link" style="display: none" href="Guest_room.html">
+            <a id="guest_room" class="nav-link" style="display: none;" href="Guest_room.html">
                 <i class="fas fa-house-damage fa-fw"></i>
                 <span>Guest Room Menu</span>
             </a>
@@ -74,20 +74,19 @@
                 <a class="dropdown-item active" href="querymenu.html">Search & Query Menu</a>
             </div>
         </li>
-        <li class="nav-item dropdown">
-            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
-                <i class="fas fa-fw fa-sign-out-alt"></i>
-                <span>Account Options</span>
+        <li class="nav-item">
+            <a class="nav-link" href="donation_logged_in.html">
+                <i class="fas fa-donate fa-fw"></i>
+                <span>Contribute</span>
             </a>
-            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
-
-                <h6 class="dropdown-header">Login Screens:</h6>
-                <a class="dropdown-item" href="login.html">Login</a>
-                <a class="dropdown-item" href="register.html">Register</a>
-                <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-            </div>
         </li>
-
+        <!--Log out feature-->
+        <li class="nav-item">
+            <a class="nav-link" onclick="main_app.log_out()">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Log Out</span>
+            </a>
+        </li>
     </ul>
 
     <div id="content-wrapper">
