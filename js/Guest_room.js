@@ -82,13 +82,13 @@ function validate_inputs() {
     let phone_match = phone_number.match(/^((\d){3}(-)(\d){3}(-)(\d){4})$/i);
 
     if (first_name_match === null) {
-        window.alert("Please enter your first name.");
+        window.alert("Please enter a correct first name. ( only letters )");
         document.getElementById('first_name').focus();
         return false;
     }
 
     if (last_name_match === null) {
-        window.alert("Please enter your last name.");
+        window.alert("Please enter a correct last name. ( only letters )");
         document.getElementById('last_name').focus();
         return false;
     }

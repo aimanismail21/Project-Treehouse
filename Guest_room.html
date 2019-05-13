@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
+    <link href="css/input_validation.css" rel="stylesheet">
 
     <!--Icons used on web page (Hamburger Menu) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,10 +31,9 @@
     <script src="js/firebase_setup.js"></script>
 
     <script src="js/Guest_room.js"></script>
-
 </head>
 
-<body onload="initialize_page()" id="page-top">
+<body id="page-top">
 
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -116,15 +116,14 @@
 
                 <div class="col-md-1"></div>
 
-                <!--Search by criteria form-->
+                <!--Guest room info form-->
                 <div class="col-md-5">
                     <!--First name-->
                     <label for="first_name">*First Name:</label><br>
-                    <input style="width: 100%;" type="text" id="first_name" value=""><br>
-
+                    <input style="width: 100%" type="text" id="first_name" value="" required pattern="^([a-z A-z]+)$"><br>
                     <!--Last name-->
                     <label for="last_name">*Last Name:</label><br>
-                    <input style="width: 100%;" type="text" id="last_name" value=""><br>
+                    <input style="width: 100%;" type="text" id="last_name" value="" required pattern="^([a-z A-Z]+)$"><br>
 
                     <!--city dropdown selection-->
                     <label for="city">City: </label>
@@ -148,11 +147,12 @@
                 <div class="col-md-5">
                     <!--Address-->
                     <label for="address">*Address:</label><br>
-                    <input style="width: 100%;" type="text" id="address" value=""><br>
+                    <input style="width: 100%;" type="text" id="address" value="" required pattern=".*"><br>
 
                     <!--Phone Number: -->
                     <label for="phone_number">*Phone Number:</label><br>
-                    <input placeholder="eg: 999-999-9999" style="width: 100%;" type="text" id="phone_number" value=""><br>
+                    <input placeholder="eg: 999-999-9999" style="width: 100%;" type="text" id="phone_number" value=""
+                           required pattern="^((\d){3}(-)(\d){3}(-)(\d){4})$"><br>
 
                     <!--city dropdown selection-->
                     <label for="family">Family: </label>
