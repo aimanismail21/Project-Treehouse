@@ -1,5 +1,5 @@
 
-//Reset password email is sent.
+//Reset password email is sent
 function forgotPassword(){
     var email = document.getElementById("exampleInputEmail1");
     let input = email.value;
