@@ -1,26 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <!-- Gives the page its title -->
-    <title>Feedback</title>
+<head>
+    <title>Contact Us</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- All the links, both css and to bootstrap-->
+    <link rel = "stylesheet" type = "text/css" href = "./css/faq_page.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS and other information for the navigation bar -->
+    <!-- Custom fonts for this template-->
+    <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template-->
+    <link href="css/profile_page.css" rel="stylesheet">
 
-    <body>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script src="js/firebase_setup.js"></script>
 
-        <!-- The name and the text box for entering in contact information-->
-        Name/Contact Information: <br>
-        <label>
-        <textarea rows="1" cols = "20"> Contact Information </textarea>
-        </label> <br>
 
-        <!-- Creates the text box for entering their messages-->
-        Message: <br>
-        <label>
-        <textarea rows = "10" cols = "20"> Enter your message here. </textarea>
-        </label> <br>
+</head>
 
-        <!-- Button to submit -->
-        <input type="button" value="Submit">
+<style>
 
-    </body>
+
+</style>
+
+
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <a class="navbar-brand mr-auto p-2" href="#">
+            <img src="images/logo.png" width="100" height="100" class="d-inline-block float-right" alt="Logo">
+        </a>
+        <span class="text-light" style="margin: 5px;">BCIT: Project Treehouse </span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="frequently_asked_questions.html">FAQ</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signup_volunteer.html">Login & Sign-up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="donation.html">Contribution</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Contact form-->
+<section class="container" style="padding-right: 25px; padding-left: 25px;">
+
+
+        <!--Grid column-->
+        <div class="">
+
+            <!--Section heading-->
+            <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+            <!--Section description-->
+            <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+                a matter of hours to help you.</p>
+            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="name" class="">Your name </label>
+                            <input type="text" id="name" name="name" class="form-control">
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="email" class="">Your email</label>
+                            <input type="text" id="email" name="email" class="form-control">
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <label for="subject" class="">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            <label for="message">Your message</label>
+                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                        </div>
+
+                        <div class="text-md-left my-4">
+                            <a class="btn btn-dark" style="color: white" onclick="document.getElementById('contact-form').submit();" id="form_submit">Send</a>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+
+            </form>
+
+        </div>
+
+        <!--Grid column-->
+
+
+</section>
+<!--End of Contact Form-->
+
+
+
+
+</body>
+
+<!-- footer -->
+<footer class="fixed-bottom">
+    <div class="py-4 bg-dark text-white-100 text-center">
+        <small>Copyright &copy; Project Treehouse</small>
+    </div>
+</footer>
+
 
 </html>
+
+<!-- sends information in the form to firebase -->
+<script src="js/feedback_form.js"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
