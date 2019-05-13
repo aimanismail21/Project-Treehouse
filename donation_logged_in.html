@@ -26,7 +26,7 @@
     <!-- Stripe JS/CSS -->
     <script src="https://js.stripe.com/v2/"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />\
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!--initialize firebase-->
     <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
@@ -75,6 +75,7 @@
                 <a class="dropdown-item active" href="querymenu.html">Search & Query Menu</a>
             </div>
         </li>
+
         <li class="nav-item dropdown">
             <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
                 <i class="fas fa-fw fa-sign-out-alt"></i>
@@ -208,11 +209,8 @@
                                 </div>
                                 <div>
                                     <label id="pay_amount">
-                                        Amount:
+                                        Amount <input v-model="newCharge.amount" id="amount">
                                     </label>
-                                    <script>
-                                        $('#pay_amount').html += amount;
-                                    </script>
                                 </div>
                                 <div>
                                     <a href="./review_payment_logged_in.html">
@@ -272,7 +270,7 @@
 <!-- Access page functions -->
 <script src="js/donation.js"></script>
 <!-- Access Stripe functions -->
-<script src="functions/stripe.js"></script>
+<!--<script src="functions/stripe.js"></script>-->
 <!-- Custom scripts for this page -->
 <script src="js/profile_page.js"></script>
 <script src="js/profile_logout.js"></script>
