@@ -100,9 +100,32 @@
                 <hr>
                 <!--  Take info from Stripe API and populate this div  -->
                 <div class="container col-sm-4" id="donation_amount">
-                    <h4>Placeholder</h4>
+                    <h4>Receipt</h4>
                     <!--  Payment info here  -->
-                    <p>Info here</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Transaction No:</th>
+                            <td>[newCharges doc.id]</td>
+                        </tr>
+                        <tr>
+                            <th>Name:</th>
+                            <td>[app.currentUser / firebaseUser]</td>
+                        </tr>
+                        <tr>
+                            <th>Transaction Date:</th>
+                            <td>
+                                <script>
+                                    let now = new Date();
+                                    let current_date = now.getFullYear() + '/' + now.getMonth() + '/' + now.getDate();
+                                    document.write(current_date);
+                                </script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Amount Paid:</th>
+                            <td>[amount donated]</td>
+                        </tr>
+                    </table>
                     <a href="./index.html">
                         <button class="bg-light">Home</button>
                     </a>
