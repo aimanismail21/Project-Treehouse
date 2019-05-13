@@ -21,14 +21,13 @@
 </head>
 
 <style>
-
-
 </style>
 
 
-<body>
+<body id="page-top">
+
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
 
         <a class="navbar-brand mr-auto p-2" href="#">
@@ -41,22 +40,16 @@
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="index.html">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="profile.html">Services</a>
+                    <a class="nav-link" href="about.html">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="frequently_asked_questions.html">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="signup_volunteer.html">Login & Sign-up</a>
@@ -69,124 +62,123 @@
     </div>
 </nav>
 
+
+
 <!-- Contact form-->
-<section class="mb-4" style="padding-right: 25px; padding-left: 25px;">
-
-    <!--Section heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
-    <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-        a matter of hours to help you.</p>
-
-    <div class="row">
-
-        <!--Grid column-->
-        <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+<section class="container" style="padding-right: 25px; padding-left: 25px; padding-bottom: 35px;">
 
 
-                <!--Grid row-->
-                <div class="row">
+    <!--Grid column-->
+    <div class="">
 
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <label for="name" class="">Your name </label>
-                            <input type="text" id="name" name="name" class="form-control">
-                        </div>
-                    </div>
-                    <!--Grid column-->
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+        <!--Section description-->
+        <p class="text-center w-responsive mx-auto mb-5">
+            Do you have any questions? <br>
+            Please do not hesitate to contact us directly.
+            Our team will come back to you within a matter of hours to help you.</p>
+        <form id="contact-form" name="contact-form" method="POST">
+            <!--Grid row-->
+            <div class="row">
 
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <label for="email" class="">Your email</label>
-                            <input type="text" id="email" name="email" class="form-control">
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="md-form mb-0">
-                            <label for="subject" class="">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control">
-                        </div>
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <div class="md-form mb-0">
+                        <label for="name" class="">Your name </label>
+                        <input type="text" id="name" name="name" class="form-control">
                     </div>
                 </div>
-                <!--Grid row-->
+                <!--Grid column-->
 
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-12">
-
-                        <div class="md-form">
-                            <label for="message">Your message</label>
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                        </div>
-
+                <!--Grid column-->
+                <div class="col-md-6">
+                    <div class="md-form mb-0">
+                        <label for="email" class="">Your email</label>
+                        <input type="text" id="email" name="email" class="form-control">
                     </div>
                 </div>
-                <!--Grid row-->
-
-            </form>
-
-            <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();" id="form_submit">Send</a>
+            <!--Grid column-->
             </div>
-            <div class="status"></div>
-        </div>
-        <!--Grid column-->
+            <!--Grid row-->
 
-        <!--Grid column-->
-        <div class="col-md-3 text-center">
-            <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p>Vancouver, British Columbia, Canada</p>
-                </li>
+            <!--Grid row-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="md-form mb-0">
+                        <label for="subject" class="">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-md-12">
+                    <div class="md-form">
+                        <label for="message">Your message</label>
+                        <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                    </div>
+                    <div class="text-md-left my-4">
+                        <a class="btn btn-dark" style="color: white" onclick="document.getElementById('contact-form').submit();" id="form_submit">Send</a>
+                    </div>
 
-                <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p>+ 01 234 567 89</p>
-                </li>
+                </div>
+            </div>
+            <!--Grid row-->
 
-                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p>project_treehouse@yahoo.com</p>
-                </li>
-            </ul>
-        </div>
-        <!--Grid column-->
+        </form>
 
     </div>
+
+    <!--Grid column-->
 
 </section>
 <!--End of Contact Form-->
 
 
+<!--Footer Nav-->
+<footer id="bottom_footer">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-collapse" id="navbarsExample02">
+            <ul class="navbar-nav my-auto col-auto">
+                <li class="nav-item float"> <a class="nav-link" href="#">Contact Us</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Affiliates</a></li>
+            </ul>
+            <form class="form-inline my-2 my-md-0"> </form>
+        </div>
+
+        <small class="text-white">Copyright &copy; Projet Treehouse</small>
+    </nav>
 
 
+<!-- Scroll to Top Button-->
+<script>// SideNav Button Initialization
+$(".button-collapse").sideNav();
+// SideNav Scrollbar Initialization
+var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+var ps = new PerfectScrollbar(sideNavScrollbar);</script>
+<a class="scroll-to-top rounded" href="#page-top" id="easter_egg">
+    <i class="fas fa-angle-up"></i>
+</a>
 </body>
-
-<!-- footer -->
-<footer class="fixed-bottom">
-    <div class="py-4 bg-dark text-white-50 text-center">
-        <small>Copyright &copy; Projet Treehouse</small>
-    </div>
-</footer>
-
-
 </html>
 
-<!-- sends information in the form to firebase -->
+<!-- Sends information to Firebase -->
 <script src="js/feedback_form.js"></script>
-
-
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript-->
+          
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="js/jquery-easing/jquery.easing.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/profile_page.min.js"></script>
+<script src="js/index.js"></script>

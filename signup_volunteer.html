@@ -1,3 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>Sign Up & Register</title>
+
+    <!--initialize firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+    <script src="js/firebase_setup.js"></script>
+
+    <!--script for authentication list-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- Custom fonts for this template-->
+    <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template-->
+    <link href="css/profile_page.css" rel="stylesheet">
+
+    <!--volunteer sign up database script-->
+    <script src="js/signup_volunteer.js"></script>
+
+</head>
+
+<body>
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <a class="navbar-brand mr-auto p-2" href="#">
+            <img src="images/logo.png" width="100" height="100" class="d-inline-block float-right" alt="Logo">
+        </a>
+        <span class="text-light" style="margin: 5px;">BCIT: Project Treehouse </span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="frequently_asked_questions.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signup_volunteer.html">Login & Sign-up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="donation.html">Contribution</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
 
 <!-- Page Content -->
 <section class="py-5">
@@ -8,11 +83,13 @@
                 <h1 class="medium">Sign In</h1>
                 <p class="lead">Continue to Personal Dashboard</p>
                 <hr class="my-4">
+                <!-- Firebase Authentication SDK-->
                 <div id="firebaseui-auth-container"></div>
                 <div class="col-md-offset-3 col-lg  text-center">
                     <button onclick="window.location.href = 'forgot_password.html';" type="button" class="btn btn-primary">
                         Forgot Password?</button>
                 </div>
+                <!--End of  Firebase Authentication SDK-->
             </div>
         </section>
     </div>

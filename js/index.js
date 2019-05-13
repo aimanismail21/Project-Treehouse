@@ -65,7 +65,7 @@ nyan_cat_attack.addEventListener('click', function () {
                         top: Math.random() * (window.innerHeight - 50),
                         height: '150px',
                     }, 'slow')
-                }, 2000);
+                }, 1800);
 
             }
         }

@@ -7,9 +7,14 @@
     <meta content="" name="description">
     <meta content="" name="author">
 
+    <title>Review Payment</title>
+
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-    <title>Review Payment</title>
+    <!--script for authentication list-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,16 +22,21 @@
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
 
+    <!-- Stripe JS/CSS -->
     <script src="https://js.stripe.com/v2/"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!--initialize firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+    <script src="js/firebase_setup.js"></script>
 
 </head>
 
 <body id="page-top">
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
 
         <a class="navbar-brand mr-auto p-2" href="#">
@@ -66,10 +76,8 @@
 </nav>
 
 <!-- Page Content -->
-<section class="py-5" id="page-content-wrapper">
-
-    <div class="py-5 container-fluid">
-
+<section class="py-12" id="page-content-wrapper">
+    <div class="container-fluid">
         <!-- Page Content -->
         <section class="py-5">
             <div class="jumbotron-fluid">
@@ -87,9 +95,32 @@
                 <hr>
                 <!--  Take info from Stripe API and populate this div  -->
                 <div class="container col-sm-4" id="donation_amount">
-                    <h4>Placeholder</h4>
+                    <h4>Payment Details</h4>
                     <!--  Payment info here  -->
-                    <p>Info here</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Transaction No:</th>
+                            <td>[newCharges doc.id]</td>
+                        </tr>
+                        <tr>
+                            <th>Name:</th>
+                            <td>[app.currentUser / firebaseUser]</td>
+                        </tr>
+                        <tr>
+                            <th>Transaction Date:</th>
+                            <td>
+                                <script>
+                                    let now = new Date();
+                                    let current_date = now.getFullYear() + '/' + now.getMonth() + '/' + now.getDate();
+                                    document.write(current_date);
+                                </script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Amount Paid:</th>
+                            <td>[amount donated]</td>
+                        </tr>
+                    </table>
                     <a href="./index.html">
                         <button class="bg-light">Cancel</button>
                     </a>
@@ -102,40 +133,17 @@
     </div>
 </section>
 
-<!-- Access Stripe functions -->
-<script src="functions/stripe.js"></script>
-
-<!-- Import and configure the Firebase SDK -->
-<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
-<!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
-<script src="/__/firebase/5.9.1/firebase-app.js"></script>
-<script src="/__/firebase/5.9.1/firebase-auth.js"></script>
-<script src="/__/firebase/5.9.1/firebase-firestore.js"></script>
-<script src="/__/firebase/init.js"></script>
-
-<!-- Import Firebase UI -->
-<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-
-<footer class="fa-sticky-note">
-
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarsExample02">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"> <a class="nav-link" href="#">Contact Us</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Affiliates</a></li>
-            </ul>
-            <form class="form-inline my-2 my-md-0"> </form>
-        </div>
-
-        <small class="text-white">Copyright &copy; Projet Treehouse</small>
-    </nav>
-
-</footer>
 
 <!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top" id="easter_egg">
+
+<a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
+
+<!-- Access page functions -->
+<script src="./js/donation.js"></script>
+<!-- Access Stripe functions -->
+<!--<script src="./functions/stripe.js"></script>-->
 
 <!-- Bootstrap core JavaScript-->
 <script src="js/jquery/jquery.min.js"></script>
@@ -147,6 +155,17 @@
 <!-- Custom scripts for all pages-->
 <script src="js/profile_page.min.js"></script>
 <script src="js/index.js"></script>
+
+<!-- Import and configure the Firebase SDK -->
+<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+<!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+<script src="/__/firebase/5.9.1/firebase-app.js"></script>
+<script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+<script src="/__/firebase/5.9.1/firebase-firestore.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<!-- Import Firebase UI -->
+<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 
 </body>
 </html>

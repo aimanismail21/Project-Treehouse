@@ -1,4 +1,4 @@
-// Initialize the FirebaseUI Widget using Firebase.
+// Initialize  Firebase Authentication SDK
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 var uiConfig = {
@@ -32,7 +32,7 @@ var uiConfig = {
     // Privacy policy url.
     privacyPolicyUrl: '#href'
 };
-
+// End of  Firebase Authentication SDK
 
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);

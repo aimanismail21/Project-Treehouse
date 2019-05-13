@@ -13,7 +13,7 @@ submitBtn.onclick = function()  {
     var date = new Date();
     console.log(name);
     console.log(email);
-    console.log(subject)
+    console.log(subject);
     console.log(message);
     firebase.database().ref("FeedbackForm/" + date).set({
         name: name,
@@ -21,4 +21,5 @@ submitBtn.onclick = function()  {
         subject: subject,
         message: message,
     });
-}
+};
+
