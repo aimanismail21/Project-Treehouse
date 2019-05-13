@@ -19,8 +19,13 @@
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
+    <!-- Custom scripts for this page -->
+    <script src="js/profile_page.js"></script>
+    <script src="js/profile_logout.js"></script>
+
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/donation.css" type="text/css">
 
     <!-- Stripe JS/CSS -->
     <script src="https://js.stripe.com/v2/"></script>
@@ -91,12 +96,9 @@
                     <li class="breadcrumb-item">
                         <a href="./donation.html">Donation</a>
                     </li>
-                    <li class="breadcrumb-item">
-                        <a href="./review_payment.html">Review</a>
-                    </li>
-                    <li class="breadcrumb-item active">Receipt</li>
+                    <li class="breadcrumb-item active">Review</li>
                 </ol>
-                <h1 id="title">Thank You for Your Contribution!</h1>
+                <h1 id="title">Review Payment</h1>
                 <hr>
                 <!--  Take info from Stripe API and populate this div  -->
                 <div class="container col-sm-4" id="donation_amount">
@@ -104,9 +106,11 @@
                     <!--  Payment info here  -->
                     <p>Info here</p>
                     <a href="./index.html">
-                        <button class="bg-light">Home</button>
+                        <button class="bg-light">Cancel</button>
                     </a>
-                    <input class="bg-info" type="button" name="print" value="Print/PDF" onClick="window.print()">
+                    <a href="./receipt_logged_in.html">
+                        <button class="bg-info">Confirm</button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -133,6 +137,13 @@ var ps = new PerfectScrollbar(sideNavScrollbar);</script>
 <script src="./js/donation.js"></script>
 <!-- Access Stripe functions -->
 <script src="./functions/stripe.js"></script>
+
+<!-- Bootstrap core JavaScript-->
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="js/jquery-easing/jquery.easing.js"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="js/profile_page.min.js"></script>
