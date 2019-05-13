@@ -34,3 +34,10 @@ h2 {
 #faq_main_accord{
     padding-bottom: 150px;
 }
+
+#bottom_footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}
