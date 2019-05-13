@@ -1,3 +1,4 @@
+
 //Reset password email is sent
 function forgotPassword(){
     var email = document.getElementById("exampleInputEmail1");
@@ -8,4 +9,3 @@ function forgotPassword(){
     }).catch(function(error) {
         // An error happened.
     })}
-

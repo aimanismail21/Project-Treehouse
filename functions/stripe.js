@@ -30,7 +30,7 @@ exports.createStripeCharge = functions.firestore.document('stripe_customers/{use
         // Look up the Stripe customer id written in createStripeCustomer
         const snapshot = await admin.firestore().collection(`stripe_customers`).doc(context.params.userId).get()
         const snapval = snapshot.data();
-        const customer = snapval.customer_id
+        const customer = snapval.customer_id;
         // Create a charge using the pushId as the idempotency key
         // protecting against double charges
         const amount = val.amount;
