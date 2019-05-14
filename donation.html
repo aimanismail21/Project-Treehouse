@@ -7,31 +7,39 @@
     <meta content="" name="description">
     <meta content="" name="author">
 
+    <title>Contribution</title>
+
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
+    <!--script for authentication list-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
     <!-- Custom fonts for this template-->
-    <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
-
-    <script src="https://js.stripe.com/v2/"></script>
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link rel="stylesheet" href="./css/donation.css" type="text/css">
 
-    <title>Contribution</title>
+    <!-- Stripe JS/CSS -->
+    <script src="https://js.stripe.com/v2/"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <!--initialize firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+    <script src="./js/firebase_setup.js"></script>
 </head>
 
 <body id="page-top">
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
 
-        <a class="navbar-brand mr-auto p-2" href="#">
+        <a class="navbar-brand mr-auto p-2" href="index.html">
             <img src="images/logo.png" width="100" height="100" class="d-inline-block float-right" alt="Logo">
-
         </a>
         <span class="text-light" style="margin: 5px;">BCIT: Project Treehouse </span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +65,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="signup_volunteer.html">Login & Sign-up</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="donation.html">Contribution</a>
                 </li>
             </ul>
@@ -65,14 +73,11 @@
     </div>
 </nav>
 
-<!-- Page Content -->
-<section class="py-5" id="page-content-wrapper">
-
-    <div class="py-5 container-fluid">
-
+<section class="py-12" id="page-content-wrapper">
+    <div class="container-fluid">
         <!-- Page Content -->
         <section class="py-5">
-            <div class="jumbotron-fluid">
+            <div class="container-fluid">
                 <!-- Breadcrumbs-->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
@@ -107,8 +112,9 @@
                             <div id="firebaseui-auth-container"></div>
                             <div id="loader">&hellip;</div>
                             <div v-if="currentUser">
-                                <h2>Hello {{ currentUser.email }},</h2>
-                                <button v-on:click="signOut">Sign out</button>
+                                <h4>Hello {{ currentUser.email }},</h4>
+                                <button class="bg-white" v-on:click="signOut">Sign out</button>
+                                <hr>
                                 <div v-if="stripeCustomerInitialized">
                                     <h3>Credit Cards</h3>
                                     <ul>
@@ -145,10 +151,11 @@
                                             </label>
                                         </div>
                                         <div>
-                                            <button v-on:click="submitNewCreditCard">Add</button>
+                                            <button class="bg-white" v-on:click="submitNewCreditCard">Add</button>
                                             {{ newCreditCard.error }}
                                         </div>
                                     </div>
+                                    <hr>
                                     <h3>Charges</h3>
                                     <ul>
                                         <li v-for="(charge, id) in charges">
@@ -178,13 +185,13 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <label>
+                                        <label id="pay_amount">
                                             Amount <input v-model="newCharge.amount" id="amount">
                                         </label>
                                     </div>
                                     <div>
                                         <a href="./review_payment.html">
-                                            <button v-on:click="submitNewCharge">Charge</button>
+                                            <button style="width:100%" class="bg-info" v-on:click="submitNewCharge">Charge</button>
                                         </a>
                                         {{ newCharge.error }}
                                     </div>
@@ -197,12 +204,29 @@
             </div>
         </section>
     </div>
+
 </section>
+<footer class="fixed-bottom">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"> <a class="nav-link" href="feedback_forum.html">Contact Us</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Affiliates</a></li>
+                <li class="nav-item"> <a class="nav-link" href="about_references.html">Credits</a></li>
+            </ul>
+            <form class="form-inline my-2 my-md-0"> </form>
+        </div>
+
+        <small class="text-white">Copyright &copy; Project Treehouse</small>
+    </nav>
+
+</footer>
 
 <!-- Access page functions -->
 <script src="./js/donation.js"></script>
 <!-- Access Stripe functions -->
-<script src="functions/stripe.js"></script>
+<!--<script src="functions/stripe.js"></script>-->
 
 <!-- Import and configure the Firebase SDK -->
 <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
@@ -215,37 +239,26 @@
 <!-- Import Firebase UI -->
 <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 
-<footer class="fa-sticky-note">
-
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarsExample02">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"> <a class="nav-link" href="#">Contact Us</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Affiliates</a></li>
-            </ul>
-            <form class="form-inline my-2 my-md-0"> </form>
-        </div>
-
-        <small class="text-white">Copyright &copy; Projet Treehouse</small>
-    </nav>
-
-</footer>
-
 <!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top" id="easter_egg">
+<script>// SideNav Button Initialization
+$(".button-collapse").sideNav();
+// SideNav Scrollbar Initialization
+var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+var ps = new PerfectScrollbar(sideNavScrollbar);</script>
+<a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
 
 <!-- Bootstrap core JavaScript-->
-<script src="js/jquery/jquery.min.js"></script>
-<script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="./js/jquery/jquery.min.js"></script>
+<script src="./js/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="js/jquery-easing/jquery.easing.js"></script>
+<script src="./js/jquery-easing/jquery.easing.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="js/profile_page.min.js"></script>
-<script src="js/index.js"></script>
+<script src="./js/profile_page.min.js"></script>
+<script src="./js/index.js"></script>
 
 </body>
 </html>

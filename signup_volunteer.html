@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <meta content="" name="description">
     <meta content="" name="author">
+
     <title>Sign Up & Register</title>
+
+    <!--initialize firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
+    <script src="js/firebase_setup.js"></script>
 
     <!--script for authentication list-->
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
@@ -13,24 +19,10 @@
 
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
-    <!--Icons used on web page (Hamburger Menu) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/profile_page.css">
 
-    <!--CDNs for Jquery, and bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <!--initialize firebase-->
-    <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
-    <script src="js/firebase_setup.js"></script>
-
-    <!--volunteer signup database script-->
+    <!--volunteer sign up database script-->
     <script src="js/signup_volunteer.js"></script>
 
 </head>
@@ -42,7 +34,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
 
-        <a class="navbar-brand mr-auto p-2" href="#">
+        <a class="navbar-brand mr-auto p-2" href="index.html">
             <img src="images/logo.png" width="100" height="100" class="d-inline-block float-right" alt="Logo">
         </a>
         <span class="text-light" style="margin: 5px;">BCIT: Project Treehouse </span>
@@ -52,25 +44,18 @@
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="profile.html">Services</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="frequently_asked_questions.html">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="signup_volunteer.html">Login & Sign-up</a>
+                    <a class="nav-link active" href="signup_volunteer.html">Login & Sign-up <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="donation.html">Contribution</a>
@@ -103,13 +88,23 @@
     </div>
 </section>
 
-<footer class="fixed-bottom">
-    <div class="py-4 bg-dark text-white-50 text-center">
-        <small>Copyright &copy; Project Treehouse</small>
-    </div>
+<!--Footer Nav-->
+<footer class="">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"> <a class="nav-link" href="feedback_forum.html">Contact Us</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Affiliates</a></li>
+                <li class="nav-item"> <a class="nav-link" href="about_references.html">Credits</a></li>
+            </ul>
+            <form class="form-inline my-2 my-md-0"> </form>
+        </div>
+
+        <small class="text-white">Copyright &copy; Project Treehouse</small>
+    </nav>
+
 </footer>
-
-
 
 <!-- Scroll to Top Button-->
 <script>// SideNav Button Initialization
@@ -117,7 +112,7 @@ $(".button-collapse").sideNav();
 // SideNav Scrollbar Initialization
 var sideNavScrollbar = document.querySelector('.custom-scrollbar');
 var ps = new PerfectScrollbar(sideNavScrollbar);</script>
-<a class="scroll-to-top rounded" href="#page-top">
+<a class="scroll-to-top rounded" href="#page-top" id="easter_egg">
     <i class="fas fa-angle-up"></i>
 </a>
 
