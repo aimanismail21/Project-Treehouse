@@ -12,7 +12,7 @@
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-    <!--script for authentication list-->
+    <!-- Script for authentication list-->
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
@@ -86,25 +86,32 @@
                     <li class="breadcrumb-item">
                         <a href="./donation.html">Donation</a>
                     </li>
-                    <li class="breadcrumb-item">
-                        <a href="./review_payment.html">Review</a>
-                    </li>
                     <li class="breadcrumb-item active">Receipt</li>
                 </ol>
-                <h1 id="title">Thank You for Your Contribution!</h1>
+                <h1 id="title">Processing Payment...</h1>
                 <hr>
+
+                <!-- Loading Screen -->
+                <div id="loading" class="popover-body" style="position:absolute;left:50%; top:50%; transform: translate(-50%, -50%)">
+                    <div class="loader"></div>
+                </div>
+                <script>
+                    $('#loading').show();
+                    setTimeout(function(){
+                        $('#loading').hide();
+                        document.getElementById('title').innerText = "Thank You for Your Contribution!";
+                        $('#receipt').show();
+                    }, 2000);
+                </script>
+
                 <!--  Take info from Stripe API and populate this div  -->
-                <div class="container col-sm-4" id="donation_amount">
+                <div class="container col-sm-4" id="receipt" style="display:none">
                     <h4>Receipt</h4>
                     <!--  Payment info here  -->
                     <table class="table table-bordered">
                         <tr>
-                            <th>Transaction No:</th>
-                            <td>[newCharges doc.id]</td>
-                        </tr>
-                        <tr>
                             <th>Name:</th>
-                            <td>[app.currentUser / firebaseUser]</td>
+                            <td id="name">[user's name]</td>
                         </tr>
                         <tr>
                             <th>Transaction Date:</th>
@@ -118,9 +125,18 @@
                         </tr>
                         <tr>
                             <th>Amount Paid:</th>
-                            <td>[amount donated]</td>
+                            <td id="amount">[amount donated]</td>
                         </tr>
                     </table>
+                    <script>
+                        $(document).ready(function(){
+                            let geturl = new URL(window.location.href);
+                            document.getElementById("name").innerText = geturl.searchParams.get("name");
+                            let getcurrency = geturl.searchParams.get("selected_currency");
+                            document.getElementById("amount").innerText =
+                                getSymbolFromCurrency(getcurrency) + geturl.searchParams.get("amount");
+                        });
+                    </script>
                     <a href="./index.html">
                         <button class="bg-light">Home</button>
                     </a>
@@ -138,6 +154,8 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
+<!-- Script for currency symbols -->
+<script src="js/currency-symbol-map.js"></script>
 <!-- Access page functions -->
 <script src="./js/donation.js"></script>
 <!-- Access Stripe functions -->
