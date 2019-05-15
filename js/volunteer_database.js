@@ -1,6 +1,6 @@
 // takes all database profile data to display on profile page
 var uid = null;
-var displayName = null;
+var display_name = null;
 
 
 // initialize variables
@@ -31,7 +31,7 @@ displayLinks = function () {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
-            displayName = user.displayName;
+            display_name = user.displayName;
             uid = user.uid;
             let dbref = firebase.database().ref("Users/" + uid);
             dbref.on('value', (snapshot) => {

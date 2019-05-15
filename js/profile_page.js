@@ -1,6 +1,6 @@
 // takes all database profile data to display on profile page
 var uid = null;
-var displayName = null;
+var display_name = null;
 
 // initialize variables
 let is_social_worker = null;
@@ -16,7 +16,7 @@ initApp = function () {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
-            displayName = user.displayName;
+            display_name = user.displayName;
             uid = user.uid;
             email = user.email;
             let dbref = firebase.database().ref("Users/" + uid);
@@ -66,35 +66,41 @@ function submit_profile_image() {
 
 // update info of volunteer in database
 function update_profile_info() {
-    city = document.getElementById("city").value;
-    first_name = document.getElementById("first_name").value;
-    last_name = document.getElementById("last_name").value;
-    address = document.getElementById("address").value;
-    phone_number = document.getElementById("phone").value;
+    var confirmation = confirm("Confirm changes");
+    if (confirmation === true) {
+        city = document.getElementById("city").value;
+        first_name = document.getElementById("first_name").value;
+        last_name = document.getElementById("last_name").value;
+        address = document.getElementById("address").value;
+        phone_number = document.getElementById("phone").value;
 
-    // if all form elements are valid update user info
-    if (validate_inputs()) {
+        // if all form elements are valid update user info
+        if (validate_inputs()) {
 
 
-        // sets entered info to associated user id in database
-        let dbref = firebase.database().ref("Users/" + uid);
-        dbref.update({
-            FirstName: first_name,
-            LastName: last_name,
-            Address: address,
-            PhoneNumber: phone_number,
-            City: city,
-            IsVolunteer: true,
-            Email: email,
-        });
-        document.getElementById('confirmation').innerHTML = 'info has been written'
+            // sets entered info to associated user id in database
+            let dbref = firebase.database().ref("Users/" + uid);
+            dbref.update({
+                FirstName: first_name,
+                LastName: last_name,
+                Address: address,
+                PhoneNumber: phone_number,
+                City: city,
+                IsVolunteer: true,
+                Email: email,
+            });
+            document.getElementById('confirmation').innerHTML = 'info has been written'
+        }
     }
 }
 
 // resets into to what is currently in the database
 function reset_profile_info() {
-    initApp();
-    document.getElementById('confirmation').innerHTML = 'info has been reset';
+    var confirmation = confirm("Confirm reset");
+    if (confirmation === true) {
+        initApp();
+        document.getElementById('confirmation').innerHTML = 'info has been reset';
+    }
 }
 
 
