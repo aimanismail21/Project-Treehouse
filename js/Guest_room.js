@@ -51,7 +51,6 @@ function update_info() {
     city = document.getElementById("city").value;
     pets = document.getElementById("pets").value;
     family = document.getElementById("family").value;
-    room_type = document.getElementById("roomtype").value;
     first_name = document.getElementById("first_name").value;
     last_name = document.getElementById("last_name").value;
     address = document.getElementById("address").value;
@@ -67,7 +66,6 @@ function update_info() {
             HouseHoldMembers: family,
             Pets: pets,
             PhoneNumber: phone_number,
-            TypeOfRoom: room_type,
             City: city
         });
         document.getElementById('confirmation').innerHTML = 'info has been written'
@@ -155,7 +153,6 @@ function initialize_info(snapshot) {
     document.getElementById("city").value = snapshot.child('City').val();
     document.getElementById("pets").value = snapshot.child('Pets').val();
     document.getElementById("family").value = snapshot.child('HouseHoldMembers').val();
-    document.getElementById("roomtype").value = snapshot.child('TypeOfRoom').val();
     document.getElementById("address").value = snapshot.child('Address').val();
     document.getElementById("phone").value = snapshot.child('PhoneNumber').val();
 }
