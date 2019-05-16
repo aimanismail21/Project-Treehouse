@@ -124,35 +124,46 @@
                                             <span v-else>&hellip;</span>
                                         </li>
                                     </ul>
-                                    <div>
-                                        <h4>New</h4>
-                                        <div>
+                                    <table class="table-borderless">
+                                        <th><h4>New</h4></th>
+                                        <tr>
                                             <label>
-                                                Number <input v-model="newCreditCard.number">
+                                                <td>Number </td>
+                                                <td> </td>
+                                                <td><input class="bg-transparent" v-model="newCreditCard.number"></td>
                                             </label>
-                                        </div>
-                                        <div>
+                                        </tr>
+                                        <tr>
                                             <label>
-                                                CCV <input v-model="newCreditCard.cvc">
+                                                <td>CCV </td>
+                                                <td> </td>
+                                                <td><input class="bg-transparent" v-model="newCreditCard.cvc"></td>
                                             </label>
-                                        </div>
-                                        <div>
+                                        </tr>
+                                        <tr>
                                             <label>
-                                                Exp
-                                                <input v-model="newCreditCard.exp_month" size="2"> /
-                                                <input v-model="newCreditCard.exp_year" size="4">
+                                                <td>Exp</td>
+                                                <td> </td>
+                                                <td><input placeholder="MM" class="bg-transparent" v-model="newCreditCard.exp_month" size="2"> /
+                                                    <input placeholder="YYYY" class="bg-transparent" v-model="newCreditCard.exp_year" size="4">
+                                                </td>
                                             </label>
-                                        </div>
-                                        <div>
+                                        </tr>
+                                        <tr>
                                             <label>
-                                                Zip <input v-model="newCreditCard.address_zip">
+                                                <td>Zip </td>
+                                                <td> </td>
+                                                <td><input class="bg-transparent" v-model="newCreditCard.address_zip"></td>
                                             </label>
-                                        </div>
-                                        <div>
-                                            <button class="bg-white" v-on:click="submitNewCreditCard">Add</button>
-                                            {{ newCreditCard.error }}
-                                        </div>
-                                    </div>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <button class="bg-white" v-on:click="submitNewCreditCard">Add</button>
+                                                {{ newCreditCard.error }}
+                                            </td>
+                                        </tr>
+                                    </table>
                                     <hr>
                                     <h3>Charges</h3>
                                     <ul>
@@ -169,42 +180,48 @@
                                             <span v-else>&hellip;</span>
                                         </li>
                                     </ul>
-                                    <h4>New</h4>
-                                    <div>
-                                        <label>
-                                            Card
-                                            <select v-model="newCharge.source">
-                                                <option :value="null">Default payment method</option>
-                                                <option v-for="(source, id) in sources" v-bind:value="source.id" v-if="source.id">
-                                                    {{ source.brand }} &hellip;{{ source.last4 }}
-                                                    (exp. {{ source.exp_month }}/{{ source.exp_year }})
-                                                </option>
-                                            </select>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label id="pay_amount">
-                                            Amount <input v-model="newCharge.amount" id="amount">
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <a id="charge">
-                                            <button style="width:100%" class="bg-info" v-on:click="submitNewCharge">Charge</button>
-                                        </a>
-                                        {{ newCharge.error }}
-                                    </div>
+                                    <table class="table-borderless">
+                                        <th><h4>New</h4></th>
+                                        <tr>
+                                            <label>
+                                                <td>Card</td>
+                                                <td>
+                                                    <select v-model="newCharge.source">
+                                                    <option :value="null">Default payment method</option>
+                                                    <option v-for="(source, id) in sources" v-bind:value="source.id" v-if="source.id">
+                                                        {{ source.brand }} &hellip;{{ source.last4 }}
+                                                        (exp. {{ source.exp_month }}/{{ source.exp_year }})
+                                                    </option>
+                                                    </select>
+                                                </td>
+                                            </label>
+                                        </tr>
+                                        <tr>
+                                            <label id="pay_amount">
+                                                <td>Amount </td>
+                                                <td><input class="bg-transparent" v-model="newCharge.amount" id="amount"></td>
+                                            </label>
+                                        </tr>
+                                    </table>
+                                    <a id="charge">
+                                        <button id="charge_button" class="bg-info" v-on:click="submitNewCharge">Charge</button>
+                                    </a>
+                                    {{ newCharge.error }}
                                 </div>
                                 <div v-else>&hellip;</div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </div>
-
 </section>
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
 
 <!-- Script for currency symbols -->
 <script src="js/currency-symbol-map.js"></script>
@@ -223,16 +240,6 @@
 
 <!-- Import Firebase UI -->
 <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-
-<!-- Scroll to Top Button-->
-<script>// SideNav Button Initialization
-$(".button-collapse").sideNav();
-// SideNav Scrollbar Initialization
-var sideNavScrollbar = document.querySelector('.custom-scrollbar');
-var ps = new PerfectScrollbar(sideNavScrollbar);</script>
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
 
 <!-- Bootstrap core JavaScript-->
 <script src="./js/jquery/jquery.min.js"></script>

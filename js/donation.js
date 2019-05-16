@@ -4,7 +4,6 @@ let currencies = document.getElementById("currency");
 let selected_currency = "CAD";
 function getAmount(objButton){
     amount = objButton.value;
-    console.log(amount);
 }
 
 // Update page after clicking "Donate"
@@ -36,7 +35,6 @@ $('#nextPage').on('click', function(){
 // Dynamically add currency selections with their exchange rates compared to CAD
 $.getJSON('https://api.exchangeratesapi.io/latest?base=CAD', function(data) {
     let ratesObj = data.rates;
-    console.log(ratesObj);
     for(let key in ratesObj){
         let option = document.createElement("option");
         option.value = ratesObj[key];
@@ -54,18 +52,15 @@ currencies.addEventListener('change', function(){
     for(let i = 0; i < 6; i++){
         let amounts = [5, 10, 15, 25, 50, 100];
         $('.bg-light')[i].value = Math.round(amounts[i]*this.value);
-        console.log($('.bg-light')[i].value);
     }
     let options = this.children;
     for(let i in options){
         if(options[i].selected){
             selected_currency = options[i].label;
-            console.log(selected_currency);
         }
     }
     document.getElementById("symbol").innerText = getSymbolFromCurrency(selected_currency);
     amount = Math.round(10*this.value);
-    console.log(this.value);
 }, false);
 
 // Code below is from Stripe/Firebase (https://github.com/firebase/functions-samples/tree/master/stripe)

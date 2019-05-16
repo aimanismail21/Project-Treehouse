@@ -9,3 +9,13 @@
 #payment {
     display: none;
 }
+#charge_button {
+    margin-top: 10%;
+    margin-bottom: 25%;
+    width: 100%;
+}
+.bottom_buttons {
+    margin-top: 10%;
+    margin-bottom: 25%;
+    width: 50%;
+}
