@@ -65,16 +65,6 @@
                 <span>Guest Room Menu</span>
             </a>
         </li>
-        <li class="nav-item dropdown">
-            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Tools</span>
-            </a>
-            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
-                <h6 class="dropdown-header">Options:</h6>
-                <a class="dropdown-item active" href="querymenu.html">Search & Query Menu</a>
-            </div>
-        </li>
         <li class="nav-item">
             <a class="nav-link" href="donation_logged_in.html">
                 <i class="fas fa-donate fa-fw"></i>
@@ -108,15 +98,15 @@
             <div class="container col-sm-4" id="donation_amount">
                 <h4>Select Contribution</h4>
                 <!--  One of the Amounts should be pre-selected  -->
-
-                <select id="currency">
-                </select><br>
-                <input type="button" class="bg-light" value="5" name="five" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="10" name="ten" onclick="getAmount(this)" autofocus>
-                <input type="button" class="bg-light" value="15" name="fifteen" onclick="getAmount(this)"><br>
-                <input type="button" class="bg-light" value="25" name="twenty_five" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="50" name="fifty" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="100" name="hundred" onclick="getAmount(this)"><br>
+                <select id="currency"></select>
+                <span id="symbol">$</span>
+                <br>
+                <input type="button" class="bg-light" value="5" onclick="getAmount(this)">
+                <input type="button" class="bg-light" value="10" onclick="getAmount(this)" autofocus>
+                <input type="button" class="bg-light" value="15" onclick="getAmount(this)"><br>
+                <input type="button" class="bg-light" value="25" onclick="getAmount(this)">
+                <input type="button" class="bg-light" value="50" onclick="getAmount(this)">
+                <input type="button" class="bg-light" value="100" onclick="getAmount(this)"><br>
                 <!--  Provides User ability to specify amount to donate  -->
                 <input type="text" pattern="\d*" placeholder="Other" class="bg-light" name="other" id="other" onchange="getAmount(this)">
                 <button class="bg-info" id="nextPage">Donate</button>
@@ -207,7 +197,7 @@
                                     </label>
                                 </div>
                                 <div>
-                                    <a href="./review_payment_logged_in.html">
+                                    <a id="charge_logged_in">
                                         <button style="width:100%" class="bg-info" v-on:click="submitNewCharge">Charge</button>
                                     </a>
                                     {{ newCharge.error }}
@@ -261,8 +251,10 @@
     </div>
 </div>
 
+<!-- Script for currency symbols -->
+<script src="js/currency-symbol-map.js"></script>
 <!-- Access page functions -->
-<script src="js/donation.js"></script>
+<script src="./js/donation.js"></script>
 <!-- Access Stripe functions -->
 <!--<script src="functions/stripe.js"></script>-->
 <!-- Custom scripts for this page -->
@@ -279,6 +271,7 @@
 <!-- Custom scripts for all pages-->
 <script src="js/profile_page.min.js"></script>
 <script src="js/index.js"></script>
+<script src="js/display_links.js"></script>
 
 <!-- Import and configure the Firebase SDK -->
 <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->

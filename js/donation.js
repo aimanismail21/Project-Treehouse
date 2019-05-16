@@ -2,11 +2,11 @@ let amount = 10;
 let default_amount = document.getElementById("amount");
 let currencies = document.getElementById("currency");
 let selected_currency = "CAD";
-default_amount.value = amount;
 function getAmount(objButton){
     amount = objButton.value;
     console.log(amount);
 }
+
 // Update page after clicking "Donate"
 $('#nextPage').on('click', function(){
     $('#donation_amount').hide();
@@ -23,8 +23,14 @@ $('#nextPage').on('click', function(){
     default_amount.placeholder = amount;
     $('#pay_amount').html += amount;
     $('#payment').show();
-    start_stripe();
-    console.log(amount);
+    setTimeout(function(){start_stripe();},50);
+    let username = name;
+    let url_logged_in = './receipt_logged_in.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
+    let url = './receipt.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
+    let test_url = page_url.slice(-14,);
+    if (test_url === "/donation.html"){
+        document.getElementById('charge').setAttribute("href", url);
+    } else {document.getElementById('charge_logged_in').setAttribute("href", url_logged_in);}
 });
 
 // Dynamically add currency selections with their exchange rates compared to CAD
@@ -57,28 +63,31 @@ currencies.addEventListener('change', function(){
             console.log(selected_currency);
         }
     }
+    document.getElementById("symbol").innerText = getSymbolFromCurrency(selected_currency);
     amount = Math.round(10*this.value);
     console.log(this.value);
 }, false);
 
-
 // Code below is from Stripe/Firebase (https://github.com/firebase/functions-samples/tree/master/stripe)
-function start_stripe(){
+function start_stripe() {
     Stripe.setPublishableKey("pk_test_T8PiFwZj8C2M3x0SzvZ8ohVe00mE6oIvRZ");
     var firebaseUI = new firebaseui.auth.AuthUI(firebase.auth());
     var firebaseAuthOptions = {
         callbacks: {
-            signInSuccess: (currentUser, credential, redirectUrl) => { return false; },
-            uiShown: () => { document.getElementById('loader').style.display = 'none'; }
+            signInSuccess: (currentUser, credential, redirectUrl) => {
+                return false;
+            },
+            uiShown: () => {
+                document.getElementById('loader').style.display = 'none';
+            }
         },
         signInFlow: 'popup',
         signInSuccessUrl: '/',
-        signInOptions: [ firebase.auth.GoogleAuthProvider.PROVIDER_ID ],
+        signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
         tosUrl: '/'
     };
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
-            document.getElementById('loader').style.display = 'none';
             app.currentUser = firebaseUser;
             app.listen();
         } else {
@@ -86,6 +95,7 @@ function start_stripe(){
             app.currentUser = null;
         }
     });
+
     var app = new Vue({
         el: '#app',
         data: {
@@ -108,7 +118,7 @@ function start_stripe(){
         ready: () => {
         },
         methods: {
-            listen: function() {
+            listen: function () {
                 firebase.firestore().collection('stripe_customers').doc(`${this.currentUser.uid}`).onSnapshot(snapshot => {
                     this.stripeCustomerInitialized = (snapshot.data() !== null);
                 }, () => {
@@ -135,7 +145,7 @@ function start_stripe(){
                     this.charges = {};
                 });
             },
-            submitNewCreditCard: function() {
+            submitNewCreditCard: function () {
                 Stripe.card.createToken({
                     number: this.newCreditCard.number,
                     cvc: this.newCreditCard.cvc,
@@ -158,18 +168,17 @@ function start_stripe(){
                     }
                 });
             },
-            submitNewCharge: function() {
+            submitNewCharge: function () {
                 firebase.firestore().collection('stripe_customers').doc(this.currentUser.uid).collection('charges').add({
                     source: this.newCharge.source,
-                    amount: amount
+                    amount: parseInt(this.newCharge.amount)
                 });
             },
-            signOut: function() {
+            signOut: function () {
                 firebase.auth().signOut()
             }
         }
     });
-
 
     /**
      * Copyright 2016 Google Inc. All Rights Reserved.
@@ -303,5 +312,4 @@ function start_stripe(){
     function userFacingMessage(error) {
         return error.type ? error.message : 'An error occurred, developers have been alerted';
     }
-
 }
