@@ -1,5 +1,5 @@
 
-//Reset password email is sent
+//Reset password link is sent to email entered by user in forgot_password.html input box
 function forgot_password(){
     var email = document.getElementById("example_input_email1");
     let input = email.value;
@@ -9,3 +9,4 @@ function forgot_password(){
     }).catch(function(error) {
         // An error happened.
     })}
+

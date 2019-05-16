@@ -9,15 +9,17 @@ var main_app = {};
             // User is signed in.
             uid = user.uid;
         }else{
-            // redirect to login page.
+            // Redirect to login page.
             uid = null;
             window.location.replace("signup_volunteer.html");
         }
     });
-
+    // Calls sign out method
     function log_out(){
         firebase.auth().signOut();
     }
-
     main_app.log_out = log_out;
 })();
+
+
+

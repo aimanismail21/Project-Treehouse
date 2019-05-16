@@ -89,15 +89,15 @@
                 <div class="container col-sm-4" id="donation_amount">
                     <h4>Select Contribution</h4>
                     <!--  One of the Amounts should be pre-selected  -->
-
-                    <select id="currency">
-                    </select><br>
-                    <input type="button" class="bg-light" value="5" name="five" onclick="getAmount(this)">
-                    <input type="button" class="bg-light" value="10" name="ten" onclick="getAmount(this)" autofocus>
-                    <input type="button" class="bg-light" value="15" name="fifteen" onclick="getAmount(this)"><br>
-                    <input type="button" class="bg-light" value="25" name="twenty_five" onclick="getAmount(this)">
-                    <input type="button" class="bg-light" value="50" name="fifty" onclick="getAmount(this)">
-                    <input type="button" class="bg-light" value="100" name="hundred" onclick="getAmount(this)"><br>
+                    <select id="currency"></select>
+                    <span id="symbol">$</span>
+                    <br>
+                    <input type="button" class="bg-light" value="5" onclick="getAmount(this)">
+                    <input type="button" class="bg-light" value="10" onclick="getAmount(this)" autofocus>
+                    <input type="button" class="bg-light" value="15" onclick="getAmount(this)"><br>
+                    <input type="button" class="bg-light" value="25" onclick="getAmount(this)">
+                    <input type="button" class="bg-light" value="50" onclick="getAmount(this)">
+                    <input type="button" class="bg-light" value="100" onclick="getAmount(this)"><br>
                     <!--  Provides User ability to specify amount to donate  -->
                     <input type="text" pattern="\d*" placeholder="Other" class="bg-light" name="other" id="other" onchange="getAmount(this)">
                     <button class="bg-info" id="nextPage">Donate</button>
@@ -188,7 +188,7 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <a href="./review_payment.html">
+                                        <a id="charge">
                                             <button style="width:100%" class="bg-info" v-on:click="submitNewCharge">Charge</button>
                                         </a>
                                         {{ newCharge.error }}
@@ -199,6 +199,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
     </div>
@@ -223,6 +224,8 @@
 
 </footer>
 
+<!-- Script for currency symbols -->
+<script src="js/currency-symbol-map.js"></script>
 <!-- Access page functions -->
 <script src="./js/donation.js"></script>
 <!-- Access Stripe functions -->
