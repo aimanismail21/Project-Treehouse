@@ -1,6 +1,6 @@
 // takes all database profile data to display on profile page
 var uid = null;
-var displayName = null;
+var display_name = null;
 
 
 // initialize variables
@@ -12,7 +12,6 @@ let phone_number = null;
 let email = null;
 let household_members = null;
 let pets = null;
-let type_of_room = null;
 let availability = null;
 let user_id = null;
 let is_social_worker = null;
@@ -32,7 +31,7 @@ displayLinks = function () {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
-            displayName = user.displayName;
+            display_name = user.displayName;
             uid = user.uid;
             let dbref = firebase.database().ref("Users/" + uid);
             dbref.on('value', (snapshot) => {
@@ -189,8 +188,8 @@ function createVolunteerListing() {
     volunteer_info_cell.style = 'font-size: 1em;';
     volunteer_info_cell.innerHTML = '<b>First Name: ' + first_name + '<br>Last Name:' + last_name +
         '<br>City: ' + city + '<br>Address: ' + address + '<br>Phone Number:' +
-        phone_number + '<br>Family Members:' + household_members + '<br>Pets:' + pets + '<br>RoomType: ' +
-        type_of_room + '<br> <a href = "mailto: ' + email + '"> Email: ' + email + '</a></b>';
+        phone_number + '<br>Family Members:' + household_members + '<br>Pets:' + pets +
+        '<br> <a href = "mailto: ' + email + '"> Email: ' + email + '</a></b>';
 
     // append volunteer info to volunteer listing
     volunteer_row.appendChild(volunteer_info_cell);
@@ -243,7 +242,6 @@ function initializeVolunteerInfo(snap) {
     email = snap.child("Email").val();
     household_members = snap.child("HouseHoldMembers").val();
     pets = snap.child("Pets").val();
-    type_of_room = snap.child("TypeOfRoom").val();
     availability = snap.child("Availability").val();
     user_id = snap.key;
     is_social_worker = snap.child('IsSocialWorker').val();

@@ -64,16 +64,6 @@
                 <span>Guest Room Menu</span>
             </a>
         </li>
-        <li class="nav-item dropdown">
-            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Tools</span>
-            </a>
-            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
-                <h6 class="dropdown-header">Options:</h6>
-                <a class="dropdown-item active" href="volunteer_database.html">Search & Query Menu</a>
-            </div>
-        </li>
         <li class="nav-item">
             <a class="nav-link" href="donation_logged_in.html">
                 <i class="fas fa-donate fa-fw"></i>
@@ -96,9 +86,9 @@
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">Account</a>
+                    <a href="./profile.html">Account</a>
                 </li>
-                <li class="breadcrumb-item active">Profile</li>
+                <li class="breadcrumb-item active">Guest Room</li>
             </ol>
 
             <!-- Page Content -->
@@ -137,7 +127,7 @@
                     <label for="pets">Pets: </label>
                     <select class="form-control" id="pets">
                         <option></option>
-                        <option>yes</option>
+                        <option>Yes</option>
                         <option>No</option>
                     </select>
                 </div>
@@ -161,16 +151,13 @@
                         <option>3</option>
                         <option>4+</option>
                     </select>
+                    <br>
 
-                    <!--type of room dropdown selection-->
-                    <label for="roomtype">Room Type: </label>
-                    <select class="form-control" id="roomtype">
-                        <option></option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4+</option>
-                    </select>
+                    <div id="filesubmit">
+                        <label for="fileButton">Upload an image of your room</label><br>
+                        <input type="file" id="fileButton" class="file-select" accept="image/*"/>
+                        <button class="file-submit" onclick="submit_image()">SUBMIT</button>
+                    </div>
                 </div>
 
                 <div class="col-md-1"></div>
@@ -195,11 +182,7 @@
                     <button class="btn btn-dark" style="width: 100%" value="submit" onclick="set_room_availability('no')">Set room to not available</button><br>
                     <br>
                     <br>
-                    <div id="filesubmit">
-                        <label for="fileButton">Upload an image of your room</label><br>
-                        <input type="file" id="fileButton" class="file-select" accept="image/*"/>
-                        <button class="file-submit" onclick="submit_image()">SUBMIT</button>
-                    </div>
+
                 </div>
 
                 <div class="col-md-1">
@@ -268,6 +251,7 @@
 <!-- Custom scripts for all pages-->
 <script src="js/profile_page.min.js"></script>
 <script src="js/Guest_room.js"></script>
+<script src="js/phone_format.js"></script>
 
 </body>
 
