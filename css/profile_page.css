@@ -5854,6 +5854,27 @@ a.badge-dark:hover, a.badge-dark:focus {
     animation: progress-bar-stripes 1s linear infinite;
 }
 
+.loader {
+    border: 16px solid rgba(243, 243, 243, 0.75);
+    border-radius: 50%;
+    border-top: 16px solid rgba(52, 152, 219, 0.75);
+    width: 150px;
+    height: 150px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .media {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -6244,6 +6265,7 @@ a.close.disabled {
     -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
+    padding: 10%;
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
@@ -6661,8 +6683,10 @@ a.close.disabled {
 }
 
 .popover-body {
-    padding: 0.5rem 0.75rem;
+    display:none;
+    padding: 100% 100%;
     color: #212529;
+    background-color: rgba(255,255,255, 0.5);
 }
 
 .carousel {
