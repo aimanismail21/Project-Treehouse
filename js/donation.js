@@ -38,19 +38,24 @@ $('#nextPage').on('click', function(){
     });
 });
 
-// Dynamically add currency selections with their exchange rates compared to CAD
-$.getJSON('https://api.exchangeratesapi.io/latest?base=CAD', function(data) {
+// Function to dynamically add currency selections with exchange rates
+function add_currencies(data) {
     let ratesObj = data.rates;
-    for(let key in ratesObj){
+    for (let key in ratesObj) {
         let option = document.createElement("option");
         option.value = ratesObj[key];
         option.innerHTML = key;
         option.label = key;
-        if(key === "CAD"){
+        if (key === "CAD") {
             option.selected = true;
         }
         currencies.appendChild(option);
     }
+}
+
+// Access Exchange Rate API and apply the add_currencies function
+$.getJSON('https://api.exchangeratesapi.io/latest?base=CAD', function(data) {
+    add_currencies(data);
 });
 
 // Update donation amount according to currency
