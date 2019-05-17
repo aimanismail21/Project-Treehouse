@@ -1,71 +1,110 @@
 let amount = 10;
-let default_amount = document.getElementById("amount");
 let currencies = document.getElementById("currency");
 let selected_currency = "CAD";
+
+// Retrieves a button's value and assigns it to the variable, amount
 function getAmount(objButton){
     amount = objButton.value;
-    console.log(amount);
 }
+
+// Place amount into input element
+function place_amount(){
+    let default_amount = document.getElementById("amount");
+    default_amount.value = amount;
+    default_amount.placeholder = amount;
+}
+
+// Hides the donation amount selection UI
+function hide_donation_selection(){
+    $('#donation_amount').hide();
+}
+
+// Rename the title of page
+function rename_page_title(title){
+    $('#title').html(title);
+}
+
+// Update old breadcrumbs
+function update_breadcrumbs(page_url){
+    let original_links = document.getElementsByClassName("breadcrumb-item");
+    original_links[1].innerHTML = "<a href='"+ page_url +"'>Donation</a>";
+}
+
+// Add new breadcrumb
+function add_breadcrumb(){
+    let new_link = document.createElement("li");
+    new_link.className = "breadcrumb-item active";
+    new_link.innerHTML = "Payment";
+    let bread = $('.breadcrumb');
+    bread[0].appendChild(new_link);
+}
+
+// Show Payment API page
+function show_api(){
+    $('#payment').show();
+}
+
 
 // Update page after clicking "Donate"
 $('#nextPage').on('click', function(){
-    $('#donation_amount').hide();
-    $('#title').html("Payment");
-    let link = document.createElement("li");
-    let olds = document.getElementsByClassName("breadcrumb-item");
     let page_url = window.location.pathname;
-    olds[1].innerHTML = "<a href='"+ page_url +"'>Donation</a>";
-    link.className = "breadcrumb-item active";
-    link.innerHTML = "Payment";
-    let bread = $('.breadcrumb');
-    bread[0].appendChild(link);
-    default_amount.value = amount;
-    default_amount.placeholder = amount;
-    $('#pay_amount').html += amount;
-    $('#payment').show();
-    setTimeout(function(){start_stripe();},50);
-    let username = name;
-    let url_logged_in = './receipt_logged_in.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
-    let url = './receipt.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
-    let test_url = page_url.slice(-14,);
-    if (test_url === "/donation.html"){
-        document.getElementById('charge').setAttribute("href", url);
-    } else {document.getElementById('charge_logged_in').setAttribute("href", url_logged_in);}
+    hide_donation_selection();
+    place_amount();
+    rename_page_title("Payment");
+    update_breadcrumbs(page_url);
+    add_breadcrumb();
+    setTimeout(function(){start_stripe();},100);
+    show_api();
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            let username = user.displayName;
+            let url_logged_in = './receipt_logged_in.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
+            let url = './receipt.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
+            let test_url = page_url.slice(-14,);
+            if (test_url === "/donation.html"){
+                document.getElementById('charge').setAttribute("href", url);
+            } else {document.getElementById('charge_logged_in').setAttribute("href", url_logged_in);}
+        } else {
+            // No user is signed in.
+        }
+    });
 });
 
-// Dynamically add currency selections with their exchange rates compared to CAD
-$.getJSON('https://api.exchangeratesapi.io/latest?base=CAD', function(data) {
+// Function to dynamically add currency selections with exchange rates
+function add_currencies(data) {
     let ratesObj = data.rates;
-    console.log(ratesObj);
-    for(let key in ratesObj){
+    for (let key in ratesObj) {
         let option = document.createElement("option");
         option.value = ratesObj[key];
         option.innerHTML = key;
         option.label = key;
-        if(key === "CAD"){
+        if (key === "CAD") {
             option.selected = true;
         }
         currencies.appendChild(option);
     }
+}
+
+// Access Exchange Rate API and apply the add_currencies function
+$.getJSON('https://api.exchangeratesapi.io/latest?base=CAD', function(data) {
+    add_currencies(data);
 });
 
-// Update donation amount according to currency
+// Event listener to update donation amount according to currency
 currencies.addEventListener('change', function(){
     for(let i = 0; i < 6; i++){
         let amounts = [5, 10, 15, 25, 50, 100];
         $('.bg-light')[i].value = Math.round(amounts[i]*this.value);
-        console.log($('.bg-light')[i].value);
     }
     let options = this.children;
     for(let i in options){
         if(options[i].selected){
             selected_currency = options[i].label;
-            console.log(selected_currency);
         }
     }
     document.getElementById("symbol").innerText = getSymbolFromCurrency(selected_currency);
     amount = Math.round(10*this.value);
-    console.log(this.value);
 }, false);
 
 // Code below is from Stripe/Firebase (https://github.com/firebase/functions-samples/tree/master/stripe)
