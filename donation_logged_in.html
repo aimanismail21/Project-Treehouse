@@ -146,34 +146,26 @@
                                 <table class="table-borderless">
                                     <th><h4>New</h4></th>
                                     <tr>
-                                        <label>
-                                            <td>Number </td>
-                                            <td> </td>
-                                            <td><input class="bg-transparent" v-model="newCreditCard.number"></td>
-                                        </label>
+                                        <td>Number </td>
+                                        <td> </td>
+                                        <td><input class="bg-transparent" v-model="newCreditCard.number"></td>
                                     </tr>
                                     <tr>
-                                        <label>
-                                            <td>CCV </td>
-                                            <td> </td>
-                                            <td><input class="bg-transparent" v-model="newCreditCard.cvc"></td>
-                                        </label>
+                                        <td>CCV </td>
+                                        <td> </td>
+                                        <td><input class="bg-transparent" v-model="newCreditCard.cvc"></td>
                                     </tr>
                                     <tr>
-                                        <label>
-                                            <td>Exp</td>
-                                            <td> </td>
-                                            <td><input placeholder="MM" class="bg-transparent" v-model="newCreditCard.exp_month" size="2"> /
-                                                <input placeholder="YYYY" class="bg-transparent" v-model="newCreditCard.exp_year" size="4">
-                                            </td>
-                                        </label>
+                                        <td>Exp</td>
+                                        <td> </td>
+                                        <td><input placeholder="MM" class="bg-transparent" v-model="newCreditCard.exp_month" size="2"> /
+                                            <input placeholder="YYYY" class="bg-transparent" v-model="newCreditCard.exp_year" size="4">
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <label>
-                                            <td>Zip </td>
-                                            <td> </td>
-                                            <td><input class="bg-transparent" v-model="newCreditCard.address_zip"></td>
-                                        </label>
+                                        <td>Zip </td>
+                                        <td> </td>
+                                        <td><input class="bg-transparent" v-model="newCreditCard.address_zip"></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -202,27 +194,23 @@
                                 <table class="table-borderless">
                                     <th><h4>New</h4></th>
                                     <tr>
-                                        <label>
-                                            <td>Card</td>
-                                            <td>
-                                                <select v-model="newCharge.source">
-                                                    <option :value="null">Default payment method</option>
-                                                    <option v-for="(source, id) in sources" v-bind:value="source.id" v-if="source.id">
-                                                        {{ source.brand }} &hellip;{{ source.last4 }}
-                                                        (exp. {{ source.exp_month }}/{{ source.exp_year }})
-                                                    </option>
-                                                </select>
-                                            </td>
-                                        </label>
+                                        <td>Card</td>
+                                        <td>
+                                            <select v-model="newCharge.source">
+                                                <option :value="null">Default payment method</option>
+                                                <option v-for="(source, id) in sources" v-bind:value="source.id" v-if="source.id">
+                                                    {{ source.brand }} &hellip;{{ source.last4 }}
+                                                    (exp. {{ source.exp_month }}/{{ source.exp_year }})
+                                                </option>
+                                            </select>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <label id="pay_amount">
-                                            <td>Amount </td>
-                                            <td><input class="bg-transparent" v-model="newCharge.amount" id="amount"></td>
-                                        </label>
+                                    <tr id="pay_amount">
+                                        <td>Amount </td>
+                                        <td><input class="bg-transparent" v-model="newCharge.amount" id="amount"></td>
                                     </tr>
                                 </table>
-                                <a id="charge">
+                                <a id="charge_logged_in">
                                     <button id="charge_button" class="bg-info" v-on:click="submitNewCharge">Charge</button>
                                 </a>
                                 {{ newCharge.error }}

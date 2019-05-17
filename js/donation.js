@@ -20,9 +20,8 @@ $('#nextPage').on('click', function(){
     bread[0].appendChild(link);
     default_amount.value = amount;
     default_amount.placeholder = amount;
-    $('#pay_amount').html += amount;
     $('#payment').show();
-    setTimeout(function(){start_stripe();},50);
+    setTimeout(function(){start_stripe();},100);
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
