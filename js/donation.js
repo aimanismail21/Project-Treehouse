@@ -4,7 +4,6 @@ let currencies = document.getElementById("currency");
 let selected_currency = "CAD";
 function getAmount(objButton){
     amount = objButton.value;
-    console.log(amount);
 }
 
 // Update page after clicking "Donate"
@@ -24,19 +23,25 @@ $('#nextPage').on('click', function(){
     $('#pay_amount').html += amount;
     $('#payment').show();
     setTimeout(function(){start_stripe();},50);
-    let username = name;
-    let url_logged_in = './receipt_logged_in.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
-    let url = './receipt.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
-    let test_url = page_url.slice(-14,);
-    if (test_url === "/donation.html"){
-        document.getElementById('charge').setAttribute("href", url);
-    } else {document.getElementById('charge_logged_in').setAttribute("href", url_logged_in);}
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            let username = user.displayName;
+            let url_logged_in = './receipt_logged_in.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
+            let url = './receipt.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
+            let test_url = page_url.slice(-14,);
+            if (test_url === "/donation.html"){
+                document.getElementById('charge').setAttribute("href", url);
+            } else {document.getElementById('charge_logged_in').setAttribute("href", url_logged_in);}
+        } else {
+            // No user is signed in.
+        }
+    });
 });
 
 // Dynamically add currency selections with their exchange rates compared to CAD
 $.getJSON('https://api.exchangeratesapi.io/latest?base=CAD', function(data) {
     let ratesObj = data.rates;
-    console.log(ratesObj);
     for(let key in ratesObj){
         let option = document.createElement("option");
         option.value = ratesObj[key];
@@ -54,18 +59,15 @@ currencies.addEventListener('change', function(){
     for(let i = 0; i < 6; i++){
         let amounts = [5, 10, 15, 25, 50, 100];
         $('.bg-light')[i].value = Math.round(amounts[i]*this.value);
-        console.log($('.bg-light')[i].value);
     }
     let options = this.children;
     for(let i in options){
         if(options[i].selected){
             selected_currency = options[i].label;
-            console.log(selected_currency);
         }
     }
     document.getElementById("symbol").innerText = getSymbolFromCurrency(selected_currency);
     amount = Math.round(10*this.value);
-    console.log(this.value);
 }, false);
 
 // Code below is from Stripe/Firebase (https://github.com/firebase/functions-samples/tree/master/stripe)
