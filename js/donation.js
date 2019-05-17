@@ -23,13 +23,20 @@ $('#nextPage').on('click', function(){
     $('#pay_amount').html += amount;
     $('#payment').show();
     setTimeout(function(){start_stripe();},50);
-    let username = name;
-    let url_logged_in = './receipt_logged_in.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
-    let url = './receipt.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
-    let test_url = page_url.slice(-14,);
-    if (test_url === "/donation.html"){
-        document.getElementById('charge').setAttribute("href", url);
-    } else {document.getElementById('charge_logged_in').setAttribute("href", url_logged_in);}
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            let username = user.displayName;
+            let url_logged_in = './receipt_logged_in.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
+            let url = './receipt.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
+            let test_url = page_url.slice(-14,);
+            if (test_url === "/donation.html"){
+                document.getElementById('charge').setAttribute("href", url);
+            } else {document.getElementById('charge_logged_in').setAttribute("href", url_logged_in);}
+        } else {
+            // No user is signed in.
+        }
+    });
 });
 
 // Dynamically add currency selections with their exchange rates compared to CAD
