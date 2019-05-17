@@ -1,6 +1,6 @@
 var main_app = {};
 
-//Allows user to logout, redirected to sign-in page
+// Allows user to logout, redirected to sign-in page
 (function(){
     var firebase = app_fireBase;
     var uid = null;
