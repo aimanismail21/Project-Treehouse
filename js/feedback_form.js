@@ -11,33 +11,27 @@ submitBtn.onclick = function()  {
     var message = message_form.value;
     var date = new Date();
 
-    let flag = 1;
-
         let emailRegex = /^([A-Za-z0-9_\-.+])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,})$/; // makes sure email is in the correct form
         let valid_email = emailRegex.test(email);
         if (!valid_email){
-            flag = 0;
-        }
-
-        if (message === ""){  // makes sure the message isn't empty
-            flag = 0;
-        }
-
-        if (flag === 0) {
-            alert("Invalid Email or message");
+            alert("Invalid Email!");
             return;
         }
 
-    console.log(flag);
+        if (message === ""){  // makes sure the message isn't empty
+            alert("Please enter a message.");
+            return;
+        }
+
     console.log(name);
     console.log(email);
     console.log(subject);
     console.log(message);
-    firebase.database().ref("FeedbackForm/" + date).set({
+    firebase.database().ref("FeedbackForm/" + date).set({ // sends the information to the firebase database
         name: name,
         email: email,
         subject: subject,
         message: message,
     });
-    document.getElementById("form_message").innerHTML=("Message has been sent!");
+    document.getElementById("form_message").innerHTML=("Message has been sent!"); // a message appears on the page to tell the user the message has been sent
 };
