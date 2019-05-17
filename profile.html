@@ -24,7 +24,6 @@
 
     <script src="js/profile_logout.js"></script>
 
-
 </head>
 
 <body id="page-top">
@@ -105,10 +104,11 @@
                     <div id="filesubmit">
                         <label for="fileButton">Upload a profile picture</label><br>
                         <input type="file" id="fileButton" class="file-select" accept="image/*"/>
-                        <button class="file-submit" onclick="submit_profile_image()">SUBMIT</button>
+                        <button class="file-submit" data-toggle="modal"
+                                data-target="#submitImageModal" onclick="submit_profile_image()">SUBMIT</button>
                     </div>
                 </div>
-
+                
                 <!--Search by criteria form-->
                 <div class="col-md-4">
                     <br>
@@ -142,11 +142,14 @@
                     <div class="text-center"><h5>Confirm changes</h5></div>
                     <br>
                     <div class="col-md-12">
-                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="update_profile_info()">Update info</button><br>
+                        <button class="btn btn-dark" style="width: 100%" value="submit" data-toggle="modal"
+                                data-target="#updateProfileModal"
+                                onclick="update_profile_info()">Update info</button><br>
                     </div>
                     <br>
                     <div class="col-md-12">
-                        <button class="btn btn-dark" style="width: 100%" value="submit" onclick="reset_profile_info()">Reset info</button>
+                        <button class="btn btn-dark" style="width: 100%" value="submit" data-toggle="modal"
+                                data-target="#ResetProfileModal" onclick="reset_profile_info()">Reset info</button>
                     </div>
 
                 </div>
@@ -176,6 +179,68 @@
 
         </div>
         <!-- /.container-fluid -->
+
+        <!-- update profile Modal -->
+        <div class="modal fade" id="updateProfileModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Profile info updated</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Your profile has been updated</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- reset Modal -->
+        <div class="modal fade" id="ResetProfileModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Profile info reset</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Profile info has been reset</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Submit image Modal -->
+        <div class="modal fade" id="submitImageModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Guest room image uploaded</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Your guest room image has been uploaded</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
 
         <!-- Sticky Footer -->
         <footer class="sticky-footer">

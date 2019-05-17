@@ -66,8 +66,6 @@ function submit_profile_image() {
 
 // update info of volunteer in database
 function update_profile_info() {
-    var confirmation = confirm("Confirm changes");
-    if (confirmation === true) {
         city = document.getElementById("city").value;
         first_name = document.getElementById("first_name").value;
         last_name = document.getElementById("last_name").value;
@@ -89,18 +87,12 @@ function update_profile_info() {
                 IsVolunteer: true,
                 Email: email,
             });
-            document.getElementById('confirmation').innerHTML = 'info has been written'
         }
-    }
 }
 
 // resets into to what is currently in the database
 function reset_profile_info() {
-    var confirmation = confirm("Confirm reset");
-    if (confirmation === true) {
         initApp();
-        document.getElementById('confirmation').innerHTML = 'info has been reset';
-    }
 }
 
 
