@@ -11,7 +11,7 @@ var main_app = {};
         }else{
             // Redirect to login page.
             uid = null;
-            window.location.replace("signup_volunteer.html");
+            window.location.replace("signup_and_login.html");
         }
     });
     // Calls sign out method
