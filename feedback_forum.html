@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <title>Contact Us</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- All the links, both css and to bootstrap-->
-    <link rel = "stylesheet" type = "text/css" href = "./css/faq_page.css" />
+    <link rel = "stylesheet" type = "text/css" href = "./css/contact_us.css" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- CSS and other information for the navigation bar -->
-    <!-- Custom fonts for this template-->
-    <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <!-- Custom styles for this template-->
-    <link href="css/profile_page.css" rel="stylesheet">
 
+    <!-- CSS and other information for the navigation bar -->
+        <!-- Custom fonts for this template-->
+        <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <!-- Custom styles for this template-->
+        <link href="css/profile_page.css" rel="stylesheet">
+
+    <!-- Firebase scripts -->
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script src="js/firebase_setup.js"></script>
 
 
 </head>
-
-<style>
-</style>
 
 
 <body id="page-top">
@@ -64,7 +64,7 @@
 
 
 <!-- Contact form-->
-<section class="container">
+<section class="container" id="contact_us_form">
 
 
     <!--Grid column-->
@@ -72,12 +72,16 @@
 
         <!--Section heading-->
         <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+
         <!--Section description-->
         <p class="text-center w-responsive mx-auto mb-5">
             Do you have any questions? <br>
             Please do not hesitate to contact us directly.
             Our team will come back to you within a matter of hours to help you.</p>
+        <p class="text-center w-responsive mx-auto mb-5" id="form_message"></p>
+
         <form id="contact-form" name="contact-form" method="POST">
+
             <!--Grid row-->
             <div class="row">
 
@@ -85,7 +89,7 @@
                 <div class="col-md-6">
                     <div class="md-form mb-0">
                         <label for="name" class="">Your name </label>
-                        <input type="text" id="name" name="name" class="form-control">
+                        <input type="text" id="name" name="name" class="form-control" size="25">
                     </div>
                 </div>
                 <!--Grid column-->
@@ -93,8 +97,8 @@
                 <!--Grid column-->
                 <div class="col-md-6">
                     <div class="md-form mb-0">
-                        <label for="email" class="">Your email</label>
-                        <input type="text" id="email" name="email" class="form-control">
+                        <label for="email" class="">Your email*</label>
+                        <input type="text" id="email" name="email" class="form-control" size="25">
                     </div>
                 </div>
                 <!--Grid column-->
@@ -106,7 +110,7 @@
                 <div class="col-md-12">
                     <div class="md-form mb-0">
                         <label for="subject" class="">Subject</label>
-                        <input type="text" id="subject" name="subject" class="form-control">
+                        <input type="text" id="subject" name="subject" class="form-control" size="25">
                     </div>
                 </div>
             </div>
@@ -115,8 +119,8 @@
                 <!--Grid column-->
                 <div class="col-md-12">
                     <div class="md-form">
-                        <label for="message">Your message</label>
-                        <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                        <label for="message">Your message*</label>
+                        <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" maxlength="200"></textarea>
                     </div>
                     <div class="text-md-left my-4">
                         <a class="btn btn-dark" style="color: white" onclick="document.getElementById('contact-form').submit();" id="form_submit">Send</a>
@@ -134,25 +138,25 @@
 
 </section>
 <!--End of Contact Form-->
+
 <!--Footer Nav-->
-<!--Footer Nav-->
-<footer class="fixed-bottom">
+<footer id="bottom_footer">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarsExample02">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"> <a class="nav-link" href="feedback_forum.html">Contact Us</a></li>
+                <li class="nav-item"> <a class="nav-link active" href="feedback_forum.html">Contact Us</a></li>
                 <li class="nav-item"> <a class="nav-link" href="#">Affiliates</a></li>
                 <li class="nav-item"> <a class="nav-link" href="about_references.html">Credits</a></li>
             </ul>
             <form class="form-inline my-2 my-md-0"> </form>
         </div>
 
-        <small class="text-white">Copyright &copy; Projet Treehouse</small>
+        <small class="text-white">Copyright &copy; Project Treehouse</small>
     </nav>
 
 </footer>
-
+<!-- End of footer navigation -->
 
 <!-- Scroll to Top Button-->
 <script>// SideNav Button Initialization
@@ -160,19 +164,27 @@ $(".button-collapse").sideNav();
 // SideNav Scrollbar Initialization
 var sideNavScrollbar = document.querySelector('.custom-scrollbar');
 var ps = new PerfectScrollbar(sideNavScrollbar);</script>
+
+<!-- Put the chevron in bottom left of page -->
+
 <a class="scroll-to-top rounded" href="#page-top" id="easter_egg">
     <i class="fas fa-angle-up"></i>
 </a>
+<!-- End of scroll to top button -->
+
 </body>
 </html>
 
 <!-- Sends information to Firebase -->
 <script src="js/feedback_form.js"></script>
+
 <!-- Bootstrap core JavaScript-->
 <script src="js/jquery/jquery.min.js"></script>
 <script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <!-- Core plugin JavaScript-->
 <script src="js/jquery-easing/jquery.easing.js"></script>
+
 <!-- Custom scripts for all pages-->
 <script src="js/profile_page.min.js"></script>
 <script src="js/index.js"></script>
