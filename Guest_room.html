@@ -156,8 +156,7 @@
                     <div id="filesubmit">
                         <label for="fileButton">Upload an image of your room</label><br>
                         <input type="file" id="fileButton" class="file-select" accept="image/*"/>
-                        <button class="file-submit" data-toggle="modal"
-                                data-target="#submitImageModal" onclick="submit_image()">SUBMIT</button>
+                        <button class="file-submit" onclick="submit_image()">SUBMIT</button>
                     </div>
                 </div>
 
@@ -171,22 +170,19 @@
 
                 <div class="col-md-5">
                     <br>
-                    <button class="btn btn-dark" style="width: 100%" data-toggle="modal"
-                            data-target="#updateProfileModal"
-                            value="submit" onclick="update_info()">Update info</button><br>
+                    <button class="btn btn-dark" style="width: 100%" value="submit"
+                            onclick="update_info()">Update info</button><br>
                     <br>
-                    <button class="btn btn-dark" style="width: 100%" value="submit" data-toggle="modal"
-                            data-target="#ResetProfileModal" onclick="reset_info()">Reset info</button>
+                    <button class="btn btn-dark" style="width: 100%" value="submit"
+                            onclick="reset_info()">Reset info</button>
                 </div>
 
                 <div class="col-md-5">
                     <br>
-                    <button class="btn btn-dark" style="width: 100%" value="submit" data-toggle="modal"
-                            data-target="#RoomAvailableModal"
+                    <button class="btn btn-dark" style="width: 100%" value="submit"
                             onclick="set_room_availability('yes')">Set room to available</button><br>
                     <br>
-                    <button class="btn btn-dark" style="width: 100%" value="submit" data-toggle="modal"
-                            data-target="#RoomUnavailableModal"
+                    <button class="btn btn-dark" style="width: 100%" value="submit"
                             onclick="set_room_availability('no')">Set room to not available</button><br>
                     <br>
                     <br>

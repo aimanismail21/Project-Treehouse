@@ -58,6 +58,7 @@ function update_info() {
     phone_number = document.getElementById("phone").value;
 
     if (validate_inputs()) {
+        $("#updateProfileModal").modal();
         // sets entered info to associated user id in database
         let dbref = firebase.database().ref("Users/" + uid);
         dbref.update({
@@ -105,6 +106,7 @@ function validate_inputs() {
 
 // resets info to what is currently in the database
 function reset_info() {
+    $("#ResetProfileModal").modal();
     initApp();
 
 }
@@ -117,12 +119,14 @@ function set_room_availability(availability) {
 
     // if availability = yes then availability is set to open in database
     if (availability === 'yes') {
+        $("#RoomAvailableModal").modal();
         dbref.update({
             Availability: 'Open'
         });
     }
     // if availability = no then availability is set to closed in database
     else if (availability === 'no') {
+        $("#RoomUnavailableModal").modal();
         dbref.update({
             Availability: 'Closed'
         });
@@ -133,6 +137,7 @@ function set_room_availability(availability) {
 
 // submit house image to storage
 function submit_image() {
+    $("#submitImageModal").modal();
     var fileButton = document.getElementById("fileButton");
     var file = fileButton.files[0];
     var new_file = new File([file], 'house_image', {

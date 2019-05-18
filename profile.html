@@ -104,8 +104,7 @@
                     <div id="filesubmit">
                         <label for="fileButton">Upload a profile picture</label><br>
                         <input type="file" id="fileButton" class="file-select" accept="image/*"/>
-                        <button class="file-submit" data-toggle="modal"
-                                data-target="#submitImageModal" onclick="submit_profile_image()">SUBMIT</button>
+                        <button class="file-submit" onclick="submit_profile_image()">SUBMIT</button>
                     </div>
                 </div>
                 
@@ -142,14 +141,13 @@
                     <div class="text-center"><h5>Confirm changes</h5></div>
                     <br>
                     <div class="col-md-12">
-                        <button class="btn btn-dark" style="width: 100%" value="submit" data-toggle="modal"
-                                data-target="#updateProfileModal"
+                        <button class="btn btn-dark" style="width: 100%" value="submit"
                                 onclick="update_profile_info()">Update info</button><br>
                     </div>
                     <br>
                     <div class="col-md-12">
-                        <button class="btn btn-dark" style="width: 100%" value="submit" data-toggle="modal"
-                                data-target="#ResetProfileModal" onclick="reset_profile_info()">Reset info</button>
+                        <button class="btn btn-dark" style="width: 100%" value="submit"
+                                onclick="reset_profile_info()">Reset info</button>
                     </div>
 
                 </div>
