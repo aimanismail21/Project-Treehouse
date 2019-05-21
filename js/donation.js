@@ -3,15 +3,14 @@ let currencies = document.getElementById("currency");
 let selected_currency = "CAD";
 
 // Retrieves a button's value and assigns it to the variable, amount
-function getAmount(objButton){
+function get_amount(objButton){
     amount = objButton.value;
 }
 
 // Place amount into input element
-function place_amount(){
-    let default_amount = document.getElementById("amount");
-    default_amount.value = amount;
-    default_amount.placeholder = amount;
+function place_amount(element){
+    element.value = amount;
+    element.placeholder = amount;
 }
 
 // Hides the donation amount selection UI
@@ -49,7 +48,8 @@ function show_api(){
 $('#nextPage').on('click', function(){
     let page_url = window.location.pathname;
     hide_donation_selection();
-    place_amount();
+    let default_amount = document.getElementById("amount");
+    place_amount(default_amount);
     rename_page_title("Payment");
     update_breadcrumbs(page_url);
     add_breadcrumb();
