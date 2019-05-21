@@ -59,7 +59,7 @@ $('#nextPage').on('click', function(){
         if (user) {
             // User is signed in.
             let username = user.displayName;
-            let url_logged_in = './receipt_logged_in.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
+            let url_logged_in = './dashboard_receipt.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
             let url = './receipt.html?amount='+amount+'&selected_currency='+selected_currency+'&name='+username;
             let test_url = page_url.slice(-14,);
             if (test_url === "/donation.html"){
