@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <meta content="" name="description">
     <meta content="" name="author">
-    <title>Forgot Password</title>
+
+    <title>Sign Up & Register</title>
 
     <!--initialize firebase-->
     <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase.js"></script>
     <script src="js/firebase_setup.js"></script>
+
+    <!--script for authentication list-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!-- Custom fonts for this template-->
     <link href="js/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,8 +23,9 @@
     <!-- Custom styles for this template-->
     <link href="css/profile_page.css" rel="stylesheet">
 
-    <!--volunteer signup database script-->
-    <script src="js/forgot_password.js"></script>
+    <!--volunteer sign up database script-->
+    <script src="js/signup_volunteer.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -32,8 +39,7 @@
             <img src="images/logo.png" width="100" height="100" class="d-inline-block float-right" alt="Logo">
         </a>
         <span class="text-light" style="margin: 5px;">BCIT: Project Treehouse </span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -45,7 +51,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">About Us</a>
+                    <a class="nav-link" href="about.html">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="frequently_asked_questions.html">FAQ</a>
@@ -62,35 +68,34 @@
 </nav>
 
 
+
 <!-- Page Content -->
 <section class="py-5">
     <div class="container">
         <!-- Page Content -->
         <section>
             <div class="jumbotron">
-                <h1 class="display-4">Forgot Your Password?</h1>
-                <p class="lead">Enter your email address below and we'll send you a reset link.</p>
+                <h1 class="medium">Sign Up & Sign In</h1>
+                <p class="lead">Continue to your Personal Dashboard</p>
+                <hr>
+                <p class="lead">Your Dashboard is where you can volunteer your living space or connect with hosts.</p>
                 <hr class="my-4">
-                <div class="form-group">
-                    <label for="example_input_email1">Email address</label>
-                    <input type="email" class="form-control" id="example_input_email1" aria-describedby="emailHelp"
-                           placeholder="Enter email">
-                    <small class="form-text text-muted">Please check your inbox and spam folders for your email.</small>
+                <!-- Firebase Authentication SDK-->
+                <div id="firebaseui-auth-container"></div>
+                <div class="col-md-offset-3 col-lg  text-center">
+                    <button onclick="window.location.href = 'forgot_password.html';" type="button" class="btn btn-primary">
+                        Forgot Password?</button>
                 </div>
-                <!--User's input is passed to forgot_password.js on click-->
-                <a href="confirmation_forget_password.html">
-                    <button type="submit" class="btn btn-primary btn-block" onclick="forgot_password()">Submit</button>
-                </a>
+                <!--End of  Firebase Authentication SDK-->
             </div>
         </section>
     </div>
 </section>
 
-
 <!--Footer Nav-->
 <footer class="">
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-bottom">
         <div class="collapse navbar-collapse" id="navbarsExample02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"> <a class="nav-link" href="contact_us.html">Contact Us</a></li>
@@ -98,10 +103,12 @@
             </ul>
             <form class="form-inline my-2 my-md-0"> </form>
         </div>
+
         <small class="text-white">Copyright &copy; Project Treehouse</small>
     </nav>
 
 </footer>
+
 
 
 <!-- Scroll to Top Button-->
@@ -110,7 +117,6 @@ $(".button-collapse").sideNav();
 // SideNav Scrollbar Initialization
 var sideNavScrollbar = document.querySelector('.custom-scrollbar');
 var ps = new PerfectScrollbar(sideNavScrollbar);</script>
-
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
