@@ -46,7 +46,6 @@ displayLinks = function () {
                     document.getElementById('query_menu').style.display = 'none';
                     document.getElementById('guest_room').style.display = 'block';
                 }
-
                 if (is_social_worker) {
                     document.getElementById('guest_room').style.display = 'none';
                     document.getElementById('query_menu').style.display = 'block';
@@ -54,7 +53,7 @@ displayLinks = function () {
             });
 
         } else {
-
+            // do nothing
         }
     }, function (error) {
         console.log(error);
@@ -93,6 +92,7 @@ function dropdown(id) {
 }
 
 
+// update query menu based on entered criteria
 function update_listings(){
     // clears the volunteers list
     document.getElementById('volunteers').innerHTML = "";
@@ -100,9 +100,7 @@ function update_listings(){
     ref.on(
         "value",
         function (snap) {
-
             snap.forEach(function (snap) {
-
                 // get address entered to search for
                 address_entered = document.getElementById("address").value;
 
@@ -112,21 +110,19 @@ function update_listings(){
 
                 // initialize criteria values
                 FindEnteredInfo(snap);
-
                 // obtains info for each volunteer from database
                 initializeVolunteerInfo(snap);
 
                 // display volunteers that fit criteria
-                if (city.toLowerCase() == city_selection.toLowerCase() && pets.toLowerCase() == pets_selection.toLowerCase()
-                    && household_members.toLowerCase() == family_selection.toLowerCase() && availability == "Open"
-                    && address_entered.toLowerCase() === snap.child("Address").val().toLowerCase() && is_volunteer
-                    && (first_name_entered.toLowerCase() === snap.child("FirstName").val().toLowerCase()
-                    || last_name_entered.toLowerCase() === snap.child("LastName").val().toLowerCase())) {
+                if (city == city_selection && pets == pets_selection
+                    && household_members == family_selection && availability == "Open"
+                    && address_entered === snap.child("Address").val() && is_volunteer
+                    && (first_name_entered === snap.child("FirstName").val()
+                    || last_name_entered === snap.child("LastName").val())) {
                     createVolunteerListing();
                 }
             });
         });
-
 }
 
 
@@ -142,7 +138,6 @@ function createVolunteerListing() {
 
     // retrieve image of house from database and display with volunteer info
     displayHouseImage();
-
     // set volunteer_listing
     setVolunteerInfo();
 
@@ -192,6 +187,13 @@ function FindNameEntered(snap) {
     if (document.getElementById('first_name').value !== '' &&
         document.getElementById('last_name').value === '') {
         first_name_entered = document.getElementById('first_name').value;
+    }
+
+    // both first name and last name entered
+    if (document.getElementById('first_name').value !== '' &&
+        document.getElementById('last_name').value !== '') {
+        first_name_entered = document.getElementById('first_name').value;
+        last_name_entered = document.getElementById('last_name').value;
     }
 }
 
@@ -283,6 +285,7 @@ function displayHouseImage() {
     house_counter++;
 }
 
+
 // creates the house image element and appends it to the house cell with the correct id
 function createHouseImage(url, index){
     house_image = document.createElement('img');
@@ -290,6 +293,7 @@ function createHouseImage(url, index){
     house_image.src = url;
     document.getElementById(index).appendChild(house_image);
 }
+
 
 // initializes the volunteer_listing element
 function setVolunteerInfo() {
