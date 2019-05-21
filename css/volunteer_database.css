@@ -9,3 +9,52 @@
     height: 80vh;
 }
 
+.volunteer_text{
+   font-size: 1em;
+    text-align: left;
+}
+
+.house_image{
+    width: 214px;
+    height: 214px;
+}
+
+.volunteer_info{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow-y: auto;
+    height: 220px;
+    width: 100%;
+    border: 2px solid black;
+}
+
+.house_cell{
+    width: 220px;
+}
+
+@media only screen and (max-width: 600px) {
+    .volunteer_text{
+        font-size: 0.7em;
+    }
+
+    .house_image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .volunteer_info{
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        overflow-y: auto;
+        height: 150px;
+        width: 100%;
+        border: 2px solid black;
+    }
+
+    .house_cell{
+        width: 120px;
+    }
+}
+

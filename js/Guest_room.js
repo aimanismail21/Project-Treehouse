@@ -31,6 +31,16 @@ initApp = function () {
                 initialize_elements(snapshot);
             });
 
+            // retrieve image of house from database and display with volunteer info
+            var storageRef = firebase.storage().ref();
+            storageRef.child(uid + '/house_image').getDownloadURL().then(function (url) {
+                var house_image = document.getElementById('guestroom_image');
+                house_image.src = url;
+
+            }).catch(function (error) {
+
+            });
+
         } else {
             // do nothing
         }

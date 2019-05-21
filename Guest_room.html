@@ -94,7 +94,7 @@
             <!-- Page Content -->
             <div class="row" id="header">
                 <div class="col-md-12">
-                    <div class = "text-center">
+                    <div>
                         <b style="font-size: 30px;">Enter Guest Room info</b> <br>
                     </div>
                 </div>
@@ -102,10 +102,22 @@
             <br>
             <div class="row">
 
-                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <div id="room">
+                        <img id='guestroom_image' style="width:200px;height:200px" src="" alt="No guestroom picture">
+                        <br>
+                        <br>
+                        <br>
+                        <div id="filesubmit">
+                            <label for="fileButton">Upload an image of your room</label><br>
+                            <input type="file" id="fileButton" class="file-select" accept="image/*"/>
+                            <button class="file-submit" onclick="submit_image()">SUBMIT</button>
+                        </div>
+                    </div>
+                </div>
 
                 <!--Guest room info form-->
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <!--First name-->
                     <label for="first_name">*First Name:</label><br>
                     <input style="width: 100%" type="text" id="first_name" value="" required pattern="^([a-z A-z]+)$"><br>
@@ -132,7 +144,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <!--Address-->
                     <label for="address">*Address:</label><br>
                     <input style="width: 100%;" type="text" id="address" value="" required pattern=".*"><br>
@@ -152,23 +164,15 @@
                         <option>4+</option>
                     </select>
                     <br>
-
-                    <div id="filesubmit">
-                        <label for="fileButton">Upload an image of your room</label><br>
-                        <input type="file" id="fileButton" class="file-select" accept="image/*"/>
-                        <button class="file-submit" onclick="submit_image()">SUBMIT</button>
-                    </div>
                 </div>
-
-                <div class="col-md-1"></div>
             </div>
 
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-3">
 
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <br>
                     <button class="btn btn-dark" style="width: 100%" value="submit"
                             onclick="update_info()">Update info</button><br>
@@ -177,7 +181,7 @@
                             onclick="reset_info()">Reset info</button>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <br>
                     <button class="btn btn-dark" style="width: 100%" value="submit"
                             onclick="set_room_availability('yes')">Set room to available</button><br>
@@ -186,10 +190,6 @@
                             onclick="set_room_availability('no')">Set room to not available</button><br>
                     <br>
                     <br>
-
-                </div>
-
-                <div class="col-md-1">
 
                 </div>
             </div>
