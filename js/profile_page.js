@@ -134,25 +134,21 @@ function validate_inputs() {
 
     if (first_name_match === null) {
         window.alert("Please enter your first name.");
-        document.getElementById('first_name').focus();
         return false;
     }
 
     if (last_name_match === null) {
         window.alert("Please enter your last name.");
-        document.getElementById('last_name').focus();
         return false;
     }
 
     if (phone_match === null) {
         window.alert("Please enter a correct phone number eg: 999-999-9999.");
-        document.getElementById('phone').focus();
         return false;
     }
 
     if (address === '') {
         window.alert("Please enter your address");
-        document.getElementById('address').focus();
         return false;
     }
     return true;

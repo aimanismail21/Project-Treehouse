@@ -1,4 +1,3 @@
-
 // formats number while entering it to add dashes
 function format_number(ele, key) {
     let number = ele.value;
@@ -15,17 +14,17 @@ function format_number(ele, key) {
     }
 
     // if only 3 numbers and a dash when deleting deletes 3rd digit
-    if (number.length === 3 && key.keyCode === 8){
+    if (number.length === 3 && key === 8) {
         new_number = number.substring(0, 2)
     }
 
     // if 6 numbers and dash at the end when deleting deletes 6th digit
-    if (number.length === 7 && key.keyCode === 8){
+    if (number.length === 7 && key === 8) {
         new_number = number.substring(0, 6)
     }
 
     // doesnt allow entering of over 10 digits
-    if (number.length >= 13 && key.keyCode !== 8) {
+    if (number.length >= 13 && key !== 8) {
         new_number = number.substring(0, 12);
     }
 
@@ -33,7 +32,8 @@ function format_number(ele, key) {
     ele.value = new_number;
 }
 
-
-document.getElementById('phone').onkeyup = function(e) {
-    format_number(this, e);
-};
+if (document.getElementById('phone') != null) {
+    document.getElementById('phone').onkeyup = function (e) {
+        format_number(this, e.keyCode);
+    };
+}
