@@ -101,14 +101,14 @@
                 <select id="currency"></select>
                 <span id="symbol">$</span>
                 <br>
-                <input type="button" class="bg-light" value="5" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="10" onclick="getAmount(this)" autofocus>
-                <input type="button" class="bg-light" value="15" onclick="getAmount(this)"><br>
-                <input type="button" class="bg-light" value="25" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="50" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="100" onclick="getAmount(this)"><br>
+                <input type="button" class="bg-light" value="5" onclick="get_amount(this)">
+                <input type="button" class="bg-light" value="10" onclick="get_amount(this)" autofocus>
+                <input type="button" class="bg-light" value="15" onclick="get_amount(this)"><br>
+                <input type="button" class="bg-light" value="25" onclick="get_amount(this)">
+                <input type="button" class="bg-light" value="50" onclick="get_amount(this)">
+                <input type="button" class="bg-light" value="100" onclick="get_amount(this)"><br>
                 <!--  Provides User ability to specify amount to donate  -->
-                <input type="number" pattern="\d*" placeholder="Other" class="bg-light" name="other" id="other" onchange="getAmount(this)">
+                <input type="number" pattern="\d*" placeholder="Other" class="bg-light" name="other" id="other" onchange="get_amount(this)">
                 <button class="bg-info" id="nextPage">Donate</button>
             </div>
 
