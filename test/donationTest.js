@@ -1,4 +1,4 @@
-TestCase("get_amount testTest", {
+TestCase("get_amountTest", {
     "test getAmount amount is obj value": function(){
         let objButton = document.createElement("input");
         objButton.value = "1";
@@ -8,7 +8,7 @@ TestCase("get_amount testTest", {
 });
 
 
-TestCase("place_amount testTest", {
+TestCase("place_amountTest", {
     "test place_amount value is amount": function(){
         let some_element = document.createElement("input");
         place_amount(some_element);
@@ -22,4 +22,3 @@ TestCase("place_amount testTest", {
         assertEquals(amount, placeholder);
     }
 });
-
