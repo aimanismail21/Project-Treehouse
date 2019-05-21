@@ -128,7 +128,7 @@
                     <input style="width: 100%;" type="text" id="address" value="" required pattern=".*"><br>
 
                     <!--city dropdown selection-->
-                    <label for="city">City: </label>
+                    <label for="city">*City: </label>
                     <select class="form-control" id="city">
                         <option></option>
                         <option>Vancouver</option>
@@ -137,16 +137,17 @@
                         <option>Richmond</option>
                     </select>
                     <br>
-                    <div class="text-center"><h5>Confirm changes</h5></div>
+                    <small>* by fields are required.</small>
+                    <div class="text-center"><h5>Confirm Changes</h5></div>
                     <br>
                     <div class="col-md-12">
                         <button class="btn btn-dark" style="width: 100%" value="submit"
-                                onclick="update_profile_info()">Update info</button><br>
+                                onclick="update_profile_info()">Update Information</button><br>
                     </div>
                     <br>
                     <div class="col-md-12">
                         <button class="btn btn-dark" style="width: 100%" value="submit"
-                                onclick="reset_profile_info()">Reset info</button>
+                                onclick="reset_profile_info()">Reset Information</button>
                     </div>
 
                 </div>
@@ -186,10 +187,10 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Profile info updated</h4>
+                        <h4 class="modal-title">Profile Information Updated</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Your profile has been updated</p>
+                        <p>Your profile has been updated.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
