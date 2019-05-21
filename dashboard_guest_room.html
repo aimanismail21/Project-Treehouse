@@ -2,13 +2,11 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <meta content="" name="description">
     <meta content="" name="author">
-
     <title>Guest Room</title>
 
     <!-- Custom fonts for this template-->
@@ -45,7 +43,6 @@
 </nav>
 
 <div id="wrapper">
-
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item">
@@ -80,9 +77,7 @@
     </ul>
 
     <div id="content-wrapper">
-
         <div class="container-fluid">
-
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -90,11 +85,10 @@
                 </li>
                 <li class="breadcrumb-item active">Guest Room</li>
             </ol>
-
             <!-- Page Content -->
             <div class="row" id="header">
                 <div class="col-md-12">
-                    <div class = "text-center">
+                    <div>
                         <b style="font-size: 30px;">Enter Guest Room info</b> <br>
                     </div>
                 </div>
@@ -102,10 +96,22 @@
             <br>
             <div class="row">
 
-                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <div id="room">
+                        <img id='guestroom_image' style="width:200px;height:200px" src="" alt="No guestroom picture">
+                        <br>
+                        <br>
+                        <br>
+                        <div id="filesubmit">
+                            <label for="fileButton">Upload an image of your room</label><br>
+                            <input type="file" id="fileButton" class="file-select" accept="image/*"/>
+                            <button class="file-submit" onclick="submit_image()">SUBMIT</button>
+                        </div>
+                    </div>
+                </div>
 
                 <!--Guest room info form-->
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <!--First name-->
                     <label for="first_name">*First Name:</label><br>
                     <input style="width: 100%" type="text" id="first_name" value="" required pattern="^([a-z A-z]+)$"><br>
@@ -132,7 +138,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <!--Address-->
                     <label for="address">*Address:</label><br>
                     <input style="width: 100%;" type="text" id="address" value="" required pattern=".*"><br>
@@ -152,49 +158,32 @@
                         <option>4+</option>
                     </select>
                     <br>
-
-                    <div id="filesubmit">
-                        <label for="fileButton">Upload an image of your room</label><br>
-                        <input type="file" id="fileButton" class="file-select" accept="image/*"/>
-                        <button class="file-submit" data-toggle="modal"
-                                data-target="#submitImageModal" onclick="submit_image()">SUBMIT</button>
-                    </div>
                 </div>
-
-                <div class="col-md-1"></div>
             </div>
 
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-3">
 
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <br>
-                    <button class="btn btn-dark" style="width: 100%" data-toggle="modal"
-                            data-target="#updateProfileModal"
-                            value="submit" onclick="update_info()">Update info</button><br>
+                    <button class="btn btn-dark" style="width: 100%" value="submit"
+                            onclick="update_info()">Update info</button><br>
                     <br>
-                    <button class="btn btn-dark" style="width: 100%" value="submit" data-toggle="modal"
-                            data-target="#ResetProfileModal" onclick="reset_info()">Reset info</button>
+                    <button class="btn btn-dark" style="width: 100%" value="submit"
+                            onclick="reset_info()">Reset info</button>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <br>
-                    <button class="btn btn-dark" style="width: 100%" value="submit" data-toggle="modal"
-                            data-target="#RoomAvailableModal"
+                    <button class="btn btn-dark" style="width: 100%" value="submit"
                             onclick="set_room_availability('yes')">Set room to available</button><br>
                     <br>
-                    <button class="btn btn-dark" style="width: 100%" value="submit" data-toggle="modal"
-                            data-target="#RoomUnavailableModal"
+                    <button class="btn btn-dark" style="width: 100%" value="submit"
                             onclick="set_room_availability('no')">Set room to not available</button><br>
                     <br>
                     <br>
-
-                </div>
-
-                <div class="col-md-1">
-
                 </div>
             </div>
 
@@ -205,8 +194,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
         <!-- /.container-fluid -->
 
@@ -218,7 +205,6 @@
                 </div>
             </div>
         </footer>
-
     </div>
     <!-- /.content-wrapper -->
 
@@ -360,6 +346,7 @@
 <script src="js/profile_page.min.js"></script>
 <script src="js/Guest_room.js"></script>
 <script src="js/phone_format.js"></script>
+<script src="js/profile_logout.js"></script>
 
 </body>
 

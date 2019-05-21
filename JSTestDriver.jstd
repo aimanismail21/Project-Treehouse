@@ -1,7 +1,9 @@
 load:
+  - js/donation.js
   - js/phone_format.js
-  - js/profile_page.js/
+  - js/profile_page.js
 
 test:
+  - test/donationTest.js
   - test/phone_formatTest.js
   - test/profile_pageTest.js
