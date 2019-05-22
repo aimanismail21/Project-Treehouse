@@ -3,12 +3,11 @@ function is_valid(){
     var email = document.getElementById("example_input_email1");
     if (!reg_exp(email.value)){
         alert("Invalid Email!");
-        return false;
+        return;
     }
     else {
         forgot_password();
         window.location.href = "confirmation_forget_password.html";
-        return true;
     }
 }
 
