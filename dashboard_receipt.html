@@ -9,6 +9,7 @@
 
     <title>Review Payment</title>
 
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
@@ -68,16 +69,6 @@
                 <span>Guest Room Menu</span>
             </a>
         </li>
-        <li class="nav-item dropdown">
-            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="pagesDropdown" role="button">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Tools</span>
-            </a>
-            <div aria-labelledby="pagesDropdown" class="dropdown-menu">
-                <h6 class="dropdown-header">Options:</h6>
-                <a class="dropdown-item active" href="querymenu.html">Search & Query Menu</a>
-            </div>
-        </li>
         <li class="nav-item">
             <a class="nav-link" href="dashboard_donation.html">
                 <i class="fas fa-donate fa-fw"></i>
@@ -85,7 +76,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" onclick="mainApp.logOut()">
+            <a class="nav-link" onclick="main_app.log_out()">
                 <i class="fas fa-fw fa-sign-out-alt"></i>
                 <span>Log Out</span>
             </a>
@@ -106,7 +97,8 @@
                 </li>
                 <li class="breadcrumb-item active">Receipt</li>
             </ol>
-            <h1 id="title">Thank You for Your Contribution!</h1>
+          
+            <h1 id="title">Thank You For Your Contribution!</h1>
             <hr>
 
             <!-- Loading Screen -->
@@ -189,12 +181,8 @@
 <script src="js/currency-symbol-map.js"></script>
 <!-- Access page functions -->
 <script src="./js/donation.js"></script>
-<!-- Access Stripe functions -->
-<!--<script src="functions/stripe.js"></script>-->
-<!-- Custom scripts for this page -->
-<script src="js/profile_page.js"></script>
 
-<!-- Bootstrap core JavaScript-->
+<!-- Bootstrap Core JavaScript-->
 <script src="js/jquery/jquery.min.js"></script>
 <script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -202,8 +190,11 @@
 <script src="js/jquery-easing/jquery.easing.js"></script>
 
 <!-- Custom scripts for all pages-->
+<script src="js/profile_page.js"></script>
 <script src="js/profile_page.min.js"></script>
 <script src="js/index.js"></script>
+<script src="js/display_links.js"></script>
+<script src="js/profile_logout.js"></script>
 
 <!-- Import and configure the Firebase SDK -->
 <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->

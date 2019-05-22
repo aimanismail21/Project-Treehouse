@@ -54,12 +54,10 @@
                 <i class="fas fa-user-circle fa-fw"></i>
                 <span>Profile</span>
             </a>
-
             <a id="query_menu" class="nav-link" style="display: none;" href="dashboard_query_menu.html">
                 <i class="fas fa-database fa-fw"></i>
                 <span>Query Menu</span>
             </a>
-
             <a id="guest_room" class="nav-link" style="display: none;" href="dashboard_guest_room.html">
                 <i class="fas fa-house-damage fa-fw"></i>
                 <span>Guest Room Menu</span>
@@ -72,17 +70,14 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" onclick="mainApp.logOut()">
+            <a class="nav-link" onclick="main_app.log_out()">
                 <i class="fas fa-fw fa-sign-out-alt"></i>
                 <span>Log Out</span>
             </a>
         </li>
     </ul>
-
     <div id="content-wrapper">
-
         <div class="container-fluid">
-
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -92,7 +87,6 @@
             </ol>
             <h1 id="title">Donate Now</h1>
             <hr>
-
             <!-- Page Content -->
             <!--  Select Donation Amount  -->
             <div class="container col-sm-4" id="donation_amount">
@@ -101,17 +95,16 @@
                 <select id="currency"></select>
                 <span id="symbol">$</span>
                 <br>
-                <input type="button" class="bg-light" value="5" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="10" onclick="getAmount(this)" autofocus>
-                <input type="button" class="bg-light" value="15" onclick="getAmount(this)"><br>
-                <input type="button" class="bg-light" value="25" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="50" onclick="getAmount(this)">
-                <input type="button" class="bg-light" value="100" onclick="getAmount(this)"><br>
+                <input type="button" class="bg-light" value="5" onclick="get_amount(this)">
+                <input type="button" class="bg-light" value="10" onclick="get_amount(this)" autofocus>
+                <input type="button" class="bg-light" value="15" onclick="get_amount(this)"><br>
+                <input type="button" class="bg-light" value="25" onclick="get_amount(this)">
+                <input type="button" class="bg-light" value="50" onclick="get_amount(this)">
+                <input type="button" class="bg-light" value="100" onclick="get_amount(this)"><br>
                 <!--  Provides User ability to specify amount to donate  -->
-                <input type="number" pattern="\d*" placeholder="Other" class="bg-light" name="other" id="other" onchange="getAmount(this)">
+                <input type="number" pattern="\d*" placeholder="Other" class="bg-light" name="other" id="other" onchange="get_amount(this)">
                 <button class="bg-info" id="nextPage">Donate</button>
             </div>
-
             <!-- Hidden Stripe API -->
             <div class="container col-sm-4" id="payment">
                 <div class="container">
@@ -210,7 +203,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <!-- /.container-fluid -->
 
@@ -222,10 +214,8 @@
                 </div>
             </div>
         </footer>
-
     </div>
     <!-- /.content-wrapper -->
-
 </div>
 <!-- /#wrapper -->
 
@@ -257,11 +247,6 @@
 <script src="js/currency-symbol-map.js"></script>
 <!-- Access page functions -->
 <script src="./js/donation.js"></script>
-<!-- Access Stripe functions -->
-<!--<script src="functions/stripe.js"></script>-->
-<!-- Custom scripts for this page -->
-<script src="js/profile_page.js"></script>
-<script src="js/profile_logout.js"></script>
 
 <!-- Bootstrap core JavaScript-->
 <script src="js/jquery/jquery.min.js"></script>
@@ -271,9 +256,11 @@
 <script src="js/jquery-easing/jquery.easing.js"></script>
 
 <!-- Custom scripts for all pages-->
+<script src="js/profile_page.js"></script>
 <script src="js/profile_page.min.js"></script>
 <script src="js/index.js"></script>
 <script src="js/display_links.js"></script>
+<script src="js/profile_logout.js"></script>
 
 <!-- Import and configure the Firebase SDK -->
 <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
