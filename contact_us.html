@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <title>Contact Us</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,10 +18,7 @@
     <!-- Firebase scripts -->
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script src="js/firebase_setup.js"></script>
-
-
 </head>
-
 
 <body id="page-top">
 
@@ -62,11 +58,8 @@
 </nav>
 <!-- End of navigation bar -->
 
-
-
 <!-- Contact form-->
 <section class="container" id="contact_us_form">
-
 
     <!--Grid column-->
     <div class="">
@@ -89,7 +82,7 @@
                 <!--Grid column for name-->
                 <div class="col-md-6">
                     <div class="md-form mb-0">
-                        <label for="name" class="">Your name </label>
+                        <label for="name" class="">Name*</label>
                         <input type="text" id="name" name="name" class="form-control" size="25">
                     </div>
                 </div>
@@ -98,7 +91,7 @@
                 <!--Grid column for email-->
                 <div class="col-md-6">
                     <div class="md-form mb-0">
-                        <label for="email" class="">Your email*</label>
+                        <label for="email" class="">Email*</label>
                         <input type="text" id="email" name="email" class="form-control" size="25">
                     </div>
                 </div>
@@ -107,25 +100,23 @@
             </div>
             <!--End of grid row for name and email-->
 
-
             <!--Grid row for subject -->
             <div class="row">
                 <div class="col-md-12">
                     <div class="md-form mb-0">
-                        <label for="subject" class="">Subject</label>
+                        <label for="subject" class="">Subject*</label>
                         <input type="text" id="subject" name="subject" class="form-control" size="25">
                     </div>
                 </div>
             </div>
             <! End of grid row for subject -->
 
-
             <!--Grid row for message-->
             <div class="row">
                 <!--Grid column-->
                 <div class="col-md-12">
                     <div class="md-form">
-                        <label for="message">Your message*</label>
+                        <label for="message">Message*</label>
                         <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" maxlength="200"></textarea>
                     </div>
                     <div class="text-md-left my-4">
@@ -137,18 +128,13 @@
             <!--End of grid row for message -->
 
         </form>
-
     </div>
-
-
 </section>
 <!--End of Contact Form-->
 
 <!--Footer Nav-->
 <footer id="bottom_footer">
-
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-
         <div class="collapse navbar-collapse" id="navbarsExample02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"> <a class="nav-link active" href="contact_us.html">Contact Us</a></li>
@@ -156,12 +142,9 @@
             </ul>
             <form class="form-inline my-2 my-md-0"> </form>
         </div>
-
         <!-- small logo in the corner -->
         <small class="text-white">Copyright &copy; Project Treehouse</small>
-
     </nav>
-
 </footer>
 <!-- End of footer navigation -->
 
@@ -183,7 +166,7 @@ var ps = new PerfectScrollbar(sideNavScrollbar);</script>
 </html>
 
 <!-- Sends information to Firebase -->
-<script src="js/feedback_form.js"></script>
+<script src="js/contact_us.js"></script>
 
 <!-- Bootstrap core JavaScript-->
 <script src="js/jquery/jquery.min.js"></script>

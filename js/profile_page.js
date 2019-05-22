@@ -53,6 +53,7 @@ window.addEventListener('load', function () {
 
 // submit profile image to storage
 function submit_profile_image() {
+    $("#submitImageModal").modal();
     var fileButton = document.getElementById("fileButton");
     var file = fileButton.files[0];
     var new_file = new File([file], 'profile_picture', {
@@ -66,33 +67,33 @@ function submit_profile_image() {
 
 // update info of volunteer in database
 function update_profile_info() {
-        city = document.getElementById("city").value;
-        first_name = document.getElementById("first_name").value;
-        last_name = document.getElementById("last_name").value;
-        address = document.getElementById("address").value;
-        phone_number = document.getElementById("phone").value;
+    city = document.getElementById("city").value;
+    first_name = document.getElementById("first_name").value;
+    last_name = document.getElementById("last_name").value;
+    address = document.getElementById("address").value;
+    phone_number = document.getElementById("phone").value;
 
-        // if all form elements are valid update user info
-        if (validate_inputs()) {
-
-
-            // sets entered info to associated user id in database
-            let dbref = firebase.database().ref("Users/" + uid);
-            dbref.update({
-                FirstName: first_name,
-                LastName: last_name,
-                Address: address,
-                PhoneNumber: phone_number,
-                City: city,
-                IsVolunteer: true,
-                Email: email,
-            });
-        }
+    // if all form elements are valid update user info
+    if (validate_inputs()) {
+        $("#updateProfileModal").modal();
+        // sets entered info to associated user id in database
+        let dbref = firebase.database().ref("Users/" + uid);
+        dbref.update({
+            FirstName: first_name,
+            LastName: last_name,
+            Address: address,
+            PhoneNumber: phone_number,
+            City: city,
+            IsVolunteer: true,
+            Email: email,
+        });
+    }
 }
 
 // resets into to what is currently in the database
 function reset_profile_info() {
-        initApp();
+    $("#ResetProfileModal").modal();
+    initApp();
 }
 
 
