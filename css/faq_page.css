@@ -1,3 +1,5 @@
+/* Retrieved from https://www.solodev.com/blog/web-design/how-to-use-bootstrap-accordions-to-organize-faq-pages.stml */
+
 h2 {
     font-family: Arial, Verdana;
     font-weight: 800;
@@ -31,10 +33,15 @@ h2 {
     font-size: 1.2rem;
 }
 
+
+
+
+/* move main page contents above the footer */
 #faq_main_accord{
     padding-bottom: 100px;
 }
 
+/* puts footer on the bottom */
 #bottom_footer{
     position: absolute;
     bottom: 0;
