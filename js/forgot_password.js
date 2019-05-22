@@ -3,7 +3,7 @@ function is_valid(){
     var email = document.getElementById("example_input_email1");
     if (!reg_exp(email.value)){
         alert("Invalid Email!");
-        return;
+        return false;
     }
     else {
         forgot_password();
