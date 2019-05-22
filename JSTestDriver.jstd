@@ -1,7 +1,8 @@
 load:
   - js/phone_format.js
   - js/profile_page.js/
-
+  - js/contact_us.js
 test:
   - test/phone_formatTest.js
   - test/profile_pageTest.js
+  - test/contact_usTest.js
