@@ -5,6 +5,7 @@ var message_form = document.getElementById("message");
 var submitBtn = document.getElementById("form_submit");
 
 submitBtn.onclick = function()  {
+    // grabs the values from the forms
     var name = name_form.value;
     var email = email_form.value;
     var subject = subject_form.value;
