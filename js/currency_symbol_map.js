@@ -1,4 +1,4 @@
-var currencySymbolMap = {
+var currency_symbol_map = {
   'AED': 'د.إ',
   'AFN': '؋',
   'ALL': 'L',
@@ -177,7 +177,7 @@ var currencySymbolMap = {
 function getSymbolFromCurrency (currencyCode) {
   if (typeof currencyCode !== 'string') return undefined;
   var code = currencyCode.toUpperCase();
-  if (!currencySymbolMap.hasOwnProperty(code)) return undefined;
-  return currencySymbolMap[code]
+  if (!currency_symbol_map.hasOwnProperty(code)) return undefined;
+  return currency_symbol_map[code]
 }
 
