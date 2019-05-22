@@ -1,10 +1,11 @@
+/* puts footer on the bottom */
 #bottom_footer{
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 
-
+/* moves page content above footer */
 #contact_us_form{
     padding-bottom: 100px;
 }
