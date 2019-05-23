@@ -1,4 +1,4 @@
-TestCase("phone_formatTest", {
+TestCase("phone_format Test", {
     "test 3 digits entered adds dash": function(){
         let ele = document.createElement("input");
         ele.value = '433';

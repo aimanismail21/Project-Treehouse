@@ -1,6 +1,6 @@
-TestCase("validate_email testTest", {
+TestCase("validate_email Test", {
 
-    "empty field": function(){
+    "test empty field": function(){
         assertEquals(false, validate_email(""));
     },
 

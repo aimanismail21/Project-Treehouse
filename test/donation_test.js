@@ -1,5 +1,5 @@
-TestCase("get_amountTest", {
-    "test getAmount amount is obj value": function(){
+TestCase("get_amount Test", {
+    "test get_amount amount is obj value": function(){
         let objButton = document.createElement("input");
         objButton.value = "1";
         get_amount(objButton);
