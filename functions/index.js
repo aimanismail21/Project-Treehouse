@@ -21,7 +21,7 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 const logging = require('@google-cloud/logging')();
 const stripe = require('stripe')(functions.config().stripe.token);
-const currency = functions.config().stripe.currency || selected_currency;
+const currency = functions.config().stripe.currency || "CAD";
 
 // [START chargecustomer]
 // Charge the Stripe customer whenever an amount is written to the Realtime database
@@ -29,7 +29,7 @@ exports.createStripeCharge = functions.firestore.document('stripe_customers/{use
     const val = snap.data();
     try {
         // Look up the Stripe customer id written in createStripeCustomer
-        const snapshot = await admin.firestore().collection(`stripe_customers`).doc(context.params.userId).get()
+        const snapshot = await admin.firestore().collection(`stripe_customers`).doc(context.params.userId).get();
         const snapval = snapshot.data();
         const customer = snapval.customer_id;
         // Create a charge using the pushId as the idempotency key
