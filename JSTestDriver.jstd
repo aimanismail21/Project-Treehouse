@@ -5,7 +5,7 @@ load:
   - public/js/contact_us.js
 
 test:
-  - test/donationTest.js
-  - test/phone_formatTest.js
-  - test/profile_pageTest.js
-  - test/contact_usTest.js
+  - test/donation_test.js
+  - test/phone_format_test.js
+  - test/profile_page_test.js
+  - test/contact_us_test.js
