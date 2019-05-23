@@ -29,12 +29,12 @@ This application is built to collect volunteer (host) information and allow that
 # Table of Contents
 
 1. Important Links
-2. HTML Pages
+2. Public Directory (HTML Pages)
 3. JavaScript (JS) Directory
 4. CSS Directory
-5. Images Directory
-6. Sound Directory
-7. Functions Directory
+5. Assets Directory
+6. Functions Directory
+7. Testing
 
 # Important Links
 Video Demo: 
@@ -43,7 +43,7 @@ Video Demo:
 Pitch Video:
 - https://www.youtube.com/watch?v=RCBKkIavqi8&feature=youtu.be
 
-# Main HTML Pages
+# Public Directory (Main HTML Pages)
 index.html
 - The main landing page
 - Contains a brief introduction and links to other pages 
@@ -96,20 +96,37 @@ frequently_asked_questions.html
 
 # JavaScript Directory
 - Contains the javascript files that were used
-- JavaScript files obtained from BootStrap is included 
 
 # CSS Directory
 - Contains CSS stylesheets that were used 
+
+# Assets Directory
+- Contains all images used 
+- Contains the sound file used for the Easter egg
+- Includes fonts
 - Includes CSS stylesheets from BootStrap
-
-# Images Directory
-Contains all images used 
-
-# Sound Directory
-Contains the sound file used for the Easter egg 
+- Includes JS files obtained from BootStrap and JQuery
 
 # Functions Directory
-Contains the Firebase functions required for the Stripe API.
+- Contains the Firebase functions required for the Stripe API.
 
-# Test Directory 
-Contains the unit test files 
+# Testing 
+
+Checklist
+- https://drive.google.com/file/d/1xxiax-UDKV3F6RZs6x1jziTbqNZoWXIS/view?usp=sharing
+
+Unit Tests:
+- 
+Test Directory
+
+Overview of tests
+- https://drive.google.com/file/d/1HQRUW-mwwNFT_YaNj_5afG_Bh8G16CYE/view?usp=sharing
+
+
+User Tests:
+- 
+Detailed Spreadsheet
+- https://docs.google.com/spreadsheets/d/1PPRG8IBLFovabM5CMsUkMqN6O8UU9p9P8dtFiNhge0U/edit?usp=sharing
+
+PDF version
+- https://drive.google.com/file/d/1NxNp6pJYcOkyTwMGVOWNQso9h3QlMpMn/view?usp=sharing
