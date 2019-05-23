@@ -10,6 +10,11 @@ Team Members:
  - Brittany Lo (A00750720)
  - Thomas May (A01086435)
 
+# General Notes
+
+No external programs or installation is required to view our website.
+
+The donations feature is not fully functioning since we do not want to collect any money. All the infrastructure is there with the exception of linking the donations to an actual functioning bank account. To activate donations feature, an API key from a Stripe.com account will be required. The API key will need to be placed inside the appropriate line inside donation.js
 #Introduction
 
 This repository contains the materials used by team 14 in creating their project.
@@ -19,8 +24,6 @@ This project concerns EcoCity's pillar of Affordable and Accessible Housing.
 The purpose of the project is to help homeless youth find temporary housing while they transition to permanent housing solutions.
 
 This application is built to collect volunteer (host) information and allow that information to be accessed by social care workers who can match hosts (with criteria) with their charges (youths).
-
-No external programs or installation is required to view our website.
 
 # Table of Contents
 
