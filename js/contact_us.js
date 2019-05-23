@@ -43,6 +43,11 @@ submitBtn.onclick = function()  {
         message: message,
     });
     document.getElementById("form_message").innerHTML=("Message has been sent!"); // a message appears on the page to tell the user the message has been sent
+    // resets the fields to blank once the message gets sent
+    document.getElementById("message").value = "";
+    document.getElementById("subject").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("name").value = "";
 };
 
 function validate_email(email) {
