@@ -29,7 +29,7 @@ This application is built to collect volunteer (host) information and allow that
 # Table of Contents
 
 1. Important Links
-2. Public Directory (HTML Pages)
+2. HTML Pages
 3. JavaScript (JS) Directory
 4. CSS Directory
 5. Assets Directory
@@ -43,7 +43,7 @@ Video Demo:
 Pitch Video:
 - https://www.youtube.com/watch?v=RCBKkIavqi8&feature=youtu.be
 
-# Public Directory (Main HTML Pages)
+# Main HTML Pages
 index.html
 - The main landing page
 - Contains a brief introduction and links to other pages 
