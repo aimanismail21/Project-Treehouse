@@ -1,4 +1,4 @@
-// Reset password link is sent to email entered by user
+// If email is valid, run reset password link function
 function is_valid(){
     var email = document.getElementById("example_input_email1");
     if (!reg_exp(email.value)){
