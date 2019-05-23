@@ -72,7 +72,7 @@ nyan_cat_attack.addEventListener('click', function () {
 
 
         for (let i = 0; i < 3; i++) {
-            catImageArray[i] = new image('images/nyancat.gif', i);
+            catImageArray[i] = new image('assets/images/nyancat.gif', i);
             catImageArray[i].im.onclick = function () {
                 catImageArray[i].im.style.display = 'none';
                 catsAlive--;
@@ -81,7 +81,7 @@ nyan_cat_attack.addEventListener('click', function () {
             catImageArray[i].animate();
 
         }
-        audio = new Audio('sound/8_bit_NYAN.mp3');
+        audio = new Audio('assets/sound/8_bit_NYAN.mp3');
         audio.play();
     }
 });
