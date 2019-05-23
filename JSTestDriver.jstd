@@ -1,8 +1,8 @@
 load:
-  - js/donation.js
-  - js/phone_format.js
-  - js/profile_page.js/
-  - js/contact_us.js
+  - public/js/donation.js
+  - public/js/phone_format.js
+  - public/js/profile_page.js/
+  - public/js/contact_us.js
 
 test:
   - test/donationTest.js
